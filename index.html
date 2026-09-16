@@ -7,145 +7,96 @@
     <link rel="stylesheet" href="https://cloudflare.com">
     <style>
         :root {
-            --primary: #0056b3;
-            --primary-hover: #004094;
-            --dark: #0d1b2a;
-            --card-bg: #1b263b;
-            --text-light: #ffffff;
+            --primary-blue: #0b3c5d;
+            --accent-yellow: #fff200;
+            --btn-blue: #1d70b8;
+            --card-blue: #1b263b;
+            --bg-dark: #031525;
+            --text-white: #ffffff;
             --text-muted: #b5c2b7;
-            --accent: #ffb703;
         }
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
-        body { background-color: var(--dark); color: var(--text-light); line-height: 1.6; padding-bottom: 70px; }
-        header { background: #1b263b; padding: 1.5rem; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.1); }
-        .logo { font-size: 1.6rem; font-weight: bold; color: #e0e1dd; }
-        nav a { margin-left: 1.5rem; text-decoration: none; color: #e0e1dd; font-weight: 500; }
+        body { background-color: var(--bg-dark); color: var(--text-white); padding-bottom: 90px; }
         
-        .hero { text-align: center; padding: 5rem 1.5rem; background: linear-gradient(rgba(13,27,42,0.8), rgba(13,27,42,0.9)); }
-        .hero h1 { font-size: 2.4rem; margin-bottom: 1rem; color: #ffffff; font-weight: 700; line-height: 1.2; }
-        .hero p { font-size: 1.15rem; color: var(--text-muted); margin-bottom: 2rem; }
-        
+        header { background: rgba(3, 21, 37, 0.95); padding: 1rem 1.5rem; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.1); position: sticky; top: 0; z-index: 1000; }
+        .logo-area { display: flex; align-items: center; gap: 0.5rem; }
+        .logo-icon { width: 40px; height: 40px; background: #fff; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-weight: bold; color: #0b3c5d; font-size: 1.2rem; }
+        .logo-text { font-size: 1.4rem; font-weight: bold; color: var(--text-white); }
+        .menu-icon { font-size: 1.5rem; color: var(--text-white); cursor: pointer; }
+
+        .hero { background: linear-gradient(rgba(0,31,63,0.85), rgba(3,21,37,0.95)), url('https://unsplash.com') no-repeat center center/cover; padding: 3rem 1.5rem; text-align: center; }
+        .trust-tag { display: inline-flex; align-items: center; gap: 0.4rem; background: rgba(255,255,255,0.15); padding: 0.4rem 1rem; border-radius: 50px; font-size: 0.9rem; color: var(--accent-yellow); margin-bottom: 1.5rem; font-weight: bold; }
+        .hero h1 { font-size: 2.1rem; font-weight: 800; line-height: 1.2; margin-bottom: 1.5rem; text-transform: uppercase; }
+
+        .button-stack { display: flex; flex-direction: column; gap: 0.8rem; max-width: 450px; margin: 0 auto 2.5rem auto; }
+        .btn-yellow { background: var(--accent-yellow); color: #000000; font-weight: bold; padding: 1rem; border-radius: 8px; text-decoration: none; font-size: 1.1rem; display: flex; align-items: center; justify-content: center; gap: 0.5rem; text-transform: uppercase; border: none; }
+        .btn-outline-blue { background: rgba(29, 112, 184, 0.2); color: #ffffff; font-weight: bold; padding: 1rem; border-radius: 8px; text-decoration: none; font-size: 1.1rem; display: flex; align-items: center; justify-content: center; gap: 0.7rem; border: 2px solid var(--btn-blue); }
+        .btn-solid-blue { background: #124076; color: #ffffff; font-weight: bold; padding: 1rem; border-radius: 8px; text-decoration: none; font-size: 1.1rem; display: flex; align-items: center; justify-content: center; gap: 0.5rem; border: 1px solid rgba(255,255,255,0.1); }
+
         .container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
-        .section-title { text-align: center; font-size: 2.2rem; margin: 4rem 0 2rem 0; color: #ffffff; font-weight: 700; }
+        .section-title { font-size: 1.8rem; font-weight: 800; text-transform: uppercase; margin: 3rem 0 1.5rem 0; letter-spacing: 0.5px; text-align: center; }
+        .section-subtitle { font-size: 0.95rem; text-transform: uppercase; color: var(--accent-yellow); font-weight: bold; letter-spacing: 1px; margin-bottom: 0.3rem; text-align: center; }
         
-        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
-        .service-card { background: var(--card-bg); padding: 2.5rem 2rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05); transition: transform 0.2s; text-align: center; }
-        .service-card:hover { transform: translateY(-5px); }
-        .service-card i { font-size: 2.5rem; color: var(--accent); margin-bottom: 1.2rem; }
-        .service-card h3 { margin-bottom: 0.8rem; font-size: 1.4rem; color: #ffffff; }
-        .service-card p { color: var(--text-muted); font-size: 1.05rem; }
+        .content-card { background: #112233; border-radius: 16px; padding: 2rem 1.5rem; margin-bottom: 1.5rem; border: 1px solid rgba(255,255,255,0.08); position: relative; }
+        .card-header-area { display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; }
+        .card-icon-box { width: 50px; height: 50px; background: rgba(255,255,255,0.08); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: var(--accent-yellow); font-size: 1.4rem; }
+        .card-title { font-size: 1.3rem; font-weight: 800; color: #ffffff; }
+        .card-desc { color: #ccd5ae; font-size: 1.05rem; line-height: 1.5; margin-bottom: 1.5rem; }
+        .card-actions { display: flex; gap: 1.5rem; font-weight: bold; }
+        .action-link-yellow { color: var(--accent-yellow); text-decoration: none; display: flex; align-items: center; gap: 0.3rem; }
+        .action-link-more { color: #ffffff; text-decoration: none; display: flex; align-items: center; gap: 0.3rem; opacity: 0.8; }
+
+        .about-text { font-size: 1.1rem; line-height: 1.6; color: #e0e1dd; margin-bottom: 1.5rem; }
         
-        .scope-box { background: var(--card-bg); border-radius: 12px; padding: 2.5rem; margin: 4rem 0; border: 1px solid rgba(255,255,255,0.05); box-shadow: 0 8px 16px rgba(0,0,0,0.2); }
-        .checkbox-group { margin: 1.5rem 0; }
-        .checkbox-item { display: flex; align-items: center; margin-bottom: 1.25rem; font-size: 1.15rem; color: #e0e1dd; cursor: pointer; }
-        .checkbox-item input { width: 22px; height: 22px; margin-right: 1rem; accent-color: var(--accent); }
+        .badge-row-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin: 2rem 0; }
+        .graphic-badge { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); padding: 1rem; border-radius: 12px; display: flex; flex-direction: column; align-items: center; text-align: center; }
+        .badge-num { font-size: 1.6rem; font-weight: 900; color: var(--accent-yellow); }
+        .badge-lbl { font-size: 0.8rem; text-transform: uppercase; color: #b5c2b7; margin-top: 0.2rem; font-weight: bold; }
+
+        .gallery-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin: 1.5rem 0; }
+        .gallery-img-box { background: rgba(255,255,255,0.05); border-radius: 12px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); position: relative; aspect-ratio: 1; }
+        .gallery-img-box img { width: 100%; height: 100%; object-fit: cover; }
+        .gallery-label { position: absolute; top: 8px; left: 8px; background: rgba(0,0,0,0.7); padding: 0.2rem 0.6rem; border-radius: 4px; font-size: 0.8rem; font-weight: bold; }
         
-        .grid-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-top: 2rem; }
-        .info-card { background: var(--card-bg); border-radius: 12px; padding: 2.5rem 2rem; text-align: center; border: 1px solid rgba(255,255,255,0.05); box-shadow: 0 8px 16px rgba(0,0,0,0.2); display: flex; flex-direction: column; align-items: center; justify-content: center; }
-        .icon-circle { width: 64px; height: 64px; background: rgba(255,255,255,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem; color: var(--accent); font-size: 1.6rem; }
-        .info-card h3 { font-size: 1.1rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); margin-bottom: 0.5rem; }
-        .info-card p { font-size: 1.25rem; font-weight: bold; color: #ffffff; word-break: break-word; }
-        .info-card a { color: #ffffff; text-decoration: none; }
-        .info-card a:hover { text-decoration: underline; }
-        
-        .bottom-bar { position: fixed; bottom: 0; left: 0; right: 0; background: #000814; padding: 0.8rem 1.5rem; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(255,255,255,0.1); z-index: 2000; }
-        .btn-call { background: #00b4d8; color: #ffffff; padding: 0.8rem 2.2rem; border-radius: 50px; text-decoration: none; font-weight: bold; display: flex; align-items: center; gap: 0.6rem; font-size: 1.15rem; box-shadow: 0 4px 12px rgba(0,180,216,0.3); }
-        .social-icons a { color: #ffffff; margin-left: 1.2rem; font-size: 1.5rem; }
-        
-        @media (max-width: 768px) {
-            .grid-container { grid-template-columns: 1fr; }
-            header { flex-direction: column; gap: 0.5rem; }
-            .hero h1 { font-size: 1.9rem; }
-        }
+        .slider-container { background: rgba(255,255,255,0.02); padding: 1rem; border-radius: 16px; border: 1px solid rgba(255,255,255,0.05); margin-bottom: 2rem; }
+        .slider-label { font-size: 1.1rem; font-weight: bold; margin-bottom: 0.8rem; color: var(--accent-yellow); display: flex; align-items: center; gap: 0.5rem; }
+        .split-slider { display: flex; gap: 0.5rem; width: 100%; }
+        .side-img { width: 50%; aspect-ratio: 1.2; object-fit: cover; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); }
+
+        .review-stars { color: var(--accent-yellow); margin-bottom: 0.5rem; font-size: 1.1rem; }
+        .review-author { display: flex; align-items: center; gap: 0.8rem; margin-top: 1rem; }
+        .author-avatar { width: 42px; height: 42px; background: var(--btn-blue); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; color: #fff; }
+        .author-meta { font-size: 0.95rem; text-align: left; }
+
+        .area-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.8rem; margin-top: 1.5rem; }
+        .area-pill { background: rgba(29, 112, 184, 0.15); border: 1px solid rgba(29, 112, 184, 0.3); padding: 0.8rem; border-radius: 8px; display: flex; align-items: center; gap: 0.5rem; font-weight: bold; font-size: 1rem; }
+        .area-pill i { color: var(--accent-yellow); }
+
+        .faq-item { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); border-radius: 10px; padding: 1.2rem; margin-bottom: 0.8rem; }
+        .faq-question { font-size: 1.1rem; font-weight: bold; display: flex; justify-content: space-between; align-items: center; color: #ffffff; }
+        .faq-answer { margin-top: 0.8rem; color: #ccd5ae; font-size: 1rem; line-height: 1.5; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 0.8rem; }
+
+        .scope-box { background: rgba(27, 38, 59, 0.7); border-radius: 12px; padding: 2rem 1.5rem; margin: 3rem 0; border: 1px solid rgba(255,255,255,0.05); }
+        .checkbox-group { margin: 1rem 0; }
+        .checkbox-item { display: flex; align-items: center; margin-bottom: 1.2rem; font-size: 1.1rem; color: #e0e1dd; cursor: pointer; }
+        .checkbox-item input { width: 22px; height: 22px; margin-right: 1rem; accent-color: var(--accent-yellow); }
+
+        .office-card { background:#112233; text-align:left; border:1px solid rgba(255,255,255,0.05); padding: 2rem 1.5rem; border-radius: 12px; margin-bottom: 2rem; margin-top: 3rem; }
+        .office-row { font-size:1rem; color: #e0e1dd; margin-bottom: 0.5rem; display: flex; align-items: center; }
+        .office-row i { color:#00b4d8; margin-right:8px; width: 20px; text-align: center; }
+
+        .bottom-sticky-navbar { position: fixed; bottom: 0; left: 0; right: 0; background: #ffffff; padding: 0.6rem 1rem; display: grid; grid-template-columns: 1fr 2fr 1fr; gap: 0.6rem; border-top: 1px solid #e0e0e0; z-index: 2000; box-shadow: 0 -4px 10px rgba(0,0,0,0.15); }
+        .nav-btn-call { background: #0056b3; color: #ffffff; border-radius: 6px; text-decoration: none; font-weight: bold; display: flex; flex-direction: column; align-items: center; justify-content: center; font-size: 0.8rem; padding: 0.5rem 0; }
+        .nav-btn-call i { font-size: 1.2rem; margin-bottom: 2px; }
+        .nav-btn-book { background: var(--accent-yellow); color: #000000; border-radius: 6px; text-decoration: none; font-weight: 900; display: flex; align-items: center; justify-content: center; gap: 0.4rem; font-size: 1.1rem; text-transform: uppercase; border: none; }
+        .nav-btn-review { background: #124076; color: #ffffff; border-radius: 6px; text-decoration: none; font-weight: bold; display: flex; flex-direction: column; align-items: center; justify-content: center; font-size: 0.8rem; padding: 0.5rem 0; }
+        .nav-btn-review i { font-size: 1.2rem; margin-bottom: 2px; color: var(--accent-yellow); }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="logo">Masbling Astar</div>
-        <nav>
-            <a href="#home">Home</a>
-            <a href="#services">Services</a>
-            <a href="#contact">Contact</a>
-        </nav>
-    </header>
-
-    <section id="home" class="hero">
-        <h1>Masbling Astar Services<br>| Gutter & Exterior Maintenance Brampton</h1>
-        <p>Professional Eavestrough Repair, Gutter Cleaning & Window Caulking across the GTA</p>
-    </section>
-
-    <div class="container">
-        <section id="services">
-            <h2 class="section-title">Our Professional Services</h2>
-            <div class="services-grid">
-                <div class="service-card">
-                    <i class="fa-solid fa-broom"></i>
-                    <h3>Gutter Cleaning</h3>
-                    <p>Complete eavestrough clearing, debris removal, downpipe clearing, and full system flushing maintenance.</p>
-                </div>
-                <div class="service-card">
-                    <i class="fa-solid fa-screwdriver-wrench"></i>
-                    <h3>Eavestrough Repair</h3>
-                    <p>Fixing leaks, securing loose downpipes, leveling sagging areas, and total corner seal armor protection.</p>
-                </div>
-                <div class="service-card">
-                    <i class="fa-solid fa-house-chimney-crack"></i>
-                    <h3>Exterior Maintenance</h3>
-                    <p>Premium window caulking, weatherproof structural sealing shields, and complete exterior upkeep guards.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Project Scope Estimation Section -->
-        <div class="scope-box">
-            <h2 style="font-size: 1.7rem; margin-bottom: 0.5rem; color: #ffffff;">Select Your Project Scope</h2>
-            <p style="color: var(--text-muted); margin-bottom: 1.5rem;">Tick the services you need to build your custom package estimate:</p>
-            <div class="checkbox-group">
-                <label class="checkbox-item"><input type="checkbox"> Gutter Maintenance & Cleaning</label>
-                <label class="checkbox-item"><input type="checkbox"> Eavestrough & Downpipe Repair</label>
-                <label class="checkbox-item"><input type="checkbox"> Window Caulking & Weather Sealing</label>
-                <label class="checkbox-item"><input type="checkbox"> Commercial Property Exterior Care</label>
-            </div>
+        <div class="logo-area">
+            <div class="logo-icon"><i class="fa-solid fa-house-chimney"></i></div>
+            <div class="logo-text">Masbling Astar</div>
         </div>
-
-        <section id="contact">
-            <h2 class="section-title">Contact Our Office</h2>
-            <div class="grid-container">
-                <!-- Phone Card -->
-                <div class="info-card">
-                    <div class="icon-circle"><i class="fa-solid fa-phone"></i></div>
-                    <h3>Phone</h3>
-                    <p><a href="tel:4374404072">437-440-4072</a></p>
-                </div>
-
-                <!-- Email Card -->
-                <div class="info-card">
-                    <div class="icon-circle"><i class="fa-solid fa-envelope"></i></div>
-                    <h3>Email</h3>
-                    <p><a href="mailto:info@masblingastarservices.com">info@masblingastarservices.com</a></p>
-                </div>
-
-                <!-- Address Card -->
-                <div class="info-card">
-                    <div class="icon-circle"><i class="fa-solid fa-location-dot"></i></div>
-                    <h3>Address</h3>
-                    <p style="font-size: 1.15rem; font-weight: normal; line-height: 1.4; margin-top: 0.2rem;">45 Bramalea Rd, Suite 208,<br>Brampton ON L6T 2W4</p>
-                </div>
-            </div>
-        </section>
-    </div>
-
-    <!-- Bottom Action Bar -->
-    <div class="bottom-bar">
-        <a href="tel:4374404072" class="btn-call"><i class="fa-solid fa-phone"></i> Call Now</a>
-        <div class="social-icons">
-            <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
-            <a href="#"><i class="fa-brands fa-instagram"></i></a>
-            <a href="#"><i class="fa-brands fa-tiktok"></i></a>
-            <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
-        </div>
-    </div>
-
-</body>
-</html>
