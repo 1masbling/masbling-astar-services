@@ -1,0 +1,14 @@
+[
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.masblingastarservices.app",
+      "sha256_cert_fingerprints": [
+        "86:32:26:13:7E:B2:4F:80:19:A8:9D:CA:19:C5:CC:11:D3:D6:9A:D9:01"
+      ]
+    }
+  }
+]
