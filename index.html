@@ -9,58 +9,53 @@
         :root {
             --primary: #0056b3;
             --primary-hover: #004094;
-            --dark: #1a1a1a;
-            --light: #f8f9fa;
-            --text: #333333;
-            --border: #e0e0e0;
+            --dark: #0d1b2a;
+            --card-bg: #1b263b;
+            --text-light: #ffffff;
+            --text-muted: #b5c2b7;
+            --accent: #ffb703;
         }
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
-        body { background-color: var(--light); color: var(--text); line-height: 1.6; }
-        header { background: #ffffff; box-shadow: 0 2px 4px rgba(0,0,0,0.1); padding: 1rem 2rem; position: sticky; top: 0; z-index: 1000; display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-size: 1.5rem; font-weight: bold; color: var(--primary); }
-        nav a { margin-left: 1.5rem; text-decoration: none; color: var(--text); font-weight: 500; }
-        nav a:hover { color: var(--primary); }
+        body { background-color: var(--dark); color: var(--text-light); line-height: 1.6; padding-bottom: 70px; }
+        header { background: #1b263b; padding: 1.5rem; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        .logo { font-size: 1.6rem; font-weight: bold; color: #e0e1dd; }
+        nav a { margin-left: 1.5rem; text-decoration: none; color: #e0e1dd; font-weight: 500; }
         
-        /* Mobile Menu Toggles */
-        .menu-toggle { display: none; font-size: 1.5rem; cursor: pointer; color: var(--text); }
+        .hero { text-align: center; padding: 5rem 1.5rem; background: linear-gradient(rgba(13,27,42,0.8), rgba(13,27,42,0.9)); }
+        .hero h1 { font-size: 2.4rem; margin-bottom: 1rem; color: #ffffff; font-weight: 700; line-height: 1.2; }
+        .hero p { font-size: 1.15rem; color: var(--text-muted); margin-bottom: 2rem; }
         
-        .hero { background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://unsplash.com') no-repeat center center/cover; color: #ffffff; padding: 6rem 2rem; text-align: center; }
-        .hero h1 { font-size: 2.5rem; margin-bottom: 1rem; font-weight: 700; line-height: 1.2; }
-        .hero p { font-size: 1.25rem; margin-bottom: 2rem; }
-        
-        .container { max-width: 1200px; margin: 3rem auto; padding: 0 1.5rem; }
-        .section-title { text-align: center; font-size: 2.25rem; margin-bottom: 2.5rem; color: var(--dark); font-weight: 700; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
+        .section-title { text-align: center; font-size: 2.2rem; margin: 4rem 0 2rem 0; color: #ffffff; font-weight: 700; }
         
         .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
-        .service-card { background: #ffffff; padding: 2rem; border-radius: 8px; border: 1px solid var(--border); transition: transform 0.2s; }
+        .service-card { background: var(--card-bg); padding: 2.5rem 2rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05); transition: transform 0.2s; text-align: center; }
         .service-card:hover { transform: translateY(-5px); }
-        .service-card i { font-size: 2.5rem; color: var(--primary); margin-bottom: 1rem; }
-        .service-card h3 { margin-bottom: 0.5rem; font-size: 1.4rem; }
+        .service-card i { font-size: 2.5rem; color: var(--accent); margin-bottom: 1.2rem; }
+        .service-card h3 { margin-bottom: 0.8rem; font-size: 1.4rem; color: #ffffff; }
+        .service-card p { color: var(--text-muted); font-size: 1.05rem; }
         
-        .scope-box { background: #ffffff; border-radius: 8px; border: 1px solid var(--border); padding: 2.5rem; margin-top: 4rem; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+        .scope-box { background: var(--card-bg); border-radius: 12px; padding: 2.5rem; margin: 4rem 0; border: 1px solid rgba(255,255,255,0.05); box-shadow: 0 8px 16px rgba(0,0,0,0.2); }
         .checkbox-group { margin: 1.5rem 0; }
-        .checkbox-item { display: flex; align-items: center; margin-bottom: 1rem; cursor: pointer; font-size: 1.1rem; }
-        .checkbox-item input { width: 20px; height: 20px; margin-right: 1rem; accent-color: var(--primary); }
+        .checkbox-item { display: flex; align-items: center; margin-bottom: 1.25rem; font-size: 1.15rem; color: #e0e1dd; cursor: pointer; }
+        .checkbox-item input { width: 22px; height: 22px; margin-right: 1rem; accent-color: var(--accent); }
         
-        .reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 2rem; margin-top: 4rem; }
-        .review-card { background: #ffffff; padding: 2rem; border-radius: 8px; border: 1px solid var(--border); position: relative; }
-        .stars { color: #ffc107; margin-bottom: 1rem; }
-        .review-meta { margin-top: 1.5rem; font-weight: bold; color: var(--dark); display: flex; justify-content: space-between; font-size: 0.9rem; }
+        .grid-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-top: 2rem; }
+        .info-card { background: var(--card-bg); border-radius: 12px; padding: 2.5rem 2rem; text-align: center; border: 1px solid rgba(255,255,255,0.05); box-shadow: 0 8px 16px rgba(0,0,0,0.2); display: flex; flex-direction: column; align-items: center; justify-content: center; }
+        .icon-circle { width: 64px; height: 64px; background: rgba(255,255,255,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem; color: var(--accent); font-size: 1.6rem; }
+        .info-card h3 { font-size: 1.1rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); margin-bottom: 0.5rem; }
+        .info-card p { font-size: 1.25rem; font-weight: bold; color: #ffffff; word-break: break-word; }
+        .info-card a { color: #ffffff; text-decoration: none; }
+        .info-card a:hover { text-decoration: underline; }
         
-        .contact-section { background: var(--primary); color: #ffffff; padding: 4rem 2rem; border-radius: 8px; margin-top: 4rem; }
-        .contact-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2.5rem; }
-        .contact-info-block h3 { font-size: 1.5rem; margin-bottom: 1.5rem; border-bottom: 2px solid rgba(255,255,255,0.2); padding-bottom: 0.5rem; }
-        .contact-row { display: flex; align-items: center; margin-bottom: 1.25rem; font-size: 1.1rem; }
-        .contact-row i { font-size: 1.5rem; margin-right: 1.2rem; width: 24px; text-align: center; }
-        .contact-row a { color: #ffffff; text-decoration: none; }
-        .contact-row a:hover { text-decoration: underline; }
+        .bottom-bar { position: fixed; bottom: 0; left: 0; right: 0; background: #000814; padding: 0.8rem 1.5rem; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(255,255,255,0.1); z-index: 2000; }
+        .btn-call { background: #00b4d8; color: #ffffff; padding: 0.8rem 2.2rem; border-radius: 50px; text-decoration: none; font-weight: bold; display: flex; align-items: center; gap: 0.6rem; font-size: 1.15rem; box-shadow: 0 4px 12px rgba(0,180,216,0.3); }
+        .social-icons a { color: #ffffff; margin-left: 1.2rem; font-size: 1.5rem; }
         
-        footer { text-align: center; padding: 2rem; color: #666666; font-size: 0.9rem; border-top: 1px solid var(--border); margin-top: 4rem; }
-        
-        @media (max-width: 768px) { 
-            .hero h1 { font-size: 1.8rem; } 
-            header { flex-direction: column; gap: 1rem; text-align: center; } 
-            nav a { margin: 0 0.75rem; display: inline-block; } 
+        @media (max-width: 768px) {
+            .grid-container { grid-template-columns: 1fr; }
+            header { flex-direction: column; gap: 0.5rem; }
+            .hero h1 { font-size: 1.9rem; }
         }
     </style>
 </head>
@@ -71,13 +66,12 @@
         <nav>
             <a href="#home">Home</a>
             <a href="#services">Services</a>
-            <a href="#reviews">Reviews</a>
             <a href="#contact">Contact</a>
         </nav>
     </header>
 
     <section id="home" class="hero">
-        <h1>Masbling Astar Services | Gutter & Exterior Maintenance Brampton</h1>
+        <h1>Masbling Astar Services<br>| Gutter & Exterior Maintenance Brampton</h1>
         <p>Professional Eavestrough Repair, Gutter Cleaning & Window Caulking across the GTA</p>
     </section>
 
@@ -88,81 +82,70 @@
                 <div class="service-card">
                     <i class="fa-solid fa-broom"></i>
                     <h3>Gutter Cleaning</h3>
-                    <p>Complete eavestrough clearing, debris removal, downpipe installation, and full system flushing diagnostics.</p>
+                    <p>Complete eavestrough clearing, debris removal, downpipe clearing, and full system flushing maintenance.</p>
                 </div>
                 <div class="service-card">
                     <i class="fa-solid fa-screwdriver-wrench"></i>
                     <h3>Eavestrough Repair</h3>
-                    <p>Fixing structural leaks, securing brackets, leveling sagging sections, and complete corners leak sealing.</p>
+                    <p>Fixing leaks, securing loose downpipes, leveling sagging areas, and total corner seal armor protection.</p>
                 </div>
                 <div class="service-card">
                     <i class="fa-solid fa-house-chimney-crack"></i>
                     <h3>Exterior Maintenance</h3>
-                    <p>Premium window caulking, weather-proof sealing shields, fascia, and comprehensive exterior upkeep.</p>
+                    <p>Premium window caulking, weatherproof structural sealing shields, and complete exterior upkeep guards.</p>
                 </div>
             </div>
         </section>
 
         <!-- Project Scope Estimation Section -->
         <div class="scope-box">
-            <h2 style="font-size: 1.8rem; margin-bottom: 0.5rem;">Select Your Project Scope</h2>
-            <p style="color: #666; margin-bottom: 1.5rem;">Tick the services you need to build your custom package:</p>
+            <h2 style="font-size: 1.7rem; margin-bottom: 0.5rem; color: #ffffff;">Select Your Project Scope</h2>
+            <p style="color: var(--text-muted); margin-bottom: 1.5rem;">Tick the services you need to build your custom package estimate:</p>
             <div class="checkbox-group">
-                <label class="checkbox-item"><input type="checkbox"> GUTTED MAINTENANCE & CLEANING</label>
+                <label class="checkbox-item"><input type="checkbox"> Gutter Maintenance & Cleaning</label>
                 <label class="checkbox-item"><input type="checkbox"> Eavestrough & Downpipe Repair</label>
                 <label class="checkbox-item"><input type="checkbox"> Window Caulking & Weather Sealing</label>
-                <label class="checkbox-item"><input type="checkbox"> Handyman & Exterior Maintenance Care</label>
+                <label class="checkbox-item"><input type="checkbox"> Commercial Property Exterior Care</label>
             </div>
         </div>
 
-        <!-- Verified Customer Reviews Section -->
-        <section id="reviews" style="margin-top: 5rem;">
-            <h2 class="section-title">What Our Clients Say</h2>
-            <div class="reviews-grid">
-                <div class="review-card">
-                    <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-                    <p>"Excellent and highly efficient work clearing out our blocked downpipes right after the severe storm layout."</p>
-                    <div class="review-meta"><span>Kevin Diaz</span><span>September 2026</span></div>
+        <section id="contact">
+            <h2 class="section-title">Contact Our Office</h2>
+            <div class="grid-container">
+                <!-- Phone Card -->
+                <div class="info-card">
+                    <div class="icon-circle"><i class="fa-solid fa-phone"></i></div>
+                    <h3>Phone</h3>
+                    <p><a href="tel:4374404072">437-440-4072</a></p>
                 </div>
-                <div class="review-card">
-                    <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-                    <p>"Mark was highly responsive and provided an estimate that was reasonable. He explained the root cause of the eavestrough leak cleanly."</p>
-                    <div class="review-meta"><span>HomeStars User</span><span>December 2025</span></div>
-                </div>
-            </div>
-        </section>
 
-        <!-- Contact Section -->
-        <section id="contact" class="contact-section">
-            <div class="contact-container">
-                <div class="contact-info-block">
-                    <h3>Our Location</h3>
-                    <div class="contact-row">
-                        <i class="fa-solid fa-location-dot"></i>
-                        <span>45 Bramalea Rd, Suite 208, Brampton ON L6T 2W4</span>
-                    </div>
+                <!-- Email Card -->
+                <div class="info-card">
+                    <div class="icon-circle"><i class="fa-solid fa-envelope"></i></div>
+                    <h3>Email</h3>
+                    <p><a href="mailto:info@masblingastarservices.com">info@masblingastarservices.com</a></p>
                 </div>
-                <div class="contact-info-block">
-                    <h3>Phone Number</h3>
-                    <div class="contact-row">
-                        <i class="fa-solid fa-phone"></i>
-                        <span><a href="tel:4374404072">437-440-4072</a></span>
-                    </div>
-                </div>
-                <div class="contact-info-block">
-                    <h3>Email Address</h3>
-                    <div class="contact-row">
-                        <i class="fa-solid fa-envelope"></i>
-                        <span><a href="mailto:info@masblingastarservices.com">info@masblingastarservices.com</a></span>
-                    </div>
+
+                <!-- Address Card -->
+                <div class="info-card">
+                    <div class="icon-circle"><i class="fa-solid fa-location-dot"></i></div>
+                    <h3>Address</h3>
+                    <p style="font-size: 1.15rem; font-weight: normal; line-height: 1.4; margin-top: 0.2rem;">45 Bramalea Rd, Suite 208,<br>Brampton ON L6T 2W4</p>
                 </div>
             </div>
         </section>
     </div>
 
-    <footer>
-        <p>&copy; 2026 Masbling Astar Services. All rights reserved.</p>
-    </footer>
+    <!-- Bottom Action Bar -->
+    <div class="bottom-bar">
+        <a href="tel:4374404072" class="btn-call"><i class="fa-solid fa-phone"></i> Call Now</a>
+        <div class="social-icons">
+            <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#"><i class="fa-brands fa-tiktok"></i></a>
+            <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+        </div>
+    </div>
 
 </body>
 </html>
