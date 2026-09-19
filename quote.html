@@ -1,0 +1,191 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Masbling Astar Services - Quote Generator</title>
+  <script src="https://tailwindcss.com"></script>
+  <style>
+    input[type="number"]::-webkit-outer-spin-button,
+    input[type="number"]::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+    input[type="number"] {
+      -moz-appearance: textfield;
+      text-align: center;
+    }
+  </style>
+</head>
+<body class="bg-gray-100 min-h-screen py-10 px-4">
+
+  <section class="bg-[#0E3368] text-white p-6 rounded-xl shadow-2xl max-w-xl mx-auto font-sans border-t-4 border-[#0087BD]">
+    <div class="text-center mb-6">
+      <h2 class="text-2xl font-black uppercase tracking-wider text-white">Select Project Scope</h2>
+      <p class="text-xs text-gray-300 mt-1 uppercase tracking-widest">Instant Upfront Flat-Rate Estimate</p>
+    </div>
+
+    <form id="estimateForm" class="space-y-4 text-left">
+      
+      <!-- 1. Gutter Cleaning & Maintenance -->
+      <div class="p-3 bg-white/5 rounded-lg border border-white/10 hover:border-[#0087BD] transition">
+        <label class="flex items-center space-x-3 cursor-pointer w-full">
+          <input type="checkbox" name="services" value="Gutter Cleaning & Maintenance" data-base="190" class="w-5 h-5 accent-[#ECAA11] rounded">
+          <span class="text-sm font-semibold">Gutter Cleaning & Maintenance (Starts at $190)</span>
+        </label>
+      </div>
+
+      <!-- 2. Eavestrough & Downpipe Repair -->
+      <div class="p-3 bg-white/5 rounded-lg border border-white/10 hover:border-[#0087BD] transition space-y-2">
+        <label class="flex items-center space-x-3 cursor-pointer w-full">
+          <input type="checkbox" name="services" value="Eavestrough & Downpipe Repair" data-base="170" class="w-5 h-5 accent-[#ECAA11] rounded">
+          <span class="text-sm font-semibold">Eavestrough & Downpipe Repair ($170)</span>
+        </label>
+        <div class="pl-8 flex items-center space-x-2 text-xs text-gray-300">
+          <span>+ Additional Vents ($120 base setup + $30 per vent):</span>
+          <input type="number" id="extraVents" value="0" min="0" class="w-14 p-1 text-black font-bold rounded">
+        </div>
+      </div>
+
+      <!-- 3. Soffit & Fascia Care -->
+      <div class="p-3 bg-white/5 rounded-lg border border-white/10 hover:border-[#0087BD] transition space-y-2">
+        <label class="flex items-center space-x-3 cursor-pointer w-full">
+          <input type="checkbox" name="services" value="Soffit & Fascia Care" data-base="120" class="w-5 h-5 accent-[#ECAA11] rounded">
+          <span class="text-sm font-semibold">Soffit & Fascia Care ($120)</span>
+        </label>
+        <div class="pl-8 flex items-center space-x-2 text-xs text-gray-300">
+          <span>+ Leaking Corners ($30 each additional):</span>
+          <input type="number" id="extraCorners" value="0" min="0" class="w-14 p-1 text-black font-bold rounded">
+        </div>
+      </div>
+
+      <!-- 4. Window Caulking Shields -->
+      <div class="p-3 bg-white/5 rounded-lg border border-white/10 hover:border-[#0087BD] transition space-y-2">
+        <label class="flex items-center space-x-3 cursor-pointer w-full">
+          <input type="checkbox" name="services" value="Window Caulking Shields" data-base="0" class="w-5 h-5 accent-[#ECAA11] rounded">
+          <span class="text-sm font-semibold">Window Caulking Shields ($170 per window)</span>
+        </label>
+        <div class="pl-8 flex items-center space-x-2 text-xs text-gray-300">
+          <span>Total windows needing caulking:</span>
+          <input type="number" id="caulkingWindows" value="1" min="1" class="w-14 p-1 text-black font-bold rounded">
+        </div>
+      </div>
+
+      <!-- 5. Windows Cleaning -->
+      <div class="p-3 bg-white/5 rounded-lg border border-white/10 hover:border-[#0087BD] transition space-y-2">
+        <label class="flex items-center space-x-3 cursor-pointer w-full">
+          <input type="checkbox" name="services" value="Windows Cleaning" data-base="0" class="w-5 h-5 accent-[#ECAA11] rounded">
+          <span class="text-sm font-semibold">Windows Cleaning (10-12 Windows = $250)</span>
+        </label>
+        <div class="pl-8 flex items-center space-x-2 text-xs text-gray-300">
+          <span>Total windows to clean:</span>
+          <input type="number" id="totalWindowsClean" value="10" min="1" class="w-14 p-1 text-black font-bold rounded">
+          <span class="text-[11px] text-gray-400 block mt-1">(+$30 for each window over 12)</span>
+        </div>
+      </div>
+
+      <!-- 6. Skylight Leak Repair -->
+      <div class="p-3 bg-white/5 rounded-lg border border-white/10 hover:border-[#0087BD] transition">
+        <label class="flex items-center space-x-3 cursor-pointer w-full">
+          <input type="checkbox" name="services" value="Skylight Leak Repair" data-base="50" class="w-5 h-5 accent-[#ECAA11] rounded">
+          <span class="text-sm font-semibold">Skylight Leak (Starts at $50 - depends on floor)</span>
+        </label>
+      </div>
+
+      <!-- 7. Power Wash -->
+      <div class="p-3 bg-white/5 rounded-lg border border-white/10 hover:border-[#0087BD] transition">
+        <label class="flex items-center space-x-3 cursor-pointer w-full">
+          <input type="checkbox" name="services" value="Power Wash" data-base="250" class="w-5 h-5 accent-[#ECAA11] rounded">
+          <span class="text-sm font-semibold">Power Wash ($250 flat rate)</span>
+        </label>
+      </div>
+
+      <!-- 8. Heated Wires -->
+      <div class="p-3 bg-white/5 rounded-lg border border-white/10 hover:border-[#0087BD] transition space-y-2">
+        <label class="flex items-center space-x-3 cursor-pointer w-full">
+          <input type="checkbox" name="services" value="Heated Wires Installation" data-base="100" class="w-5 h-5 accent-[#ECAA11] rounded">
+          <span class="text-sm font-semibold">Heated Wires Installation (Starts at $100 for 25 ft)</span>
+        </label>
+        <div class="pl-8 flex items-center space-x-2 text-xs text-gray-300">
+          <span>Estimated length in feet:</span>
+          <input type="number" id="heatedWiresFeet" value="25" min="25" step="25" class="w-16 p-1 text-black font-bold rounded">
+        </div>
+      </div>
+
+      <!-- 9. Christmas Lights -->
+      <div class="p-3 bg-white/5 rounded-lg border border-white/10 hover:border-[#0087BD] transition">
+        <label class="flex items-center space-x-3 cursor-pointer w-full">
+          <input type="checkbox" name="services" value="Christmas Lights Installation" data-base="0" class="w-5 h-5 accent-[#ECAA11] rounded">
+          <span class="text-sm font-semibold">Christmas 🎄 Lights Installation (Custom Quote)</span>
+        </label>
+      </div>
+
+      <!-- CUSTOMER CORE FIELD CONTAINER -->
+      <div class="pt-4 space-y-3 border-t border-white/10">
+        <div>
+          <label class="block text-left text-xs uppercase tracking-wider text-gray-400 mb-1 font-bold">Full Name</label>
+          <input type="text" id="clientName" placeholder="John Doe" required class="w-full p-2.5 rounded bg-white text-black font-medium">
+        </div>
+        
+        <div>
+          <label class="block text-left text-xs uppercase tracking-wider text-gray-400 mb-1 font-bold">Select Service Location</label>
+          <select id="clientLocation" required class="w-full p-2.5 rounded bg-white text-black font-medium">
+            <option value="" disabled selected>Choose GTA Location...</option>
+            <option value="Brampton">Brampton</option>
+            <option value="Mississauga">Mississauga</option>
+            <option value="Toronto">Toronto</option>
+            <option value="Etobicoke">Etobicoke</option>
+            <option value="Scarborough">Scarborough</option>
+            <option value="Vaughan">Vaughan</option>
+          </select>
+        </div>
+      </div>
+
+      <button type="submit" class="w-full bg-[#ECAA11] hover:bg-[#F1B51C] text-black font-black py-4 px-4 rounded-lg transition duration-200 uppercase tracking-widest text-sm shadow-md mt-2">
+        Request Upfront Estimate
+      </button>
+    </form>
+  </section>
+
+  <script>
+    document.getElementById('estimateForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+
+      const name = document.getElementById('clientName').value.trim();
+      const location = document.getElementById('clientLocation').value;
+      const checkedBoxes = document.querySelectorAll('input[name="services"]:checked');
+      
+      if (checkedBoxes.length === 0) {
+        alert("Please select at least one item.");
+        return;
+      }
+
+      let totalEstimatedPrice = 0;
+      let requiresCustomQuote = false;
+      const selectedServicesText = [];
+
+      checkedBoxes.forEach(cb => {
+        const serviceName = cb.value;
+        let basePrice = parseInt(cb.getAttribute('data-base'), 10);
+        let itemBreakdown = '';
+
+        if (serviceName === "Eavestrough & Downpipe Repair") {
+          const extraVents = parseInt(document.getElementById('extraVents').value, 10) || 0;
+          if (extraVents > 0) {
+            const ventCost = 120 + (extraVents * 30);
+            basePrice += ventCost;
+            itemBreakdown = ` (Incl. ${extraVents} vents: +$${ventCost})`;
+          }
+        } 
+        else if (serviceName === "Soffit & Fascia Care") {
+          const extraCorners = parseInt(document.getElementById('extraCorners').value, 10) || 0;
+          if (extraCorners > 0) {
+            const cornerCost = extraCorners * 30;
+            basePrice += cornerCost;
+            itemBreakdown = ` (Incl. ${extraCorners} extra corners: +$${cornerCost})`;
+          }
+        } 
+        else if (serviceName === "Window Caulking Shields") {
+          const windows = parseInt(document.getElementById('caulkingWindows').value, 10) || 0;
+          basePrice = windows * 170;
