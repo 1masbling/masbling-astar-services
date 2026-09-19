@@ -9,19 +9,19 @@
       background-color: #f3f4f6;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       margin: 0;
-      padding: 40px 16px;
+      padding: 20px 12px;
       display: flex;
       justify-content: center;
     }
     .calculator-card {
       background-color: #0E3368;
       color: #ffffff;
-      padding: 24px;
+      padding: 24px 16px;
       border-radius: 12px;
       max-width: 500px;
       width: 100%;
       box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-      border-t: 4px solid #0087BD;
+      border-top: 4px solid #0087BD;
       box-sizing: border-box;
     }
     .text-center { text-align: center; }
@@ -29,9 +29,10 @@
     .space-y-4 > * + * { margin-top: 16px; }
     .service-row {
       background: rgba(255, 255, 255, 0.05);
-      padding: 12px;
+      padding: 14px 12px;
       border-radius: 8px;
       border: 1px solid rgba(255, 255, 255, 0.1);
+      box-sizing: border-box;
     }
     .flex-input {
       margin-left: 28px;
@@ -44,16 +45,17 @@
     }
     input[type="number"] {
       width: 60px;
-      padding: 4px;
+      padding: 6px;
       border-radius: 4px;
       border: none;
       text-align: center;
       font-weight: bold;
       color: #000;
+      background-color: #ffffff;
     }
     input[type="checkbox"] {
-      width: 18px;
-      height: 18px;
+      width: 20px;
+      height: 20px;
       accent-color: #ECAA11;
       cursor: pointer;
     }
@@ -61,15 +63,20 @@
       font-size: 14px;
       font-weight: 600;
       cursor: pointer;
+      line-height: 1.3;
     }
     .input-field {
       width: 100%;
-      padding: 10px;
+      padding: 12px;
       border-radius: 6px;
       border: none;
-      margin-top: 4px;
+      margin-top: 6px;
+      margin-bottom: 12px;
       box-sizing: border-box;
       font-weight: 500;
+      color: #000;
+      background-color: #ffffff;
+      display: block;
     }
     .btn-submit {
       width: 100%;
@@ -82,8 +89,11 @@
       cursor: pointer;
       text-transform: uppercase;
       letter-spacing: 1px;
-      font-size: 14px;
-      margin-top: 12px;
+      font-size: 15px;
+      margin-top: 16px;
+      display: block;
+      position: relative;
+      z-index: 10;
     }
     .btn-submit:hover { background-color: #F1B51C; }
   </style>
@@ -92,7 +102,7 @@
 
   <div class="calculator-card">
     <div class="text-center mb-6">
-      <h2 style="margin:0; font-size:24px; text-transform:uppercase; tracking:1px;">Select Project Scope</h2>
+      <h2 style="margin:0; font-size:24px; text-transform:uppercase;">Select Project Scope</h2>
       <p style="margin:4px 0 0 0; font-size:11px; color:#d1d5db; text-transform:uppercase;">Instant Upfront Flat-Rate Estimate</p>
     </div>
 
@@ -100,7 +110,7 @@
       
       <!-- 1. Gutter Cleaning -->
       <div class="service-row">
-        <label style="display:flex; align-items:center; gap:10px;">
+        <label style="display:flex; align-items:center; gap:10px; width:100%;">
           <input type="checkbox" name="services" value="Gutter Cleaning & Maintenance" data-base="190">
           <span class="label-text">Gutter Cleaning & Maintenance (Starts at $190)</span>
         </label>
@@ -108,7 +118,7 @@
 
       <!-- 2. Eavestrough & Downpipe Repair -->
       <div class="service-row">
-        <label style="display:flex; align-items:center; gap:10px;">
+        <label style="display:flex; align-items:center; gap:10px; width:100%;">
           <input type="checkbox" name="services" value="Eavestrough & Downpipe Repair" data-base="170">
           <span class="label-text">Eavestrough & Downpipe Repair ($170)</span>
         </label>
@@ -120,7 +130,7 @@
 
       <!-- 3. Soffit & Fascia Care -->
       <div class="service-row">
-        <label style="display:flex; align-items:center; gap:10px;">
+        <label style="display:flex; align-items:center; gap:10px; width:100%;">
           <input type="checkbox" name="services" value="Soffit & Fascia Care" data-base="120">
           <span class="label-text">Soffit & Fascia Care ($120)</span>
         </label>
@@ -132,7 +142,7 @@
 
       <!-- 4. Window Caulking Shields -->
       <div class="service-row">
-        <label style="display:flex; align-items:center; gap:10px;">
+        <label style="display:flex; align-items:center; gap:10px; width:100%;">
           <input type="checkbox" name="services" value="Window Caulking Shields" data-base="0">
           <span class="label-text">Window Caulking Shields ($170 per window)</span>
         </label>
@@ -144,7 +154,7 @@
 
       <!-- 5. Windows Cleaning -->
       <div class="service-row">
-        <label style="display:flex; align-items:center; gap:10px;">
+        <label style="display:flex; align-items:center; gap:10px; width:100%;">
           <input type="checkbox" name="services" value="Windows Cleaning" data-base="0">
           <span class="label-text">Windows Cleaning (10-12 Windows = $250)</span>
         </label>
@@ -157,7 +167,7 @@
 
       <!-- 6. Skylight Leak Repair -->
       <div class="service-row">
-        <label style="display:flex; align-items:center; gap:10px;">
+        <label style="display:flex; align-items:center; gap:10px; width:100%;">
           <input type="checkbox" name="services" value="Skylight Leak Repair" data-base="50">
           <span class="label-text">Skylight Leak (Starts at $50 - depends on floor)</span>
         </label>
@@ -165,7 +175,7 @@
 
       <!-- 7. Power Wash -->
       <div class="service-row">
-        <label style="display:flex; align-items:center; gap:10px;">
+        <label style="display:flex; align-items:center; gap:10px; width:100%;">
           <input type="checkbox" name="services" value="Power Wash" data-base="250">
           <span class="label-text">Power Wash ($250 flat rate)</span>
         </label>
@@ -173,7 +183,7 @@
 
       <!-- 8. Heated Wires -->
       <div class="service-row">
-        <label style="display:flex; align-items:center; gap:10px;">
+        <label style="display:flex; align-items:center; gap:10px; width:100%;">
           <input type="checkbox" name="services" value="Heated Wires Installation" data-base="100">
           <span class="label-text">Heated Wires Installation (Starts at $100 for 25 ft)</span>
         </label>
@@ -185,19 +195,19 @@
 
       <!-- 9. Christmas Lights -->
       <div class="service-row">
-        <label style="display:flex; align-items:center; gap:10px;">
+        <label style="display:flex; align-items:center; gap:10px; width:100%;">
           <input type="checkbox" name="services" value="Christmas Lights Installation" data-base="0">
           <span class="label-text">Christmas 🎄 Lights & Lighting (Custom Quote)</span>
         </label>
       </div>
 
-      <!-- USER INFO -->
-      <div style="padding-top:16px; border-top: 1px solid rgba(255,255,255,0.1);">
-        <label style="font-size:12px; color:#9ca3af; font-weight:bold; display:block;">FULL NAME</label>
+      <!-- USER INFO CONTAINER -->
+      <div style="padding-top:16px; border-top: 1px solid rgba(255,255,255,0.1); margin-top: 20px;">
+        <label style="font-size:12px; color:#9ca3af; font-weight:bold; display:block; text-align:left;">FULL NAME</label>
         <input type="text" id="clientName" placeholder="John Doe" required class="input-field">
         
-        <label style="font-size:12px; color:#9ca3af; font-weight:bold; display:block; margin-top:12px;">SELECT SERVICE LOCATION</label>
-        <select id="clientLocation" required class="input-field" style="height:40px;">
+        <label style="font-size:12px; color:#9ca3af; font-weight:bold; display:block; text-align:left; margin-top:4px;">SELECT SERVICE LOCATION</label>
+        <select id="clientLocation" required class="input-field">
           <option value="" disabled selected>Choose GTA Location...</option>
           <option value="Brampton">Brampton</option>
           <option value="Mississauga">Mississauga</option>
@@ -221,7 +231,7 @@
       const checkedBoxes = document.querySelectorAll('input[name="services"]:checked');
       
       if (checkedBoxes.length === 0) {
-        alert("Please select at least one item.");
+        alert("Please select at least one item from the scope checklist.");
         return;
       }
 
@@ -253,12 +263,3 @@
         else if (serviceName === "Window Caulking Shields") {
           const windows = parseInt(document.getElementById('caulkingWindows').value, 10) || 0;
           basePrice = windows * 170;
-          itemBreakdown = ` (${windows} windows @ $170/ea)`;
-        } 
-        else if (serviceName === "Windows Cleaning") {
-          const totalWin = parseInt(document.getElementById('totalWindowsClean').value, 10) || 0;
-          if (totalWin <= 12) {
-            basePrice = 250;
-            itemBreakdown = ` (Flat tier up to 12 windows)`;
-          } else {
-            basePrice = 250 + ((totalWin - 12) * 30);
