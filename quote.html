@@ -92,8 +92,6 @@
       font-size: 15px;
       margin-top: 16px;
       display: block;
-      position: relative;
-      z-index: 10;
     }
     .btn-submit:hover { background-color: #F1B51C; }
   </style>
@@ -223,7 +221,7 @@
   </div>
 
   <script>
-    document.getElementById('estimateForm').addEventListener('submit', async function(e) {
+    document.getElementById('estimateForm').addEventListener('submit', function(e) {
       e.preventDefault();
 
       const name = document.getElementById('clientName').value.trim();
@@ -263,3 +261,5 @@
         else if (serviceName === "Window Caulking Shields") {
           const windows = parseInt(document.getElementById('caulkingWindows').value, 10) || 0;
           basePrice = windows * 170;
+          itemBreakdown = ` (${windows} windows @ $170/ea)`;
+     
