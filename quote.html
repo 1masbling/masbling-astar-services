@@ -6,18 +6,18 @@
   <title>Masbling Astar Services | Professional Quote Generator</title>
   <script src="https://jsdelivr.net"></script>
   <style>
-    /* Exact Hardcoded Verified Brand Hex Codes */
-    .brand-bg-dark { background-color: #0A111E !important; }
-    .brand-bg-blue { background-color: #004487 !important; }
-    .brand-text-gold { color: #FFCC00 !important; }
-    .brand-bg-gold { background-color: #FFCC00 !important; }
-    .brand-border-gold { border-color: #FFCC00 !important; }
+    /* Absolute Hardcoded Verified Brand Hex Codes */
+    .brand-bg-dark { background-color: #030712 !important; }
+    .brand-bg-blue { background-color: #07162c !important; }
+    .brand-text-gold { color: #fbbf24 !important; }
+    .brand-bg-gold { background-color: #fbbf24 !important; }
+    .brand-border-gold { border-color: #fbbf24 !important; }
   </style>
 </head>
 <body class="brand-bg-dark text-white font-sans antialiased min-h-screen py-6 px-4">
 
-  <!-- Main Container: Forced Single-Column Mobile Viewport -->
-  <div class="w-full max-w-md mx-auto brand-bg-blue rounded-3xl p-6 border border-white/10 shadow-2xl">
+  <!-- Main Container: Forced Mobile Single-Column Layout -->
+  <div class="w-full max-w-md mx-auto brand-bg-blue rounded-3xl p-6 border border-white/5 shadow-2xl">
     
     <!-- Title Area -->
     <header class="text-center mb-8 border-b border-white/10 pb-6">
@@ -30,7 +30,7 @@
       <!-- 1. Gutter Cleaning Baseline -->
       <div class="bg-black/20 p-4 rounded-2xl border border-white/5 flex items-start transition hover:border-white/20">
         <div class="flex items-center h-5">
-          <input type="checkbox" id="gutter" onchange="calculateAstarTotal()" class="w-5 h-5 rounded bg-slate-900 accent-[#FFCC00]">
+          <input type="checkbox" id="gutter" onchange="calculateAstarTotal()" class="w-5 h-5 rounded bg-slate-900 accent-[#fbbf24]">
         </div>
         <div class="ml-3 text-sm">
           <label for="gutter" class="font-bold text-slate-100 block">Gutter Cleaning Baseline</label>
@@ -41,7 +41,7 @@
       <!-- 2. Soffit & Fascia Care -->
       <div class="bg-black/20 p-4 rounded-2xl border border-white/5 flex items-start transition hover:border-white/20">
         <div class="flex items-center h-5">
-          <input type="checkbox" id="soffit" onchange="calculateAstarTotal()" class="w-5 h-5 rounded bg-slate-900 accent-[#FFCC00]">
+          <input type="checkbox" id="soffit" onchange="calculateAstarTotal()" class="w-5 h-5 rounded bg-slate-900 accent-[#fbbf24]">
         </div>
         <div class="ml-3 text-sm">
           <label for="soffit" class="font-bold text-slate-100 block">Soffit & Fascia Care</label>
@@ -53,7 +53,7 @@
       <div class="bg-black/20 p-4 rounded-2xl border border-white/5 space-y-3 transition hover:border-white/20">
         <div class="flex items-start">
           <div class="flex items-center h-5">
-            <input type="checkbox" id="vent" onchange="calculateAstarTotal()" class="w-5 h-5 rounded bg-slate-900 accent-[#FFCC00]">
+            <input type="checkbox" id="vent" onchange="calculateAstarTotal()" class="w-5 h-5 rounded bg-slate-900 accent-[#fbbf24]">
           </div>
           <div class="ml-3 text-sm">
             <label for="vent" class="font-bold text-slate-100 block">Vent Replacement</label>
@@ -70,7 +70,7 @@
       <div class="bg-black/20 p-4 rounded-2xl border border-white/5 space-y-3 transition hover:border-white/20">
         <div class="flex items-start">
           <div class="flex items-center h-5">
-            <input type="checkbox" id="repair" onchange="calculateAstarTotal()" class="w-5 h-5 rounded bg-slate-900 accent-[#FFCC00]">
+            <input type="checkbox" id="repair" onchange="calculateAstarTotal()" class="w-5 h-5 rounded bg-slate-900 accent-[#fbbf24]">
           </div>
           <div class="ml-3 text-sm">
             <label for="repair" class="font-bold text-slate-100 block">Eavestrough Repair (Leaks)</label>
@@ -87,7 +87,7 @@
       <div class="bg-black/20 p-4 rounded-2xl border border-white/5 space-y-3 transition hover:border-white/20">
         <div class="flex items-start">
           <div class="flex items-center h-5">
-            <input type="checkbox" id="caulking" onchange="calculateAstarTotal()" class="w-5 h-5 rounded bg-slate-900 accent-[#FFCC00]">
+            <input type="checkbox" id="caulking" onchange="calculateAstarTotal()" class="w-5 h-5 rounded bg-slate-900 accent-[#fbbf24]">
           </div>
           <div class="ml-3 text-sm">
             <label for="caulking" class="font-bold text-slate-100 block">Window Caulking Shields</label>
@@ -103,7 +103,7 @@
       <!-- 6. Power Washing Service -->
       <div class="bg-black/20 p-4 rounded-2xl border border-white/5 flex items-start transition hover:border-white/20">
         <div class="flex items-center h-5">
-          <input type="checkbox" id="powerwash" onchange="calculateAstarTotal()" class="w-5 h-5 rounded bg-slate-900 accent-[#FFCC00]">
+          <input type="checkbox" id="powerwash" onchange="calculateAstarTotal()" class="w-5 h-5 rounded bg-slate-900 accent-[#fbbf24]">
         </div>
         <div class="ml-3 text-sm">
           <label for="powerwash" class="font-bold text-slate-100 block">Power Washing Solutions</label>
@@ -115,7 +115,7 @@
       <div class="bg-black/20 p-4 rounded-2xl border border-white/5 space-y-3 transition hover:border-white/20">
         <div class="flex items-start">
           <div class="flex items-center h-5">
-            <input type="checkbox" id="heatedwires" onchange="calculateAstarTotal()" class="w-5 h-5 rounded bg-slate-900 accent-[#FFCC00]">
+            <input type="checkbox" id="heatedwires" onchange="calculateAstarTotal()" class="w-5 h-5 rounded bg-slate-900 accent-[#fbbf24]">
           </div>
           <div class="ml-3 text-sm">
             <label for="heatedwires" class="font-bold text-slate-100 block">Heated Wires Systems</label>
@@ -131,7 +131,7 @@
       <!-- 8. Christmas Lights Hanging -->
       <div class="bg-black/20 p-4 rounded-2xl border border-white/5 flex items-start transition hover:border-white/20">
         <div class="flex items-center h-5">
-          <input type="checkbox" id="xmaslights" onchange="calculateAstarTotal()" class="w-5 h-5 rounded bg-slate-900 accent-[#FFCC00]">
+          <input type="checkbox" id="xmaslights" onchange="calculateAstarTotal()" class="w-5 h-5 rounded bg-slate-900 accent-[#fbbf24]">
         </div>
         <div class="ml-3 text-sm">
           <label for="xmaslights" class="font-bold text-slate-100 block">Seasonal Christmas Lights</label>
