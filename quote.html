@@ -6,23 +6,23 @@
   <title>Masbling Astar Services | Professional Quote Generator</title>
   <script src="https://jsdelivr.net"></script>
   <style>
-    /* Exact Live Site Color Alignment */
-    .brand-bg-main { background-color: #002244 !important; }
-    .brand-bg-card { background-color: #004B87 !important; }
+    /* Exact Hardcoded Verified Brand Hex Codes */
+    .brand-bg-dark { background-color: #0A111E !important; }
+    .brand-bg-blue { background-color: #004487 !important; }
     .brand-text-gold { color: #FFCC00 !important; }
     .brand-bg-gold { background-color: #FFCC00 !important; }
     .brand-border-gold { border-color: #FFCC00 !important; }
   </style>
 </head>
-<body class="brand-bg-main text-white font-sans antialiased min-h-screen py-6 px-4">
+<body class="brand-bg-dark text-white font-sans antialiased min-h-screen py-6 px-4">
 
-  <!-- Main Container: Forced Mobile Single-Column Layout -->
-  <div class="w-full max-w-md mx-auto brand-bg-card rounded-3xl p-6 border border-white/10 shadow-2xl">
+  <!-- Main Container: Forced Single-Column Mobile Viewport -->
+  <div class="w-full max-w-md mx-auto brand-bg-blue rounded-3xl p-6 border border-white/10 shadow-2xl">
     
-    <!-- Header -->
+    <!-- Title Area -->
     <header class="text-center mb-8 border-b border-white/10 pb-6">
       <h1 class="text-2xl font-black uppercase tracking-wider text-white">Select Project Scope</h1>
-      <p class="text-xs brand-text-gold font-bold tracking-widest uppercase mt-1">Instant Upfront Flat-Rate Estimate</p>
+      <p class="text-xs brand-text-gold font-extrabold tracking-widest uppercase mt-1">Instant Upfront Flat-Rate Estimate</p>
     </header>
 
     <form id="astarEstimateForm" class="space-y-5">
@@ -30,7 +30,7 @@
       <!-- 1. Gutter Cleaning Baseline -->
       <div class="bg-black/20 p-4 rounded-2xl border border-white/5 flex items-start transition hover:border-white/20">
         <div class="flex items-center h-5">
-          <input type="checkbox" id="gutter" onchange="calculateAstarTotal()" class="w-5 h-5 rounded bg-slate-800 accent-[#FFCC00]">
+          <input type="checkbox" id="gutter" onchange="calculateAstarTotal()" class="w-5 h-5 rounded bg-slate-900 accent-[#FFCC00]">
         </div>
         <div class="ml-3 text-sm">
           <label for="gutter" class="font-bold text-slate-100 block">Gutter Cleaning Baseline</label>
@@ -41,7 +41,7 @@
       <!-- 2. Soffit & Fascia Care -->
       <div class="bg-black/20 p-4 rounded-2xl border border-white/5 flex items-start transition hover:border-white/20">
         <div class="flex items-center h-5">
-          <input type="checkbox" id="soffit" onchange="calculateAstarTotal()" class="w-5 h-5 rounded bg-slate-800 accent-[#FFCC00]">
+          <input type="checkbox" id="soffit" onchange="calculateAstarTotal()" class="w-5 h-5 rounded bg-slate-900 accent-[#FFCC00]">
         </div>
         <div class="ml-3 text-sm">
           <label for="soffit" class="font-bold text-slate-100 block">Soffit & Fascia Care</label>
@@ -53,7 +53,7 @@
       <div class="bg-black/20 p-4 rounded-2xl border border-white/5 space-y-3 transition hover:border-white/20">
         <div class="flex items-start">
           <div class="flex items-center h-5">
-            <input type="checkbox" id="vent" onchange="calculateAstarTotal()" class="w-5 h-5 rounded bg-slate-800 accent-[#FFCC00]">
+            <input type="checkbox" id="vent" onchange="calculateAstarTotal()" class="w-5 h-5 rounded bg-slate-900 accent-[#FFCC00]">
           </div>
           <div class="ml-3 text-sm">
             <label for="vent" class="font-bold text-slate-100 block">Vent Replacement</label>
@@ -70,7 +70,7 @@
       <div class="bg-black/20 p-4 rounded-2xl border border-white/5 space-y-3 transition hover:border-white/20">
         <div class="flex items-start">
           <div class="flex items-center h-5">
-            <input type="checkbox" id="repair" onchange="calculateAstarTotal()" class="w-5 h-5 rounded bg-slate-800 accent-[#FFCC00]">
+            <input type="checkbox" id="repair" onchange="calculateAstarTotal()" class="w-5 h-5 rounded bg-slate-900 accent-[#FFCC00]">
           </div>
           <div class="ml-3 text-sm">
             <label for="repair" class="font-bold text-slate-100 block">Eavestrough Repair (Leaks)</label>
@@ -87,7 +87,7 @@
       <div class="bg-black/20 p-4 rounded-2xl border border-white/5 space-y-3 transition hover:border-white/20">
         <div class="flex items-start">
           <div class="flex items-center h-5">
-            <input type="checkbox" id="caulking" onchange="calculateAstarTotal()" class="w-5 h-5 rounded bg-slate-800 accent-[#FFCC00]">
+            <input type="checkbox" id="caulking" onchange="calculateAstarTotal()" class="w-5 h-5 rounded bg-slate-900 accent-[#FFCC00]">
           </div>
           <div class="ml-3 text-sm">
             <label for="caulking" class="font-bold text-slate-100 block">Window Caulking Shields</label>
@@ -103,7 +103,7 @@
       <!-- 6. Power Washing Service -->
       <div class="bg-black/20 p-4 rounded-2xl border border-white/5 flex items-start transition hover:border-white/20">
         <div class="flex items-center h-5">
-          <input type="checkbox" id="powerwash" onchange="calculateAstarTotal()" class="w-5 h-5 rounded bg-slate-800 accent-[#FFCC00]">
+          <input type="checkbox" id="powerwash" onchange="calculateAstarTotal()" class="w-5 h-5 rounded bg-slate-900 accent-[#FFCC00]">
         </div>
         <div class="ml-3 text-sm">
           <label for="powerwash" class="font-bold text-slate-100 block">Power Washing Solutions</label>
@@ -115,7 +115,7 @@
       <div class="bg-black/20 p-4 rounded-2xl border border-white/5 space-y-3 transition hover:border-white/20">
         <div class="flex items-start">
           <div class="flex items-center h-5">
-            <input type="checkbox" id="heatedwires" onchange="calculateAstarTotal()" class="w-5 h-5 rounded bg-slate-800 accent-[#FFCC00]">
+            <input type="checkbox" id="heatedwires" onchange="calculateAstarTotal()" class="w-5 h-5 rounded bg-slate-900 accent-[#FFCC00]">
           </div>
           <div class="ml-3 text-sm">
             <label for="heatedwires" class="font-bold text-slate-100 block">Heated Wires Systems</label>
@@ -131,7 +131,7 @@
       <!-- 8. Christmas Lights Hanging -->
       <div class="bg-black/20 p-4 rounded-2xl border border-white/5 flex items-start transition hover:border-white/20">
         <div class="flex items-center h-5">
-          <input type="checkbox" id="xmaslights" onchange="calculateAstarTotal()" class="w-5 h-5 rounded bg-slate-800 accent-[#FFCC00]">
+          <input type="checkbox" id="xmaslights" onchange="calculateAstarTotal()" class="w-5 h-5 rounded bg-slate-900 accent-[#FFCC00]">
         </div>
         <div class="ml-3 text-sm">
           <label for="xmaslights" class="font-bold text-slate-100 block">Seasonal Christmas Lights</label>
@@ -141,20 +141,20 @@
 
       <!-- Total Calculator Readout Section -->
       <div class="bg-white/5 rounded-2xl border brand-border-gold p-5 text-center mt-6">
-        <span class="text-xs brand-text-gold font-extrabold uppercase tracking-widest block mb-1">Calculated Total</span>
+        <span class="text-xs brand-text-gold font-black uppercase tracking-widest block mb-1">Calculated Total</span>
         <div id="totalDisplay" class="text-4xl font-black text-white">$0</div>
       </div>
 
-      <!-- Customer Information Handoff Block -->
+      <!-- Customer Information Input Block -->
       <div class="pt-6 border-t border-white/10 space-y-4">
         <h3 class="text-sm font-bold tracking-wider text-slate-300 uppercase">Customer Information</h3>
-        <input type="text" id="custName" placeholder="Your Full Name" required class="w-full px-4 py-3 bg-black/20 border border-white/10 rounded-xl text-white placeholder-slate-400 text-sm focus:outline-none">
-        <input type="tel" id="custPhone" placeholder="Phone Number" required class="w-full px-4 py-3 bg-black/20 border border-white/10 rounded-xl text-white placeholder-slate-400 text-sm focus:outline-none">
-        <input type="text" id="custAddress" placeholder="Property Address" required class="w-full px-4 py-3 bg-black/20 border border-white/10 rounded-xl text-white placeholder-slate-400 text-sm focus:outline-none">
+        <input type="text" id="custName" placeholder="Your Full Name" required class="w-full px-4 py-3 bg-black/30 border border-white/10 rounded-xl text-white placeholder-slate-400 text-sm focus:outline-none">
+        <input type="tel" id="custPhone" placeholder="Phone Number" required class="w-full px-4 py-3 bg-black/30 border border-white/10 rounded-xl text-white placeholder-slate-400 text-sm focus:outline-none">
+        <input type="text" id="custAddress" placeholder="Property Address" required class="w-full px-4 py-3 bg-black/30 border border-white/10 rounded-xl text-white placeholder-slate-400 text-sm focus:outline-none">
       </div>
 
-      <!-- Submit Trigger -->
-      <button type="submit" class="w-full brand-bg-gold text-slate-950 font-black py-4 rounded-xl text-sm transition tracking-wider uppercase shadow-xl hover:bg-[#e6b800] cursor-pointer">
+      <!-- Submit Action Button -->
+      <button type="submit" class="w-full brand-bg-gold text-slate-950 font-black py-4 rounded-xl text-sm transition tracking-wider uppercase shadow-xl hover:opacity-90 cursor-pointer">
         Submit Request & Connect
       </button>
       <p id="formStatus" class="text-center text-xs font-semibold hidden"></p>
