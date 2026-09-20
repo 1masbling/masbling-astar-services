@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Masbling Astar Services | Professional Quote Generator</title>
+  <!-- Tailwind CSS Play CDN -->
   <script src="https://jsdelivr.net"></script>
   <style>
     /* Absolute Hardcoded Verified Brand Hex Codes */
@@ -25,7 +26,7 @@
       <p class="text-xs brand-text-gold font-extrabold tracking-widest uppercase mt-1">Instant Upfront Flat-Rate Estimate</p>
     </header>
 
-    <form id="astarEstimateForm" class="space-y-5">
+    <form id="astarEstimateForm" class="space-y-5" onsubmit="handleFormSubmit(event)">
       
       <!-- 1. Gutter Cleaning Baseline -->
       <div class="bg-black/20 p-4 rounded-2xl border border-white/5 flex items-start transition hover:border-white/20">
@@ -164,3 +165,4 @@
   <script>
     function calculateAstarTotal() {
       let totalCost = 0;
+
