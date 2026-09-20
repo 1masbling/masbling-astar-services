@@ -4,154 +4,143 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Masbling Astar Services | Professional Quote Generator</title>
-  <!-- Standard Reliable Tailwind CDN Integration -->
+  <!-- Clean Isolated Tailwind Engine Integration -->
   <script src="https://tailwindcss.com"></script>
-  <style>
-    /* Hardcoded Absolute Corporate Brand Hex Palette Mapping */
-    .brand-bg-dark { background-color: #0F1D3A !important; }
-    .brand-bg-blue { background-color: #01519F !important; }
-    .brand-text-gold { color: #FBBE02 !important; }
-    .brand-bg-gold { background-color: #FBBE02 !important; }
-    .brand-border-gold { border-color: #FBBE02 !important; }
-    .brand-text-sky { color: #30A6E0 !important; }
-  </style>
 </head>
-<body class="brand-bg-dark text-white font-sans antialiased min-h-screen py-6 px-4">
+<body class="bg-[#0F1D3A] text-white font-sans antialiased min-h-screen py-10 px-4 flex justify-center items-start">
 
-  <!-- Main Container: Mobile Single-Column Container -->
-  <div class="w-full max-w-md mx-auto brand-bg-blue rounded-3xl p-6 border border-white/10 shadow-2xl">
+  <!-- Main Isolated Card Container -->
+  <div class="w-full max-w-xl bg-[#01519F] rounded-3xl p-6 sm:p-8 border border-white/10 shadow-2xl space-y-6">
     
-    <!-- Header Design with Corporate Logo -->
-    <header class="text-center mb-8 border-b border-white/10 pb-6 flex flex-col items-center">
-      <!-- Direct Path to your Logo Asset -->
-      <img src="logo.png" alt="Masbling Astar Services Logo" class="h-20 w-auto object-contain mb-4 rounded-xl shadow-md" onerror="this.src='images/logo.png'; this.onerror=function(){this.style.display='none';};">
-      <h1 class="text-2xl font-black uppercase tracking-wider text-white">Select Project Scope</h1>
-      <p class="text-xs brand-text-gold font-extrabold tracking-widest uppercase mt-1">Instant Upfront Flat-Rate Estimate</p>
+    <!-- Branding Header Section -->
+    <header class="text-center border-b border-white/10 pb-6 flex flex-col items-center">
+      <img src="logo.png" alt="Masbling Astar Services Logo" class="h-24 w-auto object-contain mb-4 rounded-xl shadow-md" onerror="this.src='images/logo.png'; this.onerror=function(){this.style.display='none';};">
+      <h1 class="text-2xl sm:text-3xl font-black uppercase tracking-wider text-white">Select Project Scope</h1>
+      <p class="text-xs text-[#FBBE02] font-black tracking-widest uppercase mt-1">Instant Upfront Flat-Rate Estimate</p>
     </header>
 
-    <form id="astarEstimateForm" class="space-y-5" onsubmit="handleFormSubmit(event)">
+    <form id="astarEstimateForm" class="space-y-4" onsubmit="handleFormSubmit(event)">
       
       <!-- 1. Gutter Cleaning Baseline -->
-      <div class="bg-black/20 p-4 rounded-2xl border border-white/5 flex items-start transition hover:border-white/20">
-        <div class="flex items-center h-5">
-          <input type="checkbox" id="gutter" onchange="calculateAstarTotal()" class="w-5 h-5 rounded bg-slate-900 accent-[#FBBE02]">
+      <div class="bg-black/30 p-4 rounded-xl border border-white/5 flex items-start justify-between">
+        <div class="flex items-start">
+          <input type="checkbox" id="gutter" onchange="calculateAstarTotal()" class="w-5 h-5 mt-0.5 rounded bg-slate-900 accent-[#FBBE02] cursor-pointer">
+          <label for="gutter" class="ml-3 font-bold text-slate-100 cursor-pointer block text-sm sm:text-base">Gutter Cleaning Baseline</label>
         </div>
-        <div class="ml-3 text-sm">
-          <label for="gutter" class="font-bold text-slate-100 block">Gutter Cleaning Baseline</label>
-          <span class="brand-text-gold text-xs font-bold block mt-0.5">Starts at $195</span>
-        </div>
+        <span class="text-[#FBBE02] text-sm font-black whitespace-nowrap ml-4">Starts at $195</span>
       </div>
 
       <!-- 2. Soffit & Fascia Care -->
-      <div class="bg-black/20 p-4 rounded-2xl border border-white/5 flex items-start transition hover:border-white/20">
-        <div class="flex items-center h-5">
-          <input type="checkbox" id="soffit" onchange="calculateAstarTotal()" class="w-5 h-5 rounded bg-slate-900 accent-[#FBBE02]">
+      <div class="bg-black/30 p-4 rounded-xl border border-white/5 flex items-start justify-between">
+        <div class="flex items-start">
+          <input type="checkbox" id="soffit" onchange="calculateAstarTotal()" class="w-5 h-5 mt-0.5 rounded bg-slate-900 accent-[#FBBE02] cursor-pointer">
+          <label for="soffit" class="ml-3 font-bold text-slate-100 cursor-pointer block text-sm sm:text-base">Soffit & Fascia Care</label>
         </div>
-        <div class="ml-3 text-sm">
-          <label for="soffit" class="font-bold text-slate-100 block">Soffit & Fascia Care</label>
-          <span class="brand-text-gold text-xs font-bold block mt-0.5">Flat rate of $170</span>
-        </div>
+        <span class="text-[#FBBE02] text-sm font-black whitespace-nowrap ml-4">$170</span>
       </div>
 
       <!-- 3. Vent Replacement -->
-      <div class="bg-black/20 p-4 rounded-2xl border border-white/5 space-y-3 transition hover:border-white/20">
-        <div class="flex items-start">
-          <div class="flex items-center h-5">
-            <input type="checkbox" id="vent" onchange="calculateAstarTotal()" class="w-5 h-5 rounded bg-slate-900 accent-[#FBBE02]">
+      <div class="bg-black/30 p-4 rounded-xl border border-white/5 space-y-3">
+        <div class="flex items-start justify-between">
+          <div class="flex items-start">
+            <input type="checkbox" id="vent" onchange="calculateAstarTotal()" class="w-5 h-5 mt-0.5 rounded bg-slate-900 accent-[#FBBE02] cursor-pointer">
+            <label for="vent" class="ml-3 font-bold text-slate-100 cursor-pointer block text-sm sm:text-base">Vent Replacement</label>
           </div>
-          <div class="ml-3 text-sm">
-            <label for="vent" class="font-bold text-slate-100 block">Vent Replacement</label>
-            <span class="brand-text-gold text-xs font-bold block mt-0.5">$120 baseline setup rate</span>
-          </div>
+          <span class="text-[#FBBE02] text-sm font-black whitespace-nowrap ml-4">$120 Base</span>
         </div>
-        <div class="pl-8 flex justify-between items-center bg-black/40 p-2.5 rounded-xl text-xs border border-white/5">
+        <div class="pl-8 flex justify-between items-center bg-black/40 p-2 rounded-lg text-xs">
           <span class="text-slate-300">Additional Vents ($30/each):</span>
-          <input type="number" id="ventQuantity" min="0" value="0" oninput="handleQuantityInput('vent', this)" class="w-16 bg-slate-900 border border-slate-700 rounded-lg text-center py-1 font-bold text-white focus:outline-none">
+          <input type="number" id="ventQuantity" min="0" value="0" oninput="handleQuantityInput('vent', this)" class="w-16 bg-[#0F1D3A] border border-white/20 rounded text-center py-1 font-bold text-white focus:border-[#FBBE02] focus:outline-none">
         </div>
       </div>
 
-      <!-- 4. Eavestrough & Downpipe Repair -->
-      <div class="bg-black/20 p-4 rounded-2xl border border-white/5 space-y-3 transition hover:border-white/20">
-        <div class="flex items-start">
-          <div class="flex items-center h-5">
-            <input type="checkbox" id="repair" onchange="calculateAstarTotal()" class="w-5 h-5 rounded bg-slate-900 accent-[#FBBE02]">
+      <!-- 4. Eavestrough Repair -->
+      <div class="bg-black/30 p-4 rounded-xl border border-white/5 space-y-3">
+        <div class="flex items-start justify-between">
+          <div class="flex items-start">
+            <input type="checkbox" id="repair" onchange="calculateAstarTotal()" class="w-5 h-5 mt-0.5 rounded bg-slate-900 accent-[#FBBE02] cursor-pointer">
+            <label for="repair" class="ml-3 font-bold text-slate-100 cursor-pointer block text-sm sm:text-base">Eavestrough Repair (Leaks)</label>
           </div>
-          <div class="ml-3 text-sm">
-            <label for="repair" class="font-bold text-slate-100 block">Eavestrough Repair (Leaks)</label>
-            <span class="brand-text-gold text-xs font-bold block mt-0.5">$170 foundational repair base</span>
-          </div>
+          <span class="text-[#FBBE02] text-sm font-black whitespace-nowrap ml-4">$170 Base</span>
         </div>
-        <div class="pl-8 flex justify-between items-center bg-black/40 p-2.5 rounded-xl text-xs border border-white/5">
+        <div class="pl-8 flex justify-between items-center bg-black/40 p-2 rounded-lg text-xs">
           <span class="text-slate-300">Extra Leaking Corners ($30/each):</span>
-          <input type="number" id="cornerQuantity" min="0" value="0" oninput="handleQuantityInput('repair', this)" class="w-16 bg-slate-900 border border-slate-700 rounded-lg text-center py-1 font-bold text-white focus:outline-none">
+          <input type="number" id="cornerQuantity" min="0" value="0" oninput="handleQuantityInput('repair', this)" class="w-16 bg-[#0F1D3A] border border-white/20 rounded text-center py-1 font-bold text-white focus:border-[#FBBE02] focus:outline-none">
         </div>
       </div>
 
-      <!-- 5. Window Caulking Shields -->
-      <div class="bg-black/20 p-4 rounded-2xl border border-white/5 space-y-3 transition hover:border-white/20">
-        <div class="flex items-start">
-          <div class="flex items-center h-5">
-            <input type="checkbox" id="caulking" onchange="calculateAstarTotal()" class="w-5 h-5 rounded bg-slate-900 accent-[#FBBE02]">
+      <!-- 5. Window Caulking -->
+      <div class="bg-black/30 p-4 rounded-xl border border-white/5 space-y-3">
+        <div class="flex items-start justify-between">
+          <div class="flex items-start">
+            <input type="checkbox" id="caulking" onchange="calculateAstarTotal()" class="w-5 h-5 mt-0.5 rounded bg-slate-900 accent-[#FBBE02] cursor-pointer">
+            <label for="caulking" class="ml-3 font-bold text-slate-100 cursor-pointer block text-sm sm:text-base">Window Caulking Shields</label>
           </div>
-          <div class="ml-3 text-sm">
-            <label for="caulking" class="font-bold text-slate-100 block">Window Caulking Shields</label>
-            <span class="brand-text-gold text-xs font-bold block mt-0.5">$170 per tracked window unit</span>
-          </div>
+          <span class="text-[#FBBE02] text-sm font-black whitespace-nowrap ml-4">$170 / window</span>
         </div>
-        <div class="pl-8 flex justify-between items-center bg-black/40 p-2.5 rounded-xl text-xs border border-white/5">
+        <div class="pl-8 flex justify-between items-center bg-black/40 p-2 rounded-lg text-xs">
           <span class="text-slate-300">Total Windows Count:</span>
-          <input type="number" id="windowQuantity" min="0" value="0" oninput="handleQuantityInput('caulking', this)" class="w-16 bg-slate-900 border border-slate-700 rounded-lg text-center py-1 font-bold text-white focus:outline-none">
+          <input type="number" id="windowQuantity" min="0" value="0" oninput="handleQuantityInput('caulking', this)" class="w-16 bg-[#0F1D3A] border border-white/20 rounded text-center py-1 font-bold text-white focus:border-[#FBBE02] focus:outline-none">
         </div>
       </div>
 
-      <!-- 6. Power Washing Service -->
-      <div class="bg-black/20 p-4 rounded-2xl border border-white/5 flex items-start transition hover:border-white/20">
-        <div class="flex items-center h-5">
-          <input type="checkbox" id="powerwash" onchange="calculateAstarTotal()" class="w-5 h-5 rounded bg-slate-900 accent-[#FBBE02]">
-        </div>
-        <div class="ml-3 text-sm">
-          <label for="powerwash" class="font-bold text-slate-100 block">Power Washing Solutions</label>
-          <span class="brand-text-gold text-xs font-bold block mt-0.5">Flat rate of $250</span>
-        </div>
-      </div>
-
-      <!-- 7. Heated Wires Defrost Systems -->
-      <div class="bg-black/20 p-4 rounded-2xl border border-white/5 space-y-3 transition hover:border-white/20">
+      <!-- 6. Power Washing -->
+      <div class="bg-black/30 p-4 rounded-xl border border-white/5 flex items-start justify-between">
         <div class="flex items-start">
-          <div class="flex items-center h-5">
-            <input type="checkbox" id="heatedwires" onchange="calculateAstarTotal()" class="w-5 h-5 rounded bg-slate-900 accent-[#FBBE02]">
-          </div>
-          <div class="ml-3 text-sm">
-            <label for="heatedwires" class="font-bold text-slate-100 block">Heated Wires Systems</label>
-            <span class="brand-text-gold text-xs font-bold block mt-0.5">$100 starting rate per 25 feet</span>
-          </div>
+          <input type="checkbox" id="powerwash" onchange="calculateAstarTotal()" class="w-5 h-5 mt-0.5 rounded bg-slate-900 accent-[#FBBE02] cursor-pointer">
+          <label for="powerwash" class="ml-3 font-bold text-slate-100 cursor-pointer block text-sm sm:text-base">Power Washing Solutions</label>
         </div>
-        <div class="pl-8 flex justify-between items-center bg-black/40 p-2.5 rounded-xl text-xs border border-white/5">
+        <span class="text-[#FBBE02] text-sm font-black whitespace-nowrap ml-4">$250</span>
+      </div>
+
+      <!-- 7. Heated Wires -->
+      <div class="bg-black/30 p-4 rounded-xl border border-white/5 space-y-3">
+        <div class="flex items-start justify-between">
+          <div class="flex items-start">
+            <input type="checkbox" id="heatedwires" onchange="calculateAstarTotal()" class="w-5 h-5 mt-0.5 rounded bg-slate-900 accent-[#FBBE02] cursor-pointer">
+            <label for="heatedwires" class="ml-3 font-bold text-slate-100 cursor-pointer block text-sm sm:text-base">Heated Wires Systems</label>
+          </div>
+          <span class="text-[#FBBE02] text-sm font-black whitespace-nowrap ml-4">$100 / 25 ft</span>
+        </div>
+        <div class="pl-8 flex justify-between items-center bg-black/40 p-2 rounded-lg text-xs">
           <span class="text-slate-300">Estimated Length Needed (ft):</span>
-          <input type="number" id="wireLength" min="0" value="0" oninput="handleQuantityInput('heatedwires', this)" class="w-16 bg-slate-900 border border-slate-700 rounded-lg text-center py-1 font-bold text-white focus:outline-none">
+          <input type="number" id="wireLength" min="0" value="0" oninput="handleQuantityInput('heatedwires', this)" class="w-16 bg-[#0F1D3A] border border-white/20 rounded text-center py-1 font-bold text-white focus:border-[#FBBE02] focus:outline-none">
         </div>
       </div>
 
-      <!-- 8. Christmas Lights Hanging -->
-      <div class="bg-black/20 p-4 rounded-2xl border border-white/5 flex items-start transition hover:border-white/20">
-        <div class="flex items-center h-5">
-          <input type="checkbox" id="xmaslights" onchange="calculateAstarTotal()" class="w-5 h-5 rounded bg-slate-900 accent-[#FBBE02]">
+      <!-- 8. Christmas Lights -->
+      <div class="bg-black/30 p-4 rounded-xl border border-white/5 flex items-start justify-between">
+        <div class="flex items-start">
+          <input type="checkbox" id="xmaslights" onchange="calculateAstarTotal()" class="w-5 h-5 mt-0.5 rounded bg-slate-900 accent-[#FBBE02] cursor-pointer">
+          <label for="xmaslights" class="ml-3 font-bold text-slate-100 cursor-pointer block text-sm sm:text-base">Seasonal Christmas Lights</label>
         </div>
-        <div class="ml-3 text-sm">
-          <label for="xmaslights" class="font-bold text-slate-100 block">Seasonal Christmas Lights</label>
-          <span class="brand-text-gold text-xs font-bold block mt-0.5">Hanging / Custom Quote Only</span>
-        </div>
+        <span class="text-[#FBBE02] text-sm font-black whitespace-nowrap ml-4">Custom Quote</span>
       </div>
 
-      <!-- Total Calculator Readout -->
-      <div class="bg-black/30 rounded-2xl border brand-border-gold p-5 text-center mt-6">
-        <span class="text-xs brand-text-gold font-black uppercase tracking-widest block mb-1">Calculated Total</span>
+      <!-- Total Readout Section -->
+      <div class="bg-black/40 rounded-xl border border-[#FBBE02] p-4 text-center">
+        <span class="text-xs text-[#FBBE02] font-black uppercase tracking-widest block mb-1">Calculated Total</span>
         <div id="totalDisplay" class="text-4xl font-black text-white">$0</div>
       </div>
 
-      <!-- Customer Contact Blocks -->
-      <div class="pt-6 border-t border-white/10 space-y-4">
-        <h3 class="text-sm font-bold tracking-wider brand-text-sky uppercase">Customer Information</h3>
-        <input type="text" id="custName" placeholder="Your Full Name" required class="w-full px-4 py-3 bg-black/30 border border-white/10 rounded-xl text-white placeholder-slate-400 text-sm focus:border-[#FBBE02] focus:outline-none">
-        <input type="tel" id="custPhone" placeholder="Phone Number" required class="w-full px-4 py-3 bg-black/30 border border-white/10 rounded-xl text-white placeholder-slate-400 text-sm focus:border-[#FBBE02] focus:outline-none">
+      <!-- Customer Information Input Block -->
+      <div class="pt-4 border-t border-white/10 space-y-3">
+        <h3 class="text-sm font-black tracking-wider text-[#30A6E0] uppercase">Customer Information</h3>
+        <input type="text" id="custName" placeholder="Your Full Name" required class="w-full px-4 py-3 bg-[#0F1D3A] border border-white/10 rounded-xl text-white placeholder-slate-400 text-sm focus:border-[#FBBE02] focus:outline-none">
+        <input type="tel" id="custPhone" placeholder="Phone Number" required class="w-full px-4 py-3 bg-[#0F1D3A] border border-white/10 rounded-xl text-white placeholder-slate-400 text-sm focus:border-[#FBBE02] focus:outline-none">
+        <input type="text" id="custAddress" placeholder="Property Address" required class="w-full px-4 py-3 bg-[#0F1D3A] border border-white/10 rounded-xl text-white placeholder-slate-400 text-sm focus:border-[#FBBE02] focus:outline-none">
+      </div>
 
+      <!-- Submit Action Button -->
+      <button type="submit" class="w-full bg-[#FBBE02] text-[#0F1D3A] font-black py-4 rounded-xl text-sm transition tracking-wider uppercase shadow-xl hover:bg-white cursor-pointer">
+        Submit Request via WhatsApp
+      </button>
+    </form>
+  </div>
+
+  <script>
+    function handleQuantityInput(checkboxId, inputEl) {
+      const val = parseFloat(inputEl.value) || 0;
+      const checkbox = document.getElementById(checkboxId);
+      if (val > 0 && !checkbox.checked) {
+        checkbox.checked = true;
