@@ -7,144 +7,144 @@
   <!-- Tailwind CSS Core for Layout Stylings -->
   <script src="https://jsdelivr.net"></script>
 </head>
-<body class="bg-slate-900 text-white font-sans antialiased min-h-screen py-6 px-4">
+<body class="bg-[#0f2d59] text-white font-sans antialiased min-h-screen py-6 px-4">
 
   <!-- Main Container: Forced Single-Column Layout for Mobile Screens -->
-  <div class="w-full max-w-md mx-auto bg-slate-950/60 rounded-3xl p-6 border border-slate-800 shadow-2xl backdrop-blur-md">
+  <div class="w-full max-w-md mx-auto bg-slate-950/40 rounded-3xl p-6 border border-white/10 shadow-2xl backdrop-blur-md">
     
     
-    <header class="text-center mb-8 border-b border-slate-800/60 pb-6">
+    <header class="text-center mb-8 border-b border-white/10 pb-6">
       <h1 class="text-2xl font-black uppercase tracking-wider text-white">Select Project Scope</h1>
-      <p class="text-xs text-blue-400 font-medium tracking-widest uppercase mt-1">Instant Upfront Flat-Rate Estimate</p>
+      <p class="text-xs text-yellow-400 font-bold tracking-widest uppercase mt-1">Instant Upfront Flat-Rate Estimate</p>
     </header>
 
     <!-- Pricing Interactive Checklist Form -->
     <form id="astarEstimateForm" class="space-y-6">
       
       <!-- 1. Gutter Cleaning & Maintenance -->
-      <div class="bg-slate-900/80 p-4 rounded-2xl border border-slate-800 flex items-start hover:border-blue-500/40 transition">
+      <div class="bg-[#0f2d59]/60 p-4 rounded-2xl border border-white/5 flex items-start hover:border-yellow-500/40 transition">
         <div class="flex items-center h-5">
-          <input type="checkbox" id="gutter" onchange="calculateAstarTotal()" class="w-5 h-5 rounded border-slate-700 bg-slate-800 text-blue-600 focus:ring-blue-500">
+          <input type="checkbox" id="gutter" onchange="calculateAstarTotal()" class="w-5 h-5 rounded border-slate-700 bg-slate-800 text-yellow-500 focus:ring-yellow-500">
         </div>
         <div class="ml-3 text-sm">
           <label for="gutter" class="font-bold text-slate-100 block">Gutter Cleaning Baseline</label>
-          <span class="text-blue-400 text-xs font-semibold block mt-0.5">Starts at $195</span>
+          <span class="text-yellow-400 text-xs font-bold block mt-0.5">Starts at $195</span>
         </div>
       </div>
 
       <!-- 2. Soffit & Fascia Care -->
-      <div class="bg-slate-900/80 p-4 rounded-2xl border border-slate-800 flex items-start hover:border-blue-500/40 transition">
+      <div class="bg-[#0f2d59]/60 p-4 rounded-2xl border border-white/5 flex items-start hover:border-yellow-500/40 transition">
         <div class="flex items-center h-5">
-          <input type="checkbox" id="soffit" onchange="calculateAstarTotal()" class="w-5 h-5 rounded border-slate-700 bg-slate-800 text-blue-600 focus:ring-blue-500">
+          <input type="checkbox" id="soffit" onchange="calculateAstarTotal()" class="w-5 h-5 rounded border-slate-700 bg-slate-800 text-yellow-500 focus:ring-yellow-500">
         </div>
         <div class="ml-3 text-sm">
           <label for="soffit" class="font-bold text-slate-100 block">Soffit & Fascia Care</label>
-          <span class="text-blue-400 text-xs font-semibold block mt-0.5">Flat rate of $170</span>
+          <span class="text-yellow-400 text-xs font-bold block mt-0.5">Flat rate of $170</span>
         </div>
       </div>
 
       <!-- 3. Vent Replacement -->
-      <div class="bg-slate-900/80 p-4 rounded-2xl border border-slate-800 space-y-3 hover:border-blue-500/40 transition">
+      <div class="bg-[#0f2d59]/60 p-4 rounded-2xl border border-white/5 space-y-3 hover:border-yellow-500/40 transition">
         <div class="flex items-start">
           <div class="flex items-center h-5">
-            <input type="checkbox" id="vent" onchange="calculateAstarTotal()" class="w-5 h-5 rounded border-slate-700 bg-slate-800 text-blue-600 focus:ring-blue-500">
+            <input type="checkbox" id="vent" onchange="calculateAstarTotal()" class="w-5 h-5 rounded border-slate-700 bg-slate-800 text-yellow-500 focus:ring-yellow-500">
           </div>
           <div class="ml-3 text-sm">
             <label for="vent" class="font-bold text-slate-100 block">Vent Replacement</label>
-            <span class="text-blue-400 text-xs font-semibold block mt-0.5">$120 baseline setup rate</span>
+            <span class="text-yellow-400 text-xs font-bold block mt-0.5">$120 baseline setup rate</span>
           </div>
         </div>
-        <div class="pl-8 flex justify-between items-center bg-slate-950/40 p-2.5 rounded-xl text-xs border border-slate-800/40">
-          <span class="text-slate-400 font-medium">Additional Vents ($30/each):</span>
-          <input type="number" id="ventQuantity" min="0" value="0" oninput="calculateAstarTotal()" class="w-16 bg-slate-800 border border-slate-700 rounded-lg text-center py-1 font-bold text-white focus:outline-none focus:ring-2 focus:ring-blue-500">
+        <div class="pl-8 flex justify-between items-center bg-slate-950/40 p-2.5 rounded-xl text-xs border border-white/5">
+          <span class="text-slate-300 font-medium">Additional Vents ($30/each):</span>
+          <input type="number" id="ventQuantity" min="0" value="0" oninput="calculateAstarTotal()" class="w-16 bg-slate-800 border border-slate-700 rounded-lg text-center py-1 font-bold text-white focus:outline-none focus:ring-2 focus:ring-yellow-500">
         </div>
       </div>
 
       <!-- 4. Eavestrough & Downpipe Repair -->
-      <div class="bg-slate-900/80 p-4 rounded-2xl border border-slate-800 space-y-3 hover:border-blue-500/40 transition">
+      <div class="bg-[#0f2d59]/60 p-4 rounded-2xl border border-white/5 space-y-3 hover:border-yellow-500/40 transition">
         <div class="flex items-start">
           <div class="flex items-center h-5">
-            <input type="checkbox" id="repair" onchange="calculateAstarTotal()" class="w-5 h-5 rounded border-slate-700 bg-slate-800 text-blue-600 focus:ring-blue-500">
+            <input type="checkbox" id="repair" onchange="calculateAstarTotal()" class="w-5 h-5 rounded border-slate-700 bg-slate-800 text-yellow-500 focus:ring-yellow-500">
           </div>
           <div class="ml-3 text-sm">
             <label for="repair" class="font-bold text-slate-100 block">Eavestrough Repair (Leaks)</label>
-            <span class="text-blue-400 text-xs font-semibold block mt-0.5">$170 foundational repair base</span>
+            <span class="text-yellow-400 text-xs font-bold block mt-0.5">$170 foundational repair base</span>
           </div>
         </div>
-        <div class="pl-8 flex justify-between items-center bg-slate-950/40 p-2.5 rounded-xl text-xs border border-slate-800/40">
-          <span class="text-slate-400 font-medium">Extra Leaking Corners ($30/each):</span>
-          <input type="number" id="cornerQuantity" min="0" value="0" oninput="calculateAstarTotal()" class="w-16 bg-slate-800 border border-slate-700 rounded-lg text-center py-1 font-bold text-white focus:outline-none focus:ring-2 focus:ring-blue-500">
+        <div class="pl-8 flex justify-between items-center bg-slate-950/40 p-2.5 rounded-xl text-xs border border-white/5">
+          <span class="text-slate-300 font-medium">Extra Leaking Corners ($30/each):</span>
+          <input type="number" id="cornerQuantity" min="0" value="0" oninput="calculateAstarTotal()" class="w-16 bg-slate-800 border border-slate-700 rounded-lg text-center py-1 font-bold text-white focus:outline-none focus:ring-2 focus:ring-yellow-500">
         </div>
       </div>
 
       <!-- 5. Window Caulking Shields -->
-      <div class="bg-slate-900/80 p-4 rounded-2xl border border-slate-800 space-y-3 hover:border-blue-500/40 transition">
+      <div class="bg-[#0f2d59]/60 p-4 rounded-2xl border border-white/5 space-y-3 hover:border-yellow-500/40 transition">
         <div class="flex items-start">
           <div class="flex items-center h-5">
-            <input type="checkbox" id="caulking" onchange="calculateAstarTotal()" class="w-5 h-5 rounded border-slate-700 bg-slate-800 text-blue-600 focus:ring-blue-500">
+            <input type="checkbox" id="caulking" onchange="calculateAstarTotal()" class="w-5 h-5 rounded border-slate-700 bg-slate-800 text-yellow-500 focus:ring-yellow-500">
           </div>
           <div class="ml-3 text-sm">
             <label for="caulking" class="font-bold text-slate-100 block">Window Caulking Shields</label>
-            <span class="text-blue-400 text-xs font-semibold block mt-0.5">$170 per tracked window unit</span>
+            <span class="text-yellow-400 text-xs font-bold block mt-0.5">$170 per tracked window unit</span>
           </div>
         </div>
-        <div class="pl-8 flex justify-between items-center bg-slate-950/40 p-2.5 rounded-xl text-xs border border-slate-800/40">
-          <span class="text-slate-400 font-medium">Total Windows Count:</span>
-          <input type="number" id="windowQuantity" min="0" value="0" oninput="calculateAstarTotal()" class="w-16 bg-slate-800 border border-slate-700 rounded-lg text-center py-1 font-bold text-white focus:outline-none focus:ring-2 focus:ring-blue-500">
+        <div class="pl-8 flex justify-between items-center bg-slate-950/40 p-2.5 rounded-xl text-xs border border-white/5">
+          <span class="text-slate-300 font-medium">Total Windows Count:</span>
+          <input type="number" id="windowQuantity" min="0" value="0" oninput="calculateAstarTotal()" class="w-16 bg-slate-800 border border-slate-700 rounded-lg text-center py-1 font-bold text-white focus:outline-none focus:ring-2 focus:ring-yellow-500">
         </div>
       </div>
 
       <!-- 6. Power Washing Service -->
-      <div class="bg-slate-900/80 p-4 rounded-2xl border border-slate-800 flex items-start hover:border-blue-500/40 transition">
+      <div class="bg-[#0f2d59]/60 p-4 rounded-2xl border border-white/5 flex items-start hover:border-yellow-500/40 transition">
         <div class="flex items-center h-5">
-          <input type="checkbox" id="powerwash" onchange="calculateAstarTotal()" class="w-5 h-5 rounded border-slate-700 bg-slate-800 text-blue-600 focus:ring-blue-500">
+          <input type="checkbox" id="powerwash" onchange="calculateAstarTotal()" class="w-5 h-5 rounded border-slate-700 bg-slate-800 text-yellow-500 focus:ring-yellow-500">
         </div>
         <div class="ml-3 text-sm">
           <label for="powerwash" class="font-bold text-slate-100 block">Power Washing Solutions</label>
-          <span class="text-blue-400 text-xs font-semibold block mt-0.5">Flat rate of $250</span>
+          <span class="text-yellow-400 text-xs font-bold block mt-0.5">Flat rate of $250</span>
         </div>
       </div>
 
       <!-- 7. Heated Wires Defrost Systems -->
-      <div class="bg-slate-900/80 p-4 rounded-2xl border border-slate-800 space-y-3 hover:border-blue-500/40 transition">
+      <div class="bg-[#0f2d59]/60 p-4 rounded-2xl border border-white/5 space-y-3 hover:border-yellow-500/40 transition">
         <div class="flex items-start">
           <div class="flex items-center h-5">
-            <input type="checkbox" id="heatedwires" onchange="calculateAstarTotal()" class="w-5 h-5 rounded border-slate-700 bg-slate-800 text-blue-600 focus:ring-blue-500">
+            <input type="checkbox" id="heatedwires" onchange="calculateAstarTotal()" class="w-5 h-5 rounded border-slate-700 bg-slate-800 text-yellow-500 focus:ring-yellow-500">
           </div>
           <div class="ml-3 text-sm">
             <label for="heatedwires" class="font-bold text-slate-100 block">Heated Wires Systems</label>
-            <span class="text-blue-400 text-xs font-semibold block mt-0.5">$100 starting rate per 25 feet</span>
+            <span class="text-yellow-400 text-xs font-bold block mt-0.5">$100 starting rate per 25 feet</span>
           </div>
         </div>
-        <div class="pl-8 flex justify-between items-center bg-slate-950/40 p-2.5 rounded-xl text-xs border border-slate-800/40">
-          <span class="text-slate-400 font-medium">Estimated Length Needed (ft):</span>
-          <input type="number" id="wireLength" min="0" value="0" oninput="calculateAstarTotal()" class="w-16 bg-slate-800 border border-slate-700 rounded-lg text-center py-1 font-bold text-white focus:outline-none focus:ring-2 focus:ring-blue-500">
+        <div class="pl-8 flex justify-between items-center bg-slate-950/40 p-2.5 rounded-xl text-xs border border-white/5">
+          <span class="text-slate-300 font-medium">Estimated Length Needed (ft):</span>
+          <input type="number" id="wireLength" min="0" value="0" oninput="calculateAstarTotal()" class="w-16 bg-slate-800 border border-slate-700 rounded-lg text-center py-1 font-bold text-white focus:outline-none focus:ring-2 focus:ring-yellow-500">
         </div>
       </div>
 
       <!-- 8. Christmas Lights Hanging -->
-      <div class="bg-slate-900/80 p-4 rounded-2xl border border-slate-800 flex items-start hover:border-blue-500/40 transition">
+      <div class="bg-[#0f2d59]/60 p-4 rounded-2xl border border-white/5 flex items-start hover:border-yellow-500/40 transition">
         <div class="flex items-center h-5">
-          <input type="checkbox" id="xmaslights" onchange="calculateAstarTotal()" class="w-5 h-5 rounded border-slate-700 bg-slate-800 text-blue-600 focus:ring-blue-500">
+          <input type="checkbox" id="xmaslights" onchange="calculateAstarTotal()" class="w-5 h-5 rounded border-slate-700 bg-slate-800 text-yellow-500 focus:ring-yellow-500">
         </div>
         <div class="ml-3 text-sm">
           <label for="xmaslights" class="font-bold text-slate-100 block">Seasonal Christmas Lights</label>
-          <span class="text-emerald-400 text-xs font-bold block mt-0.5">Lighting / Custom Quote Only</span>
+          <span class="text-yellow-400 text-xs font-bold block mt-0.5">Lighting / Custom Quote Only</span>
         </div>
       </div>
 
       <!-- Dynamic Price Calculation Panel Container -->
-      <div class="bg-blue-950/50 rounded-2xl border border-blue-900/50 p-5 text-center mt-8">
-        <span class="text-xs text-blue-300 font-bold uppercase tracking-widest block mb-1">Calculated Total</span>
-        <div id="totalDisplay" class="text-4xl font-black text-white">$0</div>
+      <div class="bg-yellow-500 text-slate-950 rounded-2xl p-5 text-center mt-8 font-black shadow-lg">
+        <span class="text-xs text-slate-800 font-extrabold uppercase tracking-widest block mb-1">Calculated Total</span>
+        <div id="totalDisplay" class="text-4xl">$0</div>
       </div>
 
       <!-- Client Lead Input Credentials Block -->
-      <div class="pt-6 border-t border-slate-800 space-y-4">
+      <div class="pt-6 border-t border-white/10 space-y-4">
         <h3 class="text-sm font-bold tracking-wider text-slate-300 uppercase">Customer Info Handoff</h3>
-        <input type="text" id="custName" placeholder="Your Full Name" required class="w-full px-4 py-3 bg-slate-900 border border-slate-800 rounded-xl text-white placeholder-slate-500 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
-        <input type="tel" id="custPhone" placeholder="Phone Number" required class="w-full px-4 py-3 bg-slate-900 border border-slate-800 rounded-xl text-white placeholder-slate-500 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
-        <input type="text" id="custAddress" placeholder="Property Address" required class="w-full px-4 py-3 bg-slate-900 border border-slate-800 rounded-xl text-white placeholder-slate-500 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+        <input type="text" id="custName" placeholder="Your Full Name" required class="w-full px-4 py-3 bg-[#0f2d59] border border-white/10 rounded-xl text-white placeholder-slate-400 text-sm focus:outline-none focus:ring-2 focus:ring-yellow-500">
+        <input type="tel" id="custPhone" placeholder="Phone Number" required class="w-full px-4 py-3 bg-[#0f2d59] border border-white/10 rounded-xl text-white placeholder-slate-400 text-sm focus:outline-none focus:ring-2 focus:ring-yellow-500">
+        <input type="text" id="custAddress" placeholder="Property Address" required class="w-full px-4 py-3 bg-[#0f2d59] border border-white/10 rounded-xl text-white placeholder-slate-400 text-sm focus:outline-none focus:ring-2 focus:ring-yellow-500">
       </div>
 
       <!-- Submission Trigger Button -->
