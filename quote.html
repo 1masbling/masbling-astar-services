@@ -153,9 +153,7 @@
     function calculateAstarTotal() {
       let totalCost = 0;
 
-      if (document.getElementById('gutter').checked) totalCost += 195;
-      if (document.getElementById('soffit').checked) totalCost += 170;
-
+     
       if (document.getElementById('vent').checked) {
         totalCost += 120;
         let extraVents = parseInt(document.getElementById('ventQuantity').value) || 0;
