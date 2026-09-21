@@ -217,10 +217,10 @@
       }
       if (document.getElementById('xmaslights').checked) itemsSelected.push("- Seasonal Christmas Lights (Custom Quote Req.)");
 
-      if (itemsSelected.length === 0) {
+      if (itemsSelected.length === 0) 
         alert("Please select at least one service item before submitting.");
         return;
-      }
+      
 
         const businessPhone = "14374404072"; 
       let msg = `*NEW ESTIMATE REQUEST - MASBLING ASTAR SERVICES*\n\n`;
@@ -231,8 +231,4 @@
       msg += `*Selected Project Scope:*\n${itemsSelected.join("\n")}\n\n`;
       msg += `*Estimated Flat Rate Total:* $${finalPrice}\n`;
       
-     
-window.location.href = `https://wa.me{encodeURIComponent(msg)}`;
-  </script>
-</body>
-</html>
+           window.location.href = "https://wa.me/14374404072?text=" + encodeURIComponent(msg);
