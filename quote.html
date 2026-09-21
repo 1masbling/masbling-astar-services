@@ -162,8 +162,8 @@
         if (extraVents > 0) totalCost += (extraVents * 30);
       }
 
-      if (document.getElementById('repair').checked) {
-        totalCost += 170;
+       if (document.getElementById('gutter').checked) totalCost += 195;
+      if (document.getElementById('soffit').checked) totalCost += 170;
         let extraCorners = parseInt(document.getElementById('cornerQuantity').value) || 0;
         if (extraCorners > 0) totalCost += (extraCorners * 30);
       }
