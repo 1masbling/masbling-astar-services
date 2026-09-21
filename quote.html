@@ -138,16 +138,16 @@
     </form>
   </div>
 
-  <script>
+    }
     function handleQuantityInput(checkboxId, inputEl) {
-      const val = parseFloat(inputEl.value) || 0;
+      const val = parseInt(inputEl.value) || 0;
       const checkbox = document.getElementById(checkboxId);
-      if (val > 0 && !checkbox.checked) {
+      if (val > 0) {
         checkbox.checked = true;
-      } else if (val <= 0 && checkbox.checked && (checkboxId === 'caulking' || checkboxId === 'heatedwires')) {
-        checkbox.checked = false;
       }
       calculateAstarTotal();
+    }
+
     }  if (document.getElementById('gutter').checked) totalCost += 195;
       if (document.getElementById('soffit').checked) totalCost += 170;
 
