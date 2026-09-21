@@ -148,20 +148,16 @@
         checkbox.checked = false;
       }
       calculateAstarTotal();
-    }
+    }  if (document.getElementById('gutter').checked) totalCost += 195;
+      if (document.getElementById('soffit').checked) totalCost += 170;
 
-    function calculateAstarTotal() {
-      let totalCost = 0;
-
-     
-      if (document.getElementById('vent').checked) {
-        totalCost += 120;
+     if (document.getElementById('vent').checked) {
         let extraVents = parseInt(document.getElementById('ventQuantity').value) || 0;
         if (extraVents > 0) totalCost += (extraVents * 30);
       }
 
-       if (document.getElementById('gutter').checked) totalCost += 195;
-      if (document.getElementById('soffit').checked) totalCost += 170;
+      if (document.getElementById('repair').checked) {
+        totalCost += 170;
         let extraCorners = parseInt(document.getElementById('cornerQuantity').value) || 0;
         if (extraCorners > 0) totalCost += (extraCorners * 30);
       }
