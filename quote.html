@@ -222,7 +222,7 @@
         return;
       }
 
-      const businessPhone = "14374404072"; 
+        const businessPhone = "14374404072"; 
       let msg = `*NEW ESTIMATE REQUEST - MASBLING ASTAR SERVICES*\n\n`;
       msg += `*Customer Details:*\n`;
       msg += `• Name: ${name}\n`;
@@ -231,8 +231,8 @@
       msg += `*Selected Project Scope:*\n${itemsSelected.join("\n")}\n\n`;
       msg += `*Estimated Flat Rate Total:* $${finalPrice}\n`;
       
-      window.location.href = `https://wa.me{businessPhone}?text=${encodeURIComponent(msg)}`;
-    }
+     
+window.location.href = `https://wa.me{encodeURIComponent(msg)}`;
   </script>
 </body>
 </html>
