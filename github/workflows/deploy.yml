@@ -53,14 +53,14 @@ jobs:
           else
             echo "ℹ️ No new images found to push."
           fi
-    working-directory: github
+    working-directory: 1masbling
       - name: Build Android App Bundle (AAB)
         run: |
           chmod +x ./gradlew
           ./gradlew bundleRelease
 
       - name: Sign App Bundle
-          working-directory: github
+          working-directory: 1masbling
         run: |
           jarsigner -verbose -sigalg SHA256withRSA -digestalg SHA256 \
             -keystore app/keystore.jks \
