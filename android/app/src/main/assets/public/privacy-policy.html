@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — Masbling Astar Services</title>
+  <meta name="description" content="Privacy Policy for Masbling Astar Services mobile app and website." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy-900: #0a1628;
+      --navy-800: #0f1e35;
+      --navy-700: #16294a;
+      --navy-600: #1e3a5f;
+      --navy-500: #2a4a73;
+      --gold-400: #f5c451;
+      --gold-500: #e0a82e;
+      --teal-400: #4fd1c5;
+      --text-primary: #f0f4f8;
+      --text-secondary: #a3b3cc;
+      --text-muted: #6b7c99;
+      --border: rgba(255, 255, 255, 0.08);
+      --border-hover: rgba(255, 255, 255, 0.15);
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: var(--navy-900);
+      color: var(--text-primary);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .header {
+      background: linear-gradient(135deg, var(--navy-800) 0%, var(--navy-900) 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 4rem 1.5rem 3rem;
+      text-align: center;
+    }
+
+    .header-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(245, 196, 81, 0.1);
+      border: 1px solid rgba(245, 196, 81, 0.25);
+      color: var(--gold-400);
+      padding: 0.4rem 1rem;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      margin-bottom: 1.5rem;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+    }
+
+    .header h1 {
+      font-size: clamp(1.75rem, 4vw, 2.5rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.75rem;
+    }
+
+    .header p {
+      color: var(--text-secondary);
+      font-size: 1rem;
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+    .header .company-name {
+      color: var(--gold-400);
+      font-weight: 600;
+    }
+
+    .container {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 4rem;
+    }
+
+    .updated-date {
+      display: inline-block;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      margin-bottom: 2.5rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--border);
+      width: 100%;
+    }
+
+    section {
+      margin-bottom: 2.5rem;
+    }
+
+    section h2 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    section h2 .section-num {
+      color: var(--gold-400);
+      font-size: 0.9rem;
+      font-weight: 700;
+      background: rgba(245, 196, 81, 0.1);
+      width: 1.75rem;
+      height: 1.75rem;
+      border-radius: 6px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    section p, section li {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      line-height: 1.7;
+      margin-bottom: 0.75rem;
+    }
+
+    section strong {
+      color: var(--text-primary);
+      font-weight: 600;
+    }
+
+    section a {
+      color: var(--teal-400);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    section a:hover {
+      color: var(--gold-400);
+    }
+
+    section ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    section ul li {
+      padding-left: 1.5rem;
+      position: relative;
+    }
+
+    section ul li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.7rem;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--gold-500);
+    }
+
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0 1.5rem;
+      font-size: 0.9rem;
+    }
+
+    .data-table th {
+      text-align: left;
+      padding: 0.75rem 1rem;
+      background: var(--navy-700);
+      color: var(--gold-400);
+      font-weight: 600;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .data-table th:first-child { border-radius: 8px 0 0 0; }
+    .data-table th:last-child { border-radius: 0 8px 0 0; }
+
+    .data-table td {
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      color: var(--text-secondary);
+      vertical-align: top;
+    }
+
+    .data-table td:first-child {
+      color: var(--text-primary);
+      font-weight: 500;
+      white-space: nowrap;
+    }
+
+    .data-table tr:hover td {
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .data-table tr:last-child td { border-bottom: none; }
+    .data-table tr:last-child td:first-child { border-radius: 0 0 0 8px; }
+    .data-table tr:last-child td:last-child { border-radius: 0 0 8px 0; }
+
+    .table-wrapper {
+      overflow-x: auto;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      margin: 1rem 0 1.5rem;
+    }
+
+    .highlight-box {
+      background: var(--navy-800);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.25rem 1.5rem;
+      margin: 1.5rem 0;
+    }
+
+    .highlight-box p { margin-bottom: 0; }
+
+    .contact-card {
+      background: linear-gradient(135deg, var(--navy-800) 0%, var(--navy-700) 100%);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 2rem;
+      margin-top: 1rem;
+    }
+
+    .contact-card h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: var(--gold-400);
+    }
+
+    .contact-card p {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .contact-card a {
+      color: var(--teal-400);
+    }
+
+    .footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem 1.5rem;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+
+    .footer .company-name { color: var(--text-secondary); font-weight: 500; }
+
+    @media (max-width: 640px) {
+      .header { padding: 3rem 1.5rem 2rem; }
+      .container { padding: 2rem 1rem 3rem; }
+      .data-table { font-size: 0.8rem; }
+      .data-table td, .data-table th { padding: 0.5rem 0.75rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="header">
+    <span class="header-badge">Legal</span>
+    <h1>Privacy Policy</h1>
+    <p><span class="company-name">Masbling Astar Services</span> is committed to protecting your privacy. This policy explains what data we collect and how we use it.</p>
+  </header>
+
+  <main class="container">
+    <p class="updated-date">Last updated: July 23, 2026</p>
+
+    <section>
+      <h2><span class="section-num">1</span> Overview</h2>
+      <p>This Privacy Policy describes how <strong>Masbling Astar Services</strong> ("we", "us", "our") collects, uses, stores, and protects your personal information when you use our mobile application and website (collectively, the "Service"). By using the Service, you agree to the practices described in this policy.</p>
+      <p>We operate in Brampton, Ontario, Canada, and serve the Greater Toronto Area. We comply with applicable Canadian privacy laws, including the Personal Information Protection and Electronic Documents Act (PIPEDA).</p>
+    </section>
+
+    <section>
+      <h2><span class="section-num">2</span> Information We Collect</h2>
+      <p>We collect the following types of personal information to provide and improve our services:</p>
+
+      <div class="table-wrapper">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Data Type</th>
+              <th>What We Collect</th>
+              <th>Purpose</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Contact Information</td>
+              <td>Full name, email address, phone number, service address</td>
+              <td>Booking appointments, sending estimates, communicating about jobs, processing payments</td>
+            </tr>
+            <tr>
+              <td>Booking &amp; Job Data</td>
+              <td>Selected service, preferred date and time window, job address, job notes, job status</td>
+              <td>Scheduling and dispatching technicians, tracking job progress, maintaining service records</td>
+            </tr>
+            <tr>
+              <td>Estimate &amp; Billing Data</td>
+              <td>Estimate line items, pricing, invoice amounts, payment method (e-Transfer, credit card, cash), payment status</td>
+              <td>Generating estimates and invoices, processing and tracking payments</td>
+            </tr>
+            <tr>
+              <td>Job Photos</td>
+              <td>Photos taken by technicians before, during, and after service, with optional captions</td>
+              <td>Documenting work quality, providing before/after evidence, supporting warranty claims</td>
+            </tr>
+            <tr>
+              <td>Staff Account Data</td>
+              <td>Technician name, email, phone number, role, login credentials (hashed)</td>
+              <td>Creating staff login accounts, assigning jobs, tracking time and attendance</td>
+            </tr>
+            <tr>
+              <td>Time Tracking</td>
+              <td>Clock-in and clock-out times, duration, notes per job</td>
+              <td>Payroll processing, job costing, and attendance records</td>
+            </tr>
+            <tr>
+              <td>Communication Records</td>
+              <td>SMS and email notification content, delivery status, recipient details</td>
+              <td>Sending appointment reminders, estimate notifications, payment confirmations, and review requests</td>
+            </tr>
+            <tr>
+              <td>Reviews &amp; Feedback</td>
+              <td>Star ratings, review text, response status</td>
+              <td>Requesting and displaying customer feedback to improve service quality</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p><strong>We do not collect:</strong> precise GPS location data, biometric data, contacts lists, browser history, or data from other apps on your device.</p>
+    </section>
+
+    <section>
+      <h2><span class="section-num">3</span> How We Use Your Information</h2>
+      <ul>
+        <li><strong>Service Delivery:</strong> Scheduling appointments, dispatching technicians, and completing requested services</li>
+        <li><strong>Estimates &amp; Invoicing:</strong> Generating itemized estimates, sending invoices, and processing payments</li>
+        <li><strong>Communication:</strong> Sending appointment confirmations, reminders, updates, and payment receipts via SMS or email</li>
+        <li><strong>Quality Assurance:</strong> Documenting job completion with photos, checklists, and technician notes</li>
+        <li><strong>Staff Management:</strong> Assigning technicians to jobs, tracking work hours, and managing field operations</li>
+        <li><strong>Customer Support:</strong> Responding to inquiries, resolving support tickets, and handling complaints</li>
+        <li><strong>Service Improvement:</strong> Analyzing job data and customer feedback to improve our services</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2><span class="section-num">4</span> Data Storage &amp; Security</h2>
+      <p>Your data is stored in a secure, encrypted database hosted on Supabase (a PostgreSQL-based cloud database provider with servers in North America). All data transmission between your device and our servers is encrypted using TLS/SSL.</p>
+      <div class="highlight-box">
+        <p><strong>Access controls:</strong> Only authorized administrative staff and assigned technicians can access job and customer data. Each staff member has an individual login account, and access is restricted to information relevant to their role.</p>
+      </div>
+      <p>We implement industry-standard security measures including encrypted password storage, row-level database access controls, and regular security audits. However, no method of transmission or storage is 100% secure, and we cannot guarantee absolute security.</p>
+    </section>
+
+    <section>
+      <h2><span class="section-num">5</span> Third-Party Services</h2>
+      <p>We use the following third-party services to operate our Service. Each has its own privacy policy governing how they handle data:</p>
+      <div class="table-wrapper">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Service</th>
+              <th>Purpose</th>
+              <th>Data Shared</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Supabase</td>
+              <td>Database hosting and user authentication</td>
+              <td>All app data (stored encrypted); login credentials (hashed)</td>
+            </tr>
+            <tr>
+              <td>Square</td>
+              <td>Payment processing for credit card transactions</td>
+              <td>Payment amount and customer email for receipt; card data is handled directly by Square — we never see or store your card number</td>
+            </tr>
+            <tr>
+              <td>Email &amp; SMS Gateways</td>
+              <td>Sending notifications, reminders, and confirmations</td>
+              <td>Recipient phone number or email, message content</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p>We do not sell, rent, or trade your personal information to any third party.</p>
+    </section>
+
+    <section>
+      <h2><span class="section-num">6</span> Data Retention</h2>
+      <p>We retain your personal information for as long as your account is active or as needed to provide services. Specifically:</p>
+      <ul>
+        <li><strong>Customer records:</strong> Retained for the duration of your relationship with us and for up to 7 years thereafter for legal, tax, and warranty purposes</li>
+        <li><strong>Job photos and notes:</strong> Retained for up to 7 years to support warranty claims and service history</li>
+        <li><strong>Payment records:</strong> Retained for 7 years as required by Canadian tax regulations</li>
+        <li><strong>Staff accounts:</strong> Retained while the staff member is employed; login access is revoked upon departure</li>
+      </ul>
+      <p>You may request deletion of your personal data at any time (see Your Rights below), subject to legal retention requirements.</p>
+    </section>
+
+    <section>
+      <h2><span class="section-num">7</span> Your Rights</h2>
+      <p>Under Canadian privacy law, you have the following rights regarding your personal information:</p>
+      <ul>
+        <li><strong>Access:</strong> You may request a copy of the personal information we hold about you</li>
+        <li><strong>Correction:</strong> You may request that we correct inaccurate or incomplete information</li>
+        <li><strong>Deletion:</strong> You may request that we delete your personal data, subject to legal retention obligations</li>
+        <li><strong>Withdrawal of Consent:</strong> You may withdraw your consent for us to use your information for certain purposes at any time</li>
+        <li><strong>Complaints:</strong> You may file a complaint with the Privacy Commissioner of Canada if you believe we have mishandled your information</li>
+      </ul>
+      <p>To exercise any of these rights, you can:</p>
+      <ul>
+        <li><strong>Request Data Deletion:</strong> <a href="#data-deletion">Submit a deletion request online</a> — no login required</li>
+        <li><strong>Contact us directly</strong> using the information in Section 9 below</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2><span class="section-num">8</span> Children's Privacy</h2>
+      <p>Our Service is intended for adults aged 18 and older. We do not knowingly collect personal information from children under 18. If you believe a child has provided us with personal information, please contact us and we will promptly delete it.</p>
+    </section>
+
+    <section>
+      <h2><span class="section-num">9</span> Contact Us</h2>
+      <p>If you have questions about this Privacy Policy or wish to exercise your privacy rights, please contact us:</p>
+      <div class="contact-card">
+        <h3>Masbling Astar Services</h3>
+        <p><strong>Address:</strong> 45 Bramalea Rd, Suite 208, Brampton, ON L6T 2W4</p>
+        <p><strong>Phone:</strong> <a href="tel:+14374404072">437-440-4072</a></p>
+        <p><strong>Email:</strong> <a href="mailto:Masblingastar@gmail.com">Masblingastar@gmail.com</a></p>
+        <p><strong>Website:</strong> <a href="https://www.masblingastarservices.com">www.masblingastarservices.com</a></p>
+      </div>
+    </section>
+
+    <section>
+      <h2><span class="section-num">10</span> Changes to This Policy</h2>
+      <p>We may update this Privacy Policy from time to time to reflect changes in our practices, technology, or legal requirements. We will notify you of significant changes by posting the updated policy on this page and updating the "Last updated" date above. We encourage you to review this page periodically.</p>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2026 <span class="company-name">Masbling Astar Services</span>. All rights reserved.</p>
+    <p style="margin-top: 0.5rem;">Brampton, ON &middot; Serving the Greater Toronto Area</p>
+  </footer>
+
+</body>
+</html>

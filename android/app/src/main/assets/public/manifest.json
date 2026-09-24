@@ -1,0 +1,27 @@
+{
+  "name": "Masbling Astar Services",
+  "short_name": "Astar Services",
+  "description": "Gutter & exterior maintenance booking, dispatch, billing, and field operations for the Masbling Astar Services team.",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#0a1628",
+  "theme_color": "#0a1628",
+  "categories": ["business", "productivity", "utilities"],
+  "lang": "en",
+  "dir": "ltr",
+  "icons": [
+    {
+      "src": "https://primary.jwwb.nl/public/i/m/n/temp-hwgoxuvggarjusrpjxtf/image-high-uhzdzu.png?enable-io=true&enable=upscale&height=192",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "https://primary.jwwb.nl/public/i/m/n/temp-hwgoxuvggarjusrpjxtf/image-high-uhzdzu.png?enable-io=true&enable=upscale&height=512",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

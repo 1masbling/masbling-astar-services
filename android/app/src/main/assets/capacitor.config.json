@@ -1,0 +1,12 @@
+{
+	"appId": "com.masblingastar.services",
+	"appName": "Masbling Astar Services",
+	"webDir": "dist",
+	"bundledWebRuntime": false,
+	"server": {
+		"androidScheme": "https"
+	},
+	"android": {
+		"backgroundColor": "#0a1628"
+	}
+}
