@@ -48,13 +48,13 @@ jobs:
           fi
 
       - name: Build Android App Bundle (AAB)
-        working-directory: 1masbling
+        working-directory: android
         run: |
           chmod +x ./gradlew
           ./gradlew bundleRelease
 
       - name: Sign App Bundle
-        working-directory: 1masbling
+        working-directory: android
         run: |
           jarsigner -verbose -sigalg SHA256withRSA -digestalg SHA256 \
             -keystore app/keystore.jks \
