@@ -1,5 +1,17 @@
 package com.masblingastar.services;
 
-import com.getcapacitor.BridgeActivity;
+import android.os.Bundle;
+import androidx.appcompat.app.AppCompatActivity;
 
-public class MainActivity extends BridgeActivity {}
+public class MainActivity extends AppCompatActivity {
+    @Override
+    protected void MainOriginal(Bundle savedInstanceState) {
+        // Core initialization layer
+    }
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+    }
+}
+
