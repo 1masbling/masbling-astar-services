@@ -1,7 +1,5 @@
 name: Production Android Build and Image Watermark
 
-
-
 on:
   push:
     branches:
@@ -42,7 +40,7 @@ jobs:
           
           if [ -n "$(git status --porcelain images/showcase/)" ]; then
             git add images/showcase/
-            git commit -m "chore: automatically added business logo watermarks [skip ci]"
+            git commit --allow-empty -m "chore: automatically added business logo watermarks [skip ci]"
             git push origin main
             echo "✅ Stamped images pushed back to GitHub."
           else
@@ -60,10 +58,8 @@ jobs:
           chmod +x ./gradlew
           ./gradlew bundleRelease
 
-      - name: Sign App Bundle
-        working-directory: android
-        run: |
-          jarsigner -verbose -sigalg SHA256withRSA -digestalg SHA256 \
-            -keystore app/keystore.jks \
-            -storepass "${{ secrets.KEYSTORE_PASSWORD }}" \
-            build/outputs/bundle/release/app-release.aab "${{ secrets.KEY_ALIAS }}"
+      - name: Upload Unsigned App Bundle for Download
+        uses: actions/upload-artifact@v4
+        with:
+          name: app-release-unsigned
+          path: android/app/build/outputs/bundle/release/app-release.aab
