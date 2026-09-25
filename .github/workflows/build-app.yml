@@ -73,7 +73,7 @@ jobs:
           jarsigner -verbose -sigalg SHA256withRSA -digestalg SHA256 \
             -keystore app/upload-keystore.jks \
             -storepass "masbling2026" \
-            build/outputs/bundle/release/app-release.aab "masblingastarkey"
+            app/build/outputs/bundle/release/app-release.aab "masblingastarkey"
 
       - name: Upload Finished Signed App Bundle for Google Play
         uses: actions/upload-artifact@v4
