@@ -19,11 +19,11 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Setup Java 17
+      - name: Setup Java 11
         uses: actions/setup-java@v4
         with:
           distribution: 'zulu'
-          java-version: '17'
+          java-version: '11'
 
       - name: Install Image Utilities
         run: |
@@ -50,7 +50,7 @@ jobs:
       - name: Build Android App Bundle (AAB)
         working-directory: android
         run: |
-          gradle wrapper --gradle-version 8.2
+          gradle wrapper --gradle-version 7.5
           chmod +x ./gradlew
           ./gradlew bundleRelease
 
@@ -61,3 +61,4 @@ jobs:
             -keystore app/keystore.jks \
             -storepass "${{ secrets.KEYSTORE_PASSWORD }}" \
             build/outputs/bundle/release/app-release.aab "${{ secrets.KEY_ALIAS }}"
+
