@@ -47,10 +47,14 @@ jobs:
             echo "ℹ️ No new images found to push."
           fi
 
+      - name: Setup Gradle 8.2 (Force Override)
+        uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: '8.2'
+
       - name: Build Android App Bundle (AAB)
         working-directory: android
         run: |
-          gradle wrapper --gradle-version 8.2
           chmod +x ./gradlew
           ./gradlew bundleRelease
 
@@ -61,4 +65,3 @@ jobs:
             -keystore app/keystore.jks \
             -storepass "${{ secrets.KEYSTORE_PASSWORD }}" \
             build/outputs/bundle/release/app-release.aab "${{ secrets.KEY_ALIAS }}"
-
