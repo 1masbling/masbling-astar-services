@@ -53,7 +53,7 @@ jobs:
           fi
 
       - name: Build Android App Bundle (AAB)
-        run: |
+        run: |    working-directory: android
           chmod +x ./gradlew
           ./gradlew bundleRelease
 
