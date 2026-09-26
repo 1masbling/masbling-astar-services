@@ -8,64 +8,60 @@ on:
 
 jobs:
   build-and-watermark:
-    runs-on: ubuntu-latest
-
-    permissions:
-      contents: write
-
+    runs-back: ubuntu-latest
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
 
-      - name: Set up Java 21
-        uses: actions/setup-java@v4
-        with:
-          distribution: 'zulu'
-          java-version: '21'
-
-      - name: Setup Node.js Environment
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
 
+      - name: Install Dependencies
+        run: npm install
+
       - name: Install Sharp Image Processing Library
-        run: |
-          npm install sharp
+        run: npm install sharp
 
       - name: Run Auto Watermark Script
-        run: |
-          node watermark.js
+        run: node watermark.js
 
       - name: Commit and Push Watermarked Images Back to Repository
         run: |
           git config --global user.name "GitHub Actions Bot"
           git config --global user.email "actions@github.com"
-          
           if [ -n "$(git status --porcelain images/showcase/)" ]; then
             git add images/showcase/
-            git commit -m "chore: automatically added business logo watermarks [skip ci]"
-            git push origin main
-            echo "✅ Stamped images pushed back to GitHub."
+            git commit -m "Add watermarks to showcase images [skip ci]"
+            git push
           else
-            echo "ℹ️ No new images found to push."
+            echo "No new images found to push."
           fi
 
+      - name: Setup Java JDK 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+
       - name: Build Android App Bundle (AAB)
-        run: |    working-directory: android
+        working-directory: android
+        run: |
           chmod +x ./gradlew
           ./gradlew bundleRelease
 
-      - name: Sign App Bundle with Active Post-Sep 13 Key
+      - name: Sign App Bundle with Production Key
         run: |
           jarsigner -verbose -sigalg SHA256withRSA -digestalg SHA256 \
-            -keystore app/keystore.jks \
+            -keystore android/app/upload-keystore.jks \
             -storepass "${{ secrets.KEYSTORE_PASSWORD }}" \
-            app/build/outputs/bundle/release/app-release.aab "${{ secrets.KEY_ALIAS }}"
+            -keypass "${{ secrets.KEY_PASSWORD }}" \
+            android/app/build/outputs/bundle/release/app-release.aab "${{ secrets.KEY_ALIAS }}"
 
       - name: Upload Signed AAB Artifact for Download
         uses: actions/upload-artifact@v4
         with:
           name: masbling-signed-app
-          path: app/build/outputs/bundle/release/app-release.aab
+          path: android/app/build/outputs/bundle/release/app-release.aab
+
