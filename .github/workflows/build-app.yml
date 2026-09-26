@@ -58,26 +58,5 @@ jobs:
           chmod +x ./gradlew
           ./gradlew bundleRelease
 
-      - name: Generate Security Upload Key on the Fly
-        run: |
-          keytool -genkeypair -v -keystore android/app/upload-keystore.jks \
-            -alias "masblingastarkey" \
-            -keyalg RSA -keysize 2048 -validity 9125 \
-            -storepass "masbling2026" \
-            -keypass "masbling2026" \
-            -dname "CN=Masbling, O=Masbling, C=CA"
-
-      - name: Sign App Bundle via Cloud Engine
-        working-directory: android
-        run: |
-          jarsigner -verbose -sigalg SHA256withRSA -digestalg SHA256 \
-            -keystore app/upload-keystore.jks \
-            -storepass "masbling2026" \
-            app/build/outputs/bundle/release/app-release.aab "masblingastarkey"
-
-      - name: Upload Finished Signed App Bundle for Google Play
-        uses: actions/upload-artifact@v4
-        with:
-          name: app-release-signed
-          path: android/app/build/outputs/bundle/release/app-release.aab
+     /bundle/release/app-release.aab
 
