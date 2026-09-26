@@ -8,7 +8,7 @@ on:
 
 jobs:
   build-and-watermark:
-    runs-back: ubuntu-latest
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
