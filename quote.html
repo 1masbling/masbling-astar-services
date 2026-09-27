@@ -4,15 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Masbling Astar Services | Professional Quote Generator</title>
-    <!-- Clean Isolated Tailwind Engine Integration -->
     <script src="https://tailwindcss.com"></script>
 </head>
 <body class="bg-[#0F1D3A] text-white font-sans antialiased min-h-screen py-10 px-4 flex justify-center items-center">
 
-    <!-- Main Isolated Card Container -->
     <div class="w-full max-w-xl bg-[#01519F] rounded-3xl p-6 sm:p-8 border border-white/10 shadow-2xl">
         
-        <!-- Branding Header Section -->
         <header class="text-center border-b border-white/10 pb-6 flex flex-col items-center">
             <h1 class="text-2xl sm:text-3xl font-black tracking-wider text-white">Select Project</h1>
             <p class="text-xs text-[#FFBE02] font-black tracking-widest uppercase mt-1">Instant Upfront Floor Price Estimator</p>
@@ -54,7 +51,7 @@
                     </div>
                 </div>
                 <div class="pl-8 flex justify-between items-center bg-black/40 p-2 rounded-lg text-xs">
-                    <span class="text-slate-300">Additional Vents (\$30/each):</span>
+                    <span class="text-slate-300">Additional Vents ($30/each):</span>
                     <input type="number" id="ventQuantity" min="0" value="0" oninput="handleQuantityInput('vent', 'ventQuantity')" class="w-16 bg-black/50 border border-white/20 text-center rounded py-1 font-bold text-[#FFBE02]">
                 </div>
             </div>
@@ -62,7 +59,7 @@
             <!-- Total Readout Section -->
             <div class="bg-black/40 rounded-xl border border-[#FFBE02] p-4 text-center">
                 <span class="text-xs text-[#FFBE02] font-black uppercase tracking-widest block mb-1">Calculated Estimate</span>
-                <div id="totalDisplay" class="text-4xl font-black text-white">\$0.00</div>
+                <div id="totalDisplay" class="text-4xl font-black text-white">$0.00</div>
             </div>
 
             <!-- Customer Data Intake -->
@@ -86,10 +83,10 @@
             if (val > 0) {
                 checkbox.checked = true;
             }
-            calculateAstarTotal();
+            astarMath();
         }
 
-        function calculateAstarTotal() {
+        function astarMath() {
             let totalCost = 0;
 
             if (document.getElementById('gutter').checked) totalCost += 190;
@@ -110,7 +107,7 @@
             const name = document.getElementById('custName').value.trim();
             const phone = document.getElementById('custPhone').value.trim();
             const address = document.getElementById('custAddress').value.trim();
-            const finalPrice = calculateAstarTotal();
+            const finalPrice = astarMath();
 
             let itemsSelected = [];
             if (document.getElementById('gutter').checked) itemsSelected.push("- Gutter Cleaning Baseline");
