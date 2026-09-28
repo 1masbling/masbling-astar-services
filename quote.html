@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,15 +7,14 @@
     <title>Masbling Astar Quote & Booking Pipeline</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* FIXED: Restored complete background styling rule and sealed the tag brackets */
-        .service-card { transition: all 0.25s ease-in-out; }
+        .service-card { transition: all 0.2s ease-in-out; touch-action: manipulation; }
         .service-card.selected { border-color: #FFBE02 !important; background-color: rgba(255, 190, 2, 0.1) !important; box-shadow: 0 0 12px rgba(255, 190, 2, 0.2); }
     </style>
-</head><body class="bg-[#0F1D3A] text-white font-sans antialiased min-h-screen w-full flex justify-center items-start py-6 px-3">
+</head>
+<body class="bg-[#0F1D3A] text-white font-sans antialiased min-h-screen w-full flex justify-center items-start py-6 px-3">
     <div class="w-full max-w-md bg-[#01519F] rounded-2xl p-4 border border-white/10 shadow-2xl">
         
         <header class="text-center border-b border-white/10 pb-4 mb-4 flex flex-col items-center">
-            <!-- FIXED: Updated path to match your exact double-extension desktop asset -->
             <img src="2025 masbling logo-2.png.png" alt="Masbling Astar Logo" class="h-16 w-auto mb-2 object-contain" onerror="this.src='2025 masbling logo-2.png';">
             <h1 class="text-xl font-black tracking-wider">Select a Service</h1>
             <p class="text-[10px] text-[#FFBE02] font-black tracking-widest uppercase mt-0.5">Instant Upfront Multi-Select Calculator</p>
@@ -76,8 +76,7 @@
                     <div class="text-sm font-black tracking-wide mb-1">Window Cleaning Bundle</div>
                     <div class="text-[#FFBE02] text-xs font-bold">$220 (Covers 10-12 Windows)</div>
                 </div>
-
-            </div>
+         
  <div class="bg-black/40 rounded-xl border border-[#FFBE02] p-3 text-center mt-4">
                 <span class="text-[10px] text-[#FFBE02] font-black uppercase tracking-widest block mb-0.5">Calculated Estimate</span>
                 <div id="totalDisplay" class="text-3xl font-black text-white">$0.00</div>
@@ -112,9 +111,10 @@
         function toggleCard(checkboxId, cardId) {
             const cb = document.getElementById(checkboxId);
             const card = document.getElementById(cardId);
-            cb.checked = !cb.checked;
+            if (!cb || !card) return;
             
-            if(cb.checked) {
+            cb.checked = !cb.checked;
+            if (cb.checked) {
                 card.classList.add('selected');
             } else {
                 card.classList.remove('selected');
@@ -133,7 +133,10 @@
             if (document.getElementById('srv8').checked) total += 170;
             if (document.getElementById('srv9').checked) total += 220;
             
-            document.getElementById('totalDisplay').innerText = '$' + total.toFixed(2);
+            const display = document.getElementById('totalDisplay');
+            if (display) {
+                display.innerText = '$' + total.toFixed(2);
+            }
             return total;
         }
 
@@ -143,7 +146,9 @@
             const phone = document.getElementById('cPhone').value.trim();
             const addr = document.getElementById('cAddr').value.trim();
             const price = calcAstar();
-            const actionType = document.querySelector('input[name="reqType"]:checked').value;
+            
+            const checkedRadio = document.querySelector('input[name="reqType"]:checked');
+            const actionType = checkedRadio ? checkedRadio.value : "Quote Only";
             
             let items = [];
             if (document.getElementById('srv1').checked) items.push("- Downpipes Service");
@@ -164,11 +169,11 @@
                       "*Request Status:* " + actionType + "\n\n" +
                       "*Customer:*\n• Name: " + name + "\n• Phone: " + phone + "\n• Address: " + addr + "\n\n" +
                       "*Scope:*\n" + items.join("\n") + "\n\n" +
-                      "*Total:* $" + price.toFixed(2) + "\n\n" +
-                      "_Note: Scheduling verification parameters will open manually via business chat line._";
+                      "*Total:* $" + price.toFixed(2);
                       
             window.location.href = "https://wa.me/14374404072?text=  encodeURIComponent(msg);
         }
     </script>
 </body>
 </html>
+</div>
