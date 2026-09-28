@@ -1,121 +1,153 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Masbling Astar Services | Quote Generator</title>
+    <title>Masbling Astar Quote Generator</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-[#0F1D3A] text-white font-sans antialiased min-h-screen py-10 px-4 flex justify-center items-center">
-    <div class="w-full max-w-xl bg-[#01519F] rounded-3xl p-6 sm:p-8 border border-white/10 shadow-2xl">
-        <header class="text-center border-b border-white/10 pb-6 flex flex-col items-center">
-            <h1 class="text-2xl sm:text-3xl font-black tracking-wider">Select Project</h1>
-            <p class="text-xs text-[#FFBE02] font-black tracking-widest uppercase mt-1">Instant Upfront Floor Price Estimator</p>
+<body class="bg-[#0F1D3A] text-white font-sans antialiased min-h-screen w-full flex justify-center items-start py-6 px-3">
+    <div class="w-full max-w-md bg-[#01519F] rounded-2xl p-4 border border-white/10 shadow-2xl">
+        
+        <header class="text-center border-b border-white/10 pb-4 mb-4 flex flex-col items-center">
+            <img src="logo.png" alt="Logo" class="h-14 w-auto mb-2 object-contain" onerror="this.style.display='none'">
+            <h1 class="text-xl font-black tracking-wider">Select Project</h1>
+            <p class="text-[10px] text-[#FFBE02] font-black tracking-widest uppercase mt-0.5">Instant Upfront Floor Price Estimator</p>
         </header>
+
         <form id="astarForm" class="space-y-4" onsubmit="sendAstar(event)">
-            <div class="bg-black/30 p-4 rounded-xl border border-white/5 flex flex-col space-y-3">
-                <label class="flex items-start font-bold cursor-pointer"><input type="checkbox" id="srv1" onchange="calcAstar()" class="w-5 h-5 mt-0.5 accent-[#1d70b8]"> <span class="ml-3">1. Gutter Cleaning Baseline <span class="block text-[#FFBE02] text-xs font-black">\$190</span></span></label>
-                <label class="flex items-start font-bold cursor-pointer"><input type="checkbox" id="srv2" onchange="calcAstar()" class="w-5 h-5 mt-0.5 accent-[#1d70b8]"> <span class="ml-3">2. Soffit & Fascia Care <span class="block text-[#FFBE02] text-xs font-black">\$195</span></span></label>
-                <div class="border-t border-white/5 pt-2">
-                    <label class="flex items-start font-bold cursor-pointer"><input type="checkbox" id="srv3" onchange="calcAstar()" class="w-5 h-5 mt-0.5 accent-[#1d70b8]"> <span class="ml-3">3. Vent Replacement <span class="block text-[#FFBE02] text-xs font-black">\$120 Base</span></span></label>
-                    <div class="pl-8 mt-1 flex justify-between items-center text-xs"><span class="text-slate-300">Extra Vents (\$30/ea):</span><input type="number" id="qty3" min="0" value="0" oninput="qtyIn('srv3','qty3')" class="w-16 bg-black/50 border border-white/20 text-center rounded text-[#FFBE02] font-bold"></div>
+            <div class="bg-black/30 p-3 rounded-xl border border-white/5 flex flex-col space-y-3">
+                
+                <label class="flex items-start font-bold cursor-pointer select-none">
+                    <input type="checkbox" id="srv1" onchange="calcAstar()" class="w-5 h-5 mt-0.5 flex-shrink-0 accent-[#1d70b8]"> 
+                    <span class="ml-3 text-sm leading-tight">1. Gutter Cleaning Baseline <span class="block text-[#FFBE02] text-xs font-black">$190</span></span>
+                </label>
+                
+                <label class="border-t border-white/5 pt-2 flex items-start font-bold cursor-pointer select-none">
+                    <input type="checkbox" id="srv2" onchange="calcAstar()" class="w-5 h-5 mt-0.5 flex-shrink-0 accent-[#1d70b8]"> 
+                    <span class="ml-3 text-sm leading-tight">2. Soffit & Fascia Care <span class="block text-[#FFBE02] text-xs font-black">$195</span></span>
+                </label>
+                
+                <div class="border-t border-white/5 pt-2 flex flex-col">
+                    <label class="flex items-start font-bold cursor-pointer select-none">
+                        <input type="checkbox" id="srv3" onchange="calcAstar()" class="w-5 h-5 mt-0.5 flex-shrink-0 accent-[#1d70b8]"> 
+                        <span class="ml-3 text-sm leading-tight">3. Vent Replacement <span class="block text-[#FFBE02] text-xs font-black">$120 Base</span></span>
+                    </label>
+                    <div class="pl-8 mt-1 flex justify-between items-center text-xs">
+                        <span class="text-slate-300">Extra Vents ($30/ea):</span>
+                        <input type="number" id="qty3" min="0" value="0" oninput="qtyIn('srv3','qty3')" class="w-14 h-7 bg-black/50 border border-white/20 text-center rounded text-[#FFBE02] font-bold">
+                    </div>
                 </div>
-                <div class="border-t border-white/5 pt-2">
-                    <label class="flex items-start font-bold cursor-pointer"><input type="checkbox" id="srv4" onchange="calcAstar()" class="w-5 h-5 mt-0.5 accent-[#1d70b8]"> <span class="ml-3">4. Eavestrough Repair <span class="block text-[#FFBE02] text-xs font-black">\$170 Base</span></span></label>
-                    <div class="pl-8 mt-1 flex justify-between items-center text-xs"><span class="text-slate-300">Extra Corners (\$30/ea):</span><input type="number" id="qty4" min="0" value="0" oninput="qtyIn('srv4','qty4')" class="w-16 bg-black/50 border border-white/20 text-center rounded text-[#FFBE02] font-bold"></div>
+                
+                <div class="border-t border-white/5 pt-2 flex flex-col">
+                    <label class="flex items-start font-bold cursor-pointer select-none">
+                        <input type="checkbox" id="srv4" onchange="calcAstar()" class="w-5 h-5 mt-0.5 flex-shrink-0 accent-[#1d70b8]"> 
+                        <span class="ml-3 text-sm leading-tight">4. Eavestrough Repair <span class="block text-[#FFBE02] text-xs font-black">$170 Base</span></span>
+                    </label>
+                    <div class="pl-8 mt-1 flex justify-between items-center text-xs">
+                        <span class="text-slate-300">Extra Corners ($30/ea):</span>
+                        <input type="number" id="qty4" min="0" value="0" oninput="qtyIn('srv4','qty4')" class="w-14 h-7 bg-black/50 border border-white/20 text-center rounded text-[#FFBE02] font-bold">
+                    </div>
                 </div>
-                <div class="border-t border-white/5 pt-2">
-                    <label class="flex items-start font-bold cursor-pointer"><input type="checkbox" id="srv5" onchange="calcAstar()" class="w-5 h-5 mt-0.5 accent-[#1d70b8]"> <span class="ml-3">5. Window Caulking Shields <span class="block text-[#FFBE02] text-xs font-black">\$170 Base</span></span></label>
-                    <div class="pl-8 mt-1 flex justify-between items-center text-xs"><span class="text-slate-300">Total Windows:</span><input type="number" id="qty5" min="0" value="0" oninput="qtyIn('srv5','qty5')" class="w-16 bg-black/50 border border-white/20 text-center rounded text-[#FFBE02] font-bold"></div>
+                
+                <div class="border-t border-white/5 pt-2 flex flex-col">
+                    <label class="flex items-start font-bold cursor-pointer select-none">
+                        <input type="checkbox" id="srv5" onchange="calcAstar()" class="w-5 h-5 mt-0.5 flex-shrink-0 accent-[#1d70b8]"> 
+                        <span class="ml-3 text-sm leading-tight">5. Window Caulking Shields <span class="block text-[#FFBE02] text-xs font-black">$170 Base</span></span>
+                    </label>
+                    <div class="pl-8 mt-1 flex justify-between items-center text-xs">
+                        <span class="text-slate-300">Total Windows ($10/ea):</span>
+                        <input type="number" id="qty5" min="0" value="0" oninput="qtyIn('srv5','qty5')" class="w-14 h-7 bg-black/50 border border-white/20 text-center rounded text-[#FFBE02] font-bold">
+                    </div>
                 </div>
-                <label class="border-t border-white/5 pt-2 flex items-start font-bold cursor-pointer"><input type="checkbox" id="srv6" onchange="calcAstar()" class="w-5 h-5 mt-0.5 accent-[#1d70b8]"> <span class="ml-3">6. High-Pressure Power Washing <span class="block text-[#FFBE02] text-xs font-black">Starts at \$250</span></span></label>
-                <label class="border-t border-white/5 pt-2 flex items-start font-bold cursor-pointer"><input type="checkbox" id="srv7" onchange="calcAstar()" class="w-5 h-5 mt-1 accent-[#FFBE02]"> <span class="ml-3">7. Heated Wires / Roof De-Icing Cables ❄️<span class="block text-[#FFBE02] text-xs font-black">Custom Winter Quote Line</span></span></label>
-                <label class="border-t border-white/5 pt-2 flex items-start font-bold cursor-pointer"><input type="checkbox" id="srv8" onchange="calcAstar()" class="w-5 h-5 mt-1 accent-[#FFBE02]"> <span class="ml-3">8. Seasonal Christmas Lights Installation 🎄<span class="block text-[#FFBE02] text-xs font-black">Custom Dynamic Quote Line</span></span></label>
+                
+                <label class="border-t border-white/5 pt-2 flex items-start font-bold cursor-pointer select-none">
+                    <input type="checkbox" id="srv6" onchange="calcAstar()" class="w-5 h-5 mt-0.5 flex-shrink-0 accent-[#1d70b8]"> 
+                    <span class="ml-3 text-sm leading-tight">6. Power Washing <span class="block text-[#FFBE02] text-xs font-black">Starts at $250</span></span>
+                </label>
+                
+                <label class="border-t border-white/5 pt-2 flex items-start font-bold cursor-pointer select-none">
+                    <input type="checkbox" id="srv7" onchange="calcAstar()" class="w-5 h-5 mt-0.5 flex-shrink-0 accent-[#FFBE02]"> 
+                    <span class="ml-3 text-sm leading-tight">7. Heated Wires Cables ❄️<span class="block text-[#FFBE02] text-xs font-black">Winter Quote</span></span>
+                </label>
+                
+                <label class="border-t border-white/5 pt-2 flex items-start font-bold cursor-pointer select-none">
+                    <input type="checkbox" id="srv8" onchange="calcAstar()" class="w-5 h-5 mt-0.5 flex-shrink-0 accent-[#FFBE02]"> 
+                    <span class="ml-3 text-sm leading-tight">8. Christmas Lights Setup 🎄<span class="block text-[#FFBE02] text-xs font-black">Dynamic Quote</span></span>
+                </label>
+<div class="bg-black/40 rounded-xl border border-[#FFBE02] p-3 text-center">
+                <span class="text-[10px] text-[#FFBE02] font-black uppercase tracking-widest block mb-0.5">Calculated Estimate</span>
+                <div id="totalDisplay" class="text-3xl font-black text-white">$0.00</div>
             </div>
-            <div class="bg-black/40 rounded-xl border border-[#FFBE02] p-4 text-center">
-                <span class="text-xs text-[#FFBE02] font-black uppercase tracking-widest block mb-1">Calculated Estimate</span>
-                <div id="totalDisplay" class="text-4xl font-black">$0.00</div>
+            
+            <div class="pt-2 space-y-2.5">
+                <h3 class="text-xs font-black tracking-wider text-[#30A6E0] uppercase">Customer Information</h3>
+                <input type="text" id="cName" placeholder="Your Full Name" required class="w-full px-3 py-2 bg-black/40 border border-white/10 rounded-xl text-sm text-white">
+                <input type="tel" id="cPhone" placeholder="Phone Number" required class="w-full px-3 py-2 bg-black/40 border border-white/10 rounded-xl text-sm text-white">
+                <input type="text" id="cAddr" placeholder="Property Address" required class="w-full px-3 py-2 bg-black/40 border border-white/10 rounded-xl text-sm text-white">
             </div>
-             <div id="totalDisplay" class="text-4xl font-black">$0.00</div>
-        </div>
-        
-        <div class="pt-4 border-t border-white/10 space-y-3">
-            <h3 class="text-sm font-black tracking-wider text-[#30A6E0] uppercase">Customer Information</h3>
-            <input type="text" id="cName" placeholder="Your Full Name" required class="w-full px-4 py-3 bg-black/40 border border-white/10 rounded-xl text-sm focus:outline-none focus:border-[#30A6E0]">
-            <input type="tel" id="cPhone" placeholder="Phone Number" required class="w-full px-4 py-3 bg-black/40 border border-white/10 rounded-xl text-sm focus:outline-none focus:border-[#30A6E0]">
-            <input type="text" id="cAddr" placeholder="Property Address" required class="w-full px-4 py-3 bg-black/40 border border-white/10 rounded-xl text-sm focus:outline-none focus:border-[#30A6E0]">
-        </div>
-        
-        <button type="submit" class="w-full bg-[#FFBE02] text-[#0F1D3A] font-black py-4 rounded-xl text-md hover:bg-[#e0a702] transition-colors uppercase tracking-wider shadow-md mt-4">Submit Request via WhatsApp</button>
-    </form>
-</div>
-<script>
-    function qtyIn(cbId, qId) {
-        if ((parseInt(document.getElementById(qId).value) || 0) > 0) {
-            document.getElementById(cbId).checked = true;
-        }
-        calcAstar();
-    }
+            
+            <button type="submit" class="w-full bg-[#FFBE02] text-[#0F1D3A] font-black py-3 rounded-xl text-sm hover:bg-[#e0a702] uppercase tracking-wider font-bold mt-2">Submit Request via WhatsApp</button>
+        </form>
+    </div>
 
-    function calcAstar() {
-        let total = 0;
-        if (document.getElementById('srv1').checked) total += 190;
-        if (document.getElementById('srv2').checked) total += 195;
-        
-        if (document.getElementById('srv3').checked) {
-            let extraVents = parseInt(document.getElementById('qty3').value) || 0;
-            total += 120 + (extraVents * 30);
+    <script>
+        function qtyIn(cbId, qId) {
+            if ((parseInt(document.getElementById(qId).value) || 0) > 0) {
+                document.getElementById(cbId).checked = true;
+            }
+            calcAstar();
         }
-        if (document.getElementById('srv4').checked) {
-            let extraCorners = parseInt(document.getElementById('qty4').value) || 0;
-            total += 170 + (extraCorners * 30);
-        }
-        if (document.getElementById('srv5').checked) {
-            let numWindows = parseInt(document.getElementById('qty5').value) || 0;
-            total += 170 + (numWindows * 10);
-        }
-        if (document.getElementById('srv6').checked) total += 250;
-        
-        document.getElementById('totalDisplay').innerText = '$' + total.toFixed(2);
-        return total;
-    }
 
-    function sendAstar(e) {
-        e.preventDefault();
-        const name = document.getElementById('cName').value.trim();
-        const phone = document.getElementById('cPhone').value.trim();
-        const addr = document.getElementById('cAddr').value.trim();
-        const price = calcAstar();
-        let items = [];
-        
-        if (document.getElementById('srv1').checked) items.push("- Gutter Cleaning");
-        if (document.getElementById('srv2').checked) items.push("- Soffit & Fascia");
-        if (document.getElementById('srv3').checked) {
-            let q = document.getElementById('qty3').value;
-            items.push("- Vent Replacement (Qty: " + q + ")");
+        function calcAstar() {
+            let total = 0;
+            if (document.getElementById('srv1').checked) total += 190;
+            if (document.getElementById('srv2').checked) total += 195;
+            
+            if (document.getElementById('srv3').checked) {
+                let extraVents = parseInt(document.getElementById('qty3').value) || 0;
+                total += 120 + (extraVents * 30);
+            }
+            if (document.getElementById('srv4').checked) {
+                let extraCorners = parseInt(document.getElementById('qty4').value) || 0;
+                total += 170 + (extraCorners * 30);
+            }
+            if (document.getElementById('srv5').checked) {
+                let numWindows = parseInt(document.getElementById('qty5').value) || 0;
+                total += 170 + (numWindows * 10);
+            }
+            if (document.getElementById('srv6').checked) total += 250;
+            
+            document.getElementById('totalDisplay').innerText = '$' + total.toFixed(2);
+            return total;
         }
-        if (document.getElementById('srv4').checked) {
-            let q = document.getElementById('qty4').value;
-            items.push("- Eavestrough Repair (Qty: " + q + ")");
+
+        function sendAstar(e) {
+            e.preventDefault();
+            const name = document.getElementById('cName').value.trim();
+            const phone = document.getElementById('cPhone').value.trim();
+            const addr = document.getElementById('cAddr').value.trim();
+            const price = calcAstar();
+            let items = [];
+            
+            if (document.getElementById('srv1').checked) items.push("- Gutter Cleaning");
+            if (document.getElementById('srv2').checked) items.push("- Soffit & Fascia");
+            if (document.getElementById('srv3').checked) items.push("- Vent Repl (Qty: " + document.getElementById('qty3').value + ")");
+            if (document.getElementById('srv4').checked) items.push("- Eavestrough Rep (Qty: " + document.getElementById('qty4').value + ")");
+            if (document.getElementById('srv5').checked) items.push("- Window Caulking (Qty: " + document.getElementById('qty5').value + ")");
+            if (document.getElementById('srv6').checked) items.push("- Power Washing");
+            if (document.getElementById('srv7').checked) items.push("- Heated Wires ❄️");
+            if (document.getElementById('srv8').checked) items.push("- Christmas Lights 🎄");
+            
+            let msg = "*NEW ESTIMATE REQUEST - MASBLING ASTAR SERVICES*\n\n" +
+                      "*Customer:*\n• Name: " + name + "\n• Phone: " + phone + "\n• Address: " + addr + "\n\n" +
+                      "*Scope:*\n" + items.join("\n") + "\n\n" +
+                      "*Total:* $" + price.toFixed(2);
+                      
+            window.location.href = "https://wa.me/14374404072?text=  encodeURIComponent(msg);
         }
-        if (document.getElementById('srv5').checked) {
-            let q = document.getElementById('qty5').value;
-            items.push("- Window Caulking (Qty: " + q + ")");
-        }
-        if (document.getElementById('srv6').checked) items.push("- Power Washing");
-        if (document.getElementById('srv7').checked) items.push("- Heated Wires ❄️");
-        if (document.getElementById('srv8').checked) items.push("- Christmas Lights 🎄");
-        
-        // FIXED: Using standard quotes to prevent template literal compilation crashes
-        let msg = "*NEW ESTIMATE REQUEST - MASBLING ASTAR SERVICES*\n\n" +
-                  "*Customer:*\n• Name: " + name + "\n• Phone: " + phone + "\n• Address: " + addr + "\n\n" +
-                  "*Scope:*\n" + items.join("\n") + "\n\n" +
-                  "*Total:* $" + price.toFixed(2);
-                  
-        window.location.href = "https://wa.me/14374404072?text=  encodeURIComponent(msg);
-    }
-</script>
+    </script>
 </body>
 </html>
 
+</div>
