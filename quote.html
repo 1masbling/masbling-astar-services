@@ -50,7 +50,6 @@
         <button type="submit" class="w-full bg-[#FFBE02] text-[#0F1D3A] font-black py-4 rounded-xl text-md hover:bg-[#e0a702] transition-colors uppercase tracking-wider shadow-md mt-4">Submit Request via WhatsApp</button>
     </form>
 </div>
-
 <script>
     function qtyIn(cbId, qId) {
         if ((parseInt(document.getElementById(qId).value) || 0) > 0) {
@@ -108,9 +107,15 @@
         if (document.getElementById('srv7').checked) items.push("- Heated Wires ❄️");
         if (document.getElementById('srv8').checked) items.push("- Christmas Lights 🎄");
         
-        let msg = `*NEW ESTIMATE REQUEST - MASBLING ASTAR SERVICES*\n\n*Customer:*\n• Name: ${name}\n• Phone: ${phone}\n• Address: ${addr}\n\n*Scope:*\n${items.join("\n")}\n\n*Total:* $${price.toFixed(2)}`;
+        // FIXED: Using standard quotes to prevent template literal compilation crashes
+        let msg = "*NEW ESTIMATE REQUEST - MASBLING ASTAR SERVICES*\n\n" +
+                  "*Customer:*\n• Name: " + name + "\n• Phone: " + phone + "\n• Address: " + addr + "\n\n" +
+                  "*Scope:*\n" + items.join("\n") + "\n\n" +
+                  "*Total:* $" + price.toFixed(2);
+                  
         window.location.href = "https://wa.me/14374404072?text=  encodeURIComponent(msg);
     }
 </script>
 </body>
 </html>
+
