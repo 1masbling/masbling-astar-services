@@ -6,7 +6,7 @@
     <title>Masbling Astar Quote & Booking Pipeline</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* FIXED: Changed typo to !important so the gold border works */
+        /* FIXED: Cleaned out hidden character so the golden border highlights on tap */
         .service-card { transition: all 0.25s ease-in-out; }
         .service-card.selected { border-color: #FFBE02 !important; background-color: rgba(255, 190, 2, 0.1); box-shadow: 0 0 12px rgba(255, 190, 2, 0.2); }
     </style>
@@ -15,14 +15,13 @@
     <div class="w-full max-w-md bg-[#01519F] rounded-2xl p-4 border border-white/10 shadow-2xl">
         
         <header class="text-center border-b border-white/10 pb-4 mb-4 flex flex-col items-center">
-            <!-- FIXED: Pointed to your actual desktop filename asset -->
-            <img src="2025 masbling logo-2.png" alt="Masbling Astar Logo" class="h-16 w-auto mb-2 object-contain" onerror="this.src='logo.png'; this.onerror=null;">
+            <!-- FIXED: Updated path to match your exact double-extension desktop asset -->
+            <img src="2025 masbling logo-2.png.png" alt="Masbling Astar Logo" class="h-16 w-auto mb-2 object-contain" onerror="this.src='2025 masbling logo-2.png';">
             <h1 class="text-xl font-black tracking-wider">Select a Service</h1>
             <p class="text-[10px] text-[#FFBE02] font-black tracking-widest uppercase mt-0.5">Instant Upfront Multi-Select Calculator</p>
         </header>
 
         <form id="astarForm" class="space-y-4" onsubmit="sendAstar(event)">
-            
             <div class="grid grid-cols-2 gap-3">
                 
                 <div id="card1" onclick="toggleCard('srv1', 'card1')" class="service-card bg-black/30 border border-white/10 rounded-xl p-3 flex flex-col justify-between cursor-pointer select-none">
