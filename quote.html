@@ -92,18 +92,19 @@
     <script>
         function calcAstar() {
             let total = 0;
-            if (document.getElementById('srv1').checked) total += 190;
-            if (document.getElementById('srv2').checked) total += 195;
-            if (document.getElementById('srv3').checked) total += 190;
-            if (document.getElementById('srv5').checked) total += 170;
-            if (document.getElementById('srv6').checked) total += 195;
-            if (document.getElementById('srv7').checked) total += 120;
-            if (document.getElementById('srv8').checked) total += 170;
-            if (document.getElementById('srv9').checked) total += 220;
-            
-            document.getElementById('totalDisplay').innerText = '$' + total.toFixed(2);
-            return total;
-        }
+        if (document.getElementById('srv1').checked) total += 190;
+        if (document.getElementById('srv2').checked) total += 195;
+        if (document.getElementById('srv3').checked) total += 190;
+        if (document.getElementById('srv5').checked) total += 170;
+        if (document.getElementById('srv6').checked) total += 195;
+        if (document.getElementById('srv7').checked) total += 120;
+        if (document.getElementById('srv8').checked) total += 170;
+        if (document.getElementById('srv9').checked) total += 220;
+        
+        document.getElementById('totalDisplay').innerText = '$' + total.toFixed(2);
+        return total;
+    }
+
 
         function sendAstar(e) {
             e.preventDefault();
