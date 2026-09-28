@@ -3,98 +3,123 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Masbling Astar Quote Generator</title>
+    <title>Masbling Astar Quote & Booking Pipeline</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* FIXED: Changed typo to !important so the gold border works */
+        .service-card { transition: all 0.25s ease-in-out; }
+        .service-card.selected { border-color: #FFBE02 !important; background-color: rgba(255, 190, 2, 0.1); box-shadow: 0 0 12px rgba(255, 190, 2, 0.2); }
+    </style>
 </head>
 <body class="bg-[#0F1D3A] text-white font-sans antialiased min-h-screen w-full flex justify-center items-start py-6 px-3">
     <div class="w-full max-w-md bg-[#01519F] rounded-2xl p-4 border border-white/10 shadow-2xl">
         
         <header class="text-center border-b border-white/10 pb-4 mb-4 flex flex-col items-center">
-            <img src="logo.png" alt="Logo" class="h-14 w-auto mb-2 object-contain" onerror="this.style.display='none'">
-            <h1 class="text-xl font-black tracking-wider">Select Project</h1>
-            <p class="text-[10px] text-[#FFBE02] font-black tracking-widest uppercase mt-0.5">Instant Upfront Floor Price Estimator</p>
+            <!-- FIXED: Pointed to your actual desktop filename asset -->
+            <img src="2025 masbling logo-2.png" alt="Masbling Astar Logo" class="h-16 w-auto mb-2 object-contain" onerror="this.src='logo.png'; this.onerror=null;">
+            <h1 class="text-xl font-black tracking-wider">Select a Service</h1>
+            <p class="text-[10px] text-[#FFBE02] font-black tracking-widest uppercase mt-0.5">Instant Upfront Multi-Select Calculator</p>
         </header>
 
         <form id="astarForm" class="space-y-4" onsubmit="sendAstar(event)">
-            <div class="bg-black/30 p-3 rounded-xl border border-white/5 flex flex-col space-y-3">
+            
+            <div class="grid grid-cols-2 gap-3">
                 
-                <label class="flex items-start font-bold cursor-pointer select-none">
-                    <input type="checkbox" id="srv1" onchange="calcAstar()" class="w-5 h-5 mt-0.5 flex-shrink-0 accent-[#1d70b8]"> 
-                    <span class="ml-3 text-sm leading-tight">1. Gutter Cleaning Baseline <span class="block text-[#FFBE02] text-xs font-black">$190</span></span>
-                </label>
-                
-                <label class="border-t border-white/5 pt-2 flex items-start font-bold cursor-pointer select-none">
-                    <input type="checkbox" id="srv2" onchange="calcAstar()" class="w-5 h-5 mt-0.5 flex-shrink-0 accent-[#1d70b8]"> 
-                    <span class="ml-3 text-sm leading-tight">2. Soffit & Fascia Care <span class="block text-[#FFBE02] text-xs font-black">$195</span></span>
-                </label>
-                
-                <div class="border-t border-white/5 pt-2 flex flex-col">
-                    <label class="flex items-start font-bold cursor-pointer select-none">
-                        <input type="checkbox" id="srv3" onchange="calcAstar()" class="w-5 h-5 mt-0.5 flex-shrink-0 accent-[#1d70b8]"> 
-                        <span class="ml-3 text-sm leading-tight">3. Vent Replacement <span class="block text-[#FFBE02] text-xs font-black">$120 Base</span></span>
-                    </label>
-                    <div class="pl-8 mt-1 flex justify-between items-center text-xs">
-                        <span class="text-slate-300">Extra Vents ($30/ea):</span>
-                        <input type="number" id="qty3" min="0" value="0" oninput="qtyIn('srv3','qty3')" class="w-14 h-7 bg-black/50 border border-white/20 text-center rounded text-[#FFBE02] font-bold">
-                    </div>
+                <div id="card1" onclick="toggleCard('srv1', 'card1')" class="service-card bg-black/30 border border-white/10 rounded-xl p-3 flex flex-col justify-between cursor-pointer select-none">
+                    <input type="checkbox" id="srv1" class="hidden">
+                    <div class="text-sm font-black tracking-wide mb-1">Downpipes</div>
+                    <div class="text-[#FFBE02] text-xs font-bold">$190 Base</div>
                 </div>
-                
-                <div class="border-t border-white/5 pt-2 flex flex-col">
-                    <label class="flex items-start font-bold cursor-pointer select-none">
-                        <input type="checkbox" id="srv4" onchange="calcAstar()" class="w-5 h-5 mt-0.5 flex-shrink-0 accent-[#1d70b8]"> 
-                        <span class="ml-3 text-sm leading-tight">4. Eavestrough Repair <span class="block text-[#FFBE02] text-xs font-black">$170 Base</span></span>
-                    </label>
-                    <div class="pl-8 mt-1 flex justify-between items-center text-xs">
-                        <span class="text-slate-300">Extra Corners ($30/ea):</span>
-                        <input type="number" id="qty4" min="0" value="0" oninput="qtyIn('srv4','qty4')" class="w-14 h-7 bg-black/50 border border-white/20 text-center rounded text-[#FFBE02] font-bold">
-                    </div>
+
+                <div id="card2" onclick="toggleCard('srv2', 'card2')" class="service-card bg-black/30 border border-white/10 rounded-xl p-3 flex flex-col justify-between cursor-pointer select-none">
+                    <input type="checkbox" id="srv2" class="hidden">
+                    <div class="text-sm font-black tracking-wide mb-1">Fascia</div>
+                    <div class="text-[#FFBE02] text-xs font-bold">$195 Care</div>
                 </div>
-                
-                <div class="border-t border-white/5 pt-2 flex flex-col">
-                    <label class="flex items-start font-bold cursor-pointer select-none">
-                        <input type="checkbox" id="srv5" onchange="calcAstar()" class="w-5 h-5 mt-0.5 flex-shrink-0 accent-[#1d70b8]"> 
-                        <span class="ml-3 text-sm leading-tight">5. Window Caulking Shields <span class="block text-[#FFBE02] text-xs font-black">$170 Base</span></span>
-                    </label>
-                    <div class="pl-8 mt-1 flex justify-between items-center text-xs">
-                        <span class="text-slate-300">Total Windows ($10/ea):</span>
-                        <input type="number" id="qty5" min="0" value="0" oninput="qtyIn('srv5','qty5')" class="w-14 h-7 bg-black/50 border border-white/20 text-center rounded text-[#FFBE02] font-bold">
-                    </div>
+
+                <div id="card3" onclick="toggleCard('srv3', 'card3')" class="service-card bg-black/30 border border-white/10 rounded-xl p-3 flex flex-col justify-between cursor-pointer select-none">
+                    <input type="checkbox" id="srv3" class="hidden">
+                    <div class="text-sm font-black tracking-wide mb-1">Gutter Care</div>
+                    <div class="text-[#FFBE02] text-xs font-bold">$190 Baseline</div>
                 </div>
-                
-                <label class="border-t border-white/5 pt-2 flex items-start font-bold cursor-pointer select-none">
-                    <input type="checkbox" id="srv6" onchange="calcAstar()" class="w-5 h-5 mt-0.5 flex-shrink-0 accent-[#1d70b8]"> 
-                    <span class="ml-3 text-sm leading-tight">6. Power Washing <span class="block text-[#FFBE02] text-xs font-black">Starts at $250</span></span>
-                </label>
-                
-                <label class="border-t border-white/5 pt-2 flex items-start font-bold cursor-pointer select-none">
-                    <input type="checkbox" id="srv7" onchange="calcAstar()" class="w-5 h-5 mt-0.5 flex-shrink-0 accent-[#FFBE02]"> 
-                    <span class="ml-3 text-sm leading-tight">7. Heated Wires Cables ❄️<span class="block text-[#FFBE02] text-xs font-black">Winter Quote</span></span>
-                </label>
-                
-                <label class="border-t border-white/5 pt-2 flex items-start font-bold cursor-pointer select-none">
-                    <input type="checkbox" id="srv8" onchange="calcAstar()" class="w-5 h-5 mt-0.5 flex-shrink-0 accent-[#FFBE02]"> 
-                    <span class="ml-3 text-sm leading-tight">8. Christmas Lights Setup 🎄<span class="block text-[#FFBE02] text-xs font-black">Dynamic Quote</span></span>
-                </label>
-<div class="bg-black/40 rounded-xl border border-[#FFBE02] p-3 text-center">
+
+                <div id="card4" onclick="toggleCard('srv4', 'card4')" class="service-card bg-black/30 border border-white/10 rounded-xl p-3 flex flex-col justify-between cursor-pointer select-none">
+                    <input type="checkbox" id="srv4" class="hidden">
+                    <div class="text-sm font-black tracking-wide mb-1">Handyman</div>
+                    <div class="text-[#FFBE02] text-xs font-bold">Custom Repair</div>
+                </div>
+
+                <div id="card5" onclick="toggleCard('srv5', 'card5')" class="service-card bg-black/30 border border-white/10 rounded-xl p-3 flex flex-col justify-between cursor-pointer select-none">
+                    <input type="checkbox" id="srv5" class="hidden">
+                    <div class="text-sm font-black tracking-wide mb-1">Leaks Sealing</div>
+                    <div class="text-[#FFBE02] text-xs font-bold">$170 Base</div>
+                </div>
+
+                <div id="card6" onclick="toggleCard('srv6', 'card6')" class="service-card bg-black/30 border border-white/10 rounded-xl p-3 flex flex-col justify-between cursor-pointer select-none">
+                    <input type="checkbox" id="srv6" class="hidden">
+                    <div class="text-sm font-black tracking-wide mb-1">Soffit</div>
+                    <div class="text-[#FFBE02] text-xs font-bold">$195 Care</div>
+                </div>
+
+                <div id="card7" onclick="toggleCard('srv7', 'card7')" class="service-card bg-black/30 border border-white/10 rounded-xl p-3 flex flex-col justify-between cursor-pointer select-none">
+                    <input type="checkbox" id="srv7" class="hidden">
+                    <div class="text-sm font-black tracking-wide mb-1">Vent Repl</div>
+                    <div class="text-[#FFBE02] text-xs font-bold">$120 Base</div>
+                </div>
+
+                <div id="card8" onclick="toggleCard('srv8', 'card8')" class="service-card bg-black/30 border border-white/10 rounded-xl p-3 flex flex-col justify-between cursor-pointer select-none">
+                    <input type="checkbox" id="srv8" class="hidden">
+                    <div class="text-sm font-black tracking-wide mb-1">Window Caulking</div>
+                    <div class="text-[#FFBE02] text-xs font-bold">$170 Base</div>
+                </div>
+
+                <div id="card9" onclick="toggleCard('srv9', 'card9')" class="service-card bg-black/30 border border-white/10 rounded-xl p-3 flex flex-col justify-between cursor-pointer select-none col-span-2">
+                    <input type="checkbox" id="srv9" class="hidden">
+                    <div class="text-sm font-black tracking-wide mb-1">Window Cleaning Bundle</div>
+                    <div class="text-[#FFBE02] text-xs font-bold">$220 (Covers 10-12 Windows)</div>
+                </div>
+
+            </div>
+ <div class="bg-black/40 rounded-xl border border-[#FFBE02] p-3 text-center mt-4">
                 <span class="text-[10px] text-[#FFBE02] font-black uppercase tracking-widest block mb-0.5">Calculated Estimate</span>
                 <div id="totalDisplay" class="text-3xl font-black text-white">$0.00</div>
             </div>
-            
-            <div class="pt-2 space-y-2.5">
-                <h3 class="text-xs font-black tracking-wider text-[#30A6E0] uppercase">Customer Information</h3>
-                <input type="text" id="cName" placeholder="Your Full Name" required class="w-full px-3 py-2 bg-black/40 border border-white/10 rounded-xl text-sm text-white">
-                <input type="tel" id="cPhone" placeholder="Phone Number" required class="w-full px-3 py-2 bg-black/40 border border-white/10 rounded-xl text-sm text-white">
-                <input type="text" id="cAddr" placeholder="Property Address" required class="w-full px-3 py-2 bg-black/40 border border-white/10 rounded-xl text-sm text-white">
+
+            <div class="pt-2 space-y-2">
+                <h3 class="text-xs font-black tracking-wider text-[#30A6E0] uppercase">Select Request Action</h3>
+                <div class="grid grid-cols-2 gap-2">
+                    <label class="flex items-center justify-center bg-black/30 border border-white/10 rounded-xl p-2.5 cursor-pointer font-bold text-xs select-none">
+                        <input type="radio" name="reqType" value="Quote Only" checked class="w-4 h-4 accent-[#30A6E0]">
+                        <span class="ml-2">Get Quote Link</span>
+                    </label>
+                    <label class="flex items-center justify-center bg-black/30 border border-[#FFBE02]/40 rounded-xl p-2.5 cursor-pointer font-bold text-xs select-none">
+                        <input type="radio" name="reqType" value="Book Firm Slot Now" class="w-4 h-4 accent-[#FFBE02]">
+                        <span class="ml-2 text-[#FFBE02]">⚡ Book Now</span>
+                    </label>
+                </div>
             </div>
             
-            <button type="submit" class="w-full bg-[#FFBE02] text-[#0F1D3A] font-black py-3 rounded-xl text-sm hover:bg-[#e0a702] uppercase tracking-wider font-bold mt-2">Submit Request via WhatsApp</button>
+            <div class="pt-1 space-y-2.5">
+                <h3 class="text-xs font-black tracking-wider text-[#30A6E0] uppercase">Customer Information</h3>
+                <input type="text" id="cName" placeholder="Your Full Name" required class="w-full px-3 py-2 bg-black/40 border border-white/10 rounded-xl text-sm text-white focus:outline-none">
+                <input type="tel" id="cPhone" placeholder="Phone Number" required class="w-full px-3 py-2 bg-black/40 border border-white/10 rounded-xl text-sm text-white focus:outline-none">
+                <input type="text" id="cAddr" placeholder="Property Address" required class="w-full px-3 py-2 bg-black/40 border border-white/10 rounded-xl text-sm text-white focus:outline-none">
+            </div>
+            
+            <button type="submit" class="w-full bg-[#FFBE02] text-[#0F1D3A] font-black py-3 rounded-xl text-sm hover:bg-[#e0a702] uppercase tracking-wider font-bold mt-2 shadow-md">Submit Request via WhatsApp</button>
         </form>
     </div>
 
     <script>
-        function qtyIn(cbId, qId) {
-            if ((parseInt(document.getElementById(qId).value) || 0) > 0) {
-                document.getElementById(cbId).checked = true;
+        function toggleCard(checkboxId, cardId) {
+            const cb = document.getElementById(checkboxId);
+            const card = document.getElementById(cardId);
+            cb.checked = !cb.checked;
+            
+            if(cb.checked) {
+                card.classList.add('selected');
+            } else {
+                card.classList.remove('selected');
             }
             calcAstar();
         }
@@ -103,20 +128,12 @@
             let total = 0;
             if (document.getElementById('srv1').checked) total += 190;
             if (document.getElementById('srv2').checked) total += 195;
-            
-            if (document.getElementById('srv3').checked) {
-                let extraVents = parseInt(document.getElementById('qty3').value) || 0;
-                total += 120 + (extraVents * 30);
-            }
-            if (document.getElementById('srv4').checked) {
-                let extraCorners = parseInt(document.getElementById('qty4').value) || 0;
-                total += 170 + (extraCorners * 30);
-            }
-            if (document.getElementById('srv5').checked) {
-                let numWindows = parseInt(document.getElementById('qty5').value) || 0;
-                total += 170 + (numWindows * 10);
-            }
-            if (document.getElementById('srv6').checked) total += 250;
+            if (document.getElementById('srv3').checked) total += 190;
+            if (document.getElementById('srv5').checked) total += 170;
+            if (document.getElementById('srv6').checked) total += 195;
+            if (document.getElementById('srv7').checked) total += 120;
+            if (document.getElementById('srv8').checked) total += 170;
+            if (document.getElementById('srv9').checked) total += 220;
             
             document.getElementById('totalDisplay').innerText = '$' + total.toFixed(2);
             return total;
@@ -128,26 +145,32 @@
             const phone = document.getElementById('cPhone').value.trim();
             const addr = document.getElementById('cAddr').value.trim();
             const price = calcAstar();
+            const actionType = document.querySelector('input[name="reqType"]:checked').value;
+            
             let items = [];
+            if (document.getElementById('srv1').checked) items.push("- Downpipes Service");
+            if (document.getElementById('srv2').checked) items.push("- Fascia Care");
+            if (document.getElementById('srv3').checked) items.push("- Gutter Care Baseline");
+            if (document.getElementById('srv4').checked) items.push("- Handyman Custom Sweep");
+            if (document.getElementById('srv5').checked) items.push("- Leaks Sealing Setup");
+            if (document.getElementById('srv6').checked) items.push("- Soffit Care");
+            if (document.getElementById('srv7').checked) items.push("- Vent Replacement");
+            if (document.getElementById('srv8').checked) items.push("- Window Caulking Shields");
+            if (document.getElementById('srv9').checked) items.push("- Premium Window Cleaning Bundle");
             
-            if (document.getElementById('srv1').checked) items.push("- Gutter Cleaning");
-            if (document.getElementById('srv2').checked) items.push("- Soffit & Fascia");
-            if (document.getElementById('srv3').checked) items.push("- Vent Repl (Qty: " + document.getElementById('qty3').value + ")");
-            if (document.getElementById('srv4').checked) items.push("- Eavestrough Rep (Qty: " + document.getElementById('qty4').value + ")");
-            if (document.getElementById('srv5').checked) items.push("- Window Caulking (Qty: " + document.getElementById('qty5').value + ")");
-            if (document.getElementById('srv6').checked) items.push("- Power Washing");
-            if (document.getElementById('srv7').checked) items.push("- Heated Wires ❄️");
-            if (document.getElementById('srv8').checked) items.push("- Christmas Lights 🎄");
-            
-            let msg = "*NEW ESTIMATE REQUEST - MASBLING ASTAR SERVICES*\n\n" +
+            let headline = (actionType === "Book Firm Slot Now") 
+                ? "*URGENT FIRM BOOKING REQUEST - MASBLING ASTAR SERVICES* ⚡" 
+                : "*NEW ESTIMATE REQUEST - MASBLING ASTAR SERVICES*";
+
+            let msg = headline + "\n\n" +
+                      "*Request Status:* " + actionType + "\n\n" +
                       "*Customer:*\n• Name: " + name + "\n• Phone: " + phone + "\n• Address: " + addr + "\n\n" +
                       "*Scope:*\n" + items.join("\n") + "\n\n" +
-                      "*Total:* $" + price.toFixed(2);
+                      "*Total:* $" + price.toFixed(2) + "\n\n" +
+                      "_Note: Scheduling verification parameters will open manually via business chat line._";
                       
             window.location.href = "https://wa.me/14374404072?text=  encodeURIComponent(msg);
         }
     </script>
 </body>
 </html>
-
-</div>
