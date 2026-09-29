@@ -87,24 +87,22 @@
             
             <button type="submit" class="w-full bg-[#FFBE02] text-[#0F1D3A] font-black py-3 rounded-xl text-sm hover:bg-[#e0a702] uppercase tracking-wider font-bold shadow-md">Submit Request via WhatsApp</button>
         </form>
-    </div>
-
-    <script>
+   
+ <script>
         function calcAstar() {
             let total = 0;
-        if (document.getElementById('srv1').checked) total += 190;
-        if (document.getElementById('srv2').checked) total += 195;
-        if (document.getElementById('srv3').checked) total += 190;
-        if (document.getElementById('srv5').checked) total += 170;
-        if (document.getElementById('srv6').checked) total += 195;
-        if (document.getElementById('srv7').checked) total += 120;
-        if (document.getElementById('srv8').checked) total += 170;
-        if (document.getElementById('srv9').checked) total += 220;
-        
-        document.getElementById('totalDisplay').innerText = '$' + total.toFixed(2);
-        return total;
-    }
-
+            if (document.getElementById('srv1').checked) total += 190;
+            if (document.getElementById('srv2').checked) total += 195;
+            if (document.getElementById('srv3').checked) total += 190;
+            if (document.getElementById('srv5').checked) total += 170;
+            if (document.getElementById('srv6').checked) total += 195;
+            if (document.getElementById('srv7').checked) total += 120;
+            if (document.getElementById('srv8').checked) total += 170;
+            if (document.getElementById('srv9').checked) total += 220;
+            
+            document.getElementById('totalDisplay').innerText = '$' + total.toFixed(2);
+            return total;
+        }
 
         function sendAstar(e) {
             e.preventDefault();
@@ -135,5 +133,6 @@
                       "*Scope:*\n" + items.join("\n") + "\n\n" +
                       "*Total:* $" + price.toFixed(2);
                       
-            window.location.href = "https://wa.me/14374404072?text=" + encodeURIComponent(msg);
+            window.location.href = "https://wa.me/14374404072?text=  encodeURIComponent(msg);
         }
+    </script>
