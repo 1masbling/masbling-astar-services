@@ -3,140 +3,278 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Masbling Astar Quote & Booking Pipeline</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Masbling Astar Services | Instant Estimator</title>
+    <link rel="stylesheet" href="https://cloudflare.com">
+    <style>
+        :root {
+            --bg-dark: #0F1D3A; /* Your Premium Signature Dark Slate Blue */
+            --card-blue: #01519F; /* Your True Brand Royal Blue */
+            --accent-yellow: #FBBE02; /* Your Warm Golden Brand Yellow */
+            --sky-blue: #30A6E0; /* Your Accent Sky Blue Highlight */
+            --text-white: #FFFFFF;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-white);
+            padding: 20px 15px 40px 15px;
+        }
+
+        .header-container {
+            text-align: center;
+            margin-bottom: 25px;
+            padding: 20px 0;
+            border-bottom: 2px solid var(--sky-blue);
+        }
+
+        .header-container h1 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            color: var(--text-white);
+            text-transform: uppercase;
+        }
+
+        .header-container p {
+            color: var(--sky-blue);
+            font-size: 0.95rem;
+            margin-top: 5px;
+            font-weight: 600;
+        }
+
+        .calculator-card {
+            background-color: var(--card-blue);
+            max-width: 550px;
+            margin: 0 auto;
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .section-title {
+            color: var(--accent-yellow);
+            font-size: 1.1rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin: 25px 0 12px 0;
+            border-left: 4px solid var(--sky-blue);
+            padding-left: 8px;
+        }
+        .section-title:first-of-type {
+            margin-top: 5px;
+        }
+
+        .service-item {
+            background: rgba(15, 29, 58, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+        .service-item:hover {
+            border-color: var(--sky-blue);
+            background: rgba(15, 29, 58, 0.8);
+        }
+
+        .service-info {
+            padding-right: 15px;
+            flex: 1;
+        }
+
+        .service-name {
+            font-weight: 700;
+            font-size: 1.05rem;
+            color: var(--text-white);
+            margin-bottom: 4px;
+        }
+
+        .service-desc {
+            font-size: 0.85rem;
+            color: #CCD6E0;
+            line-height: 1.3;
+        }
+
+        .service-price {
+            font-weight: 800;
+            color: var(--accent-yellow);
+            font-size: 1.1rem;
+            margin-top: 3px;
+        }
+
+        .checkbox-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .service-checkbox {
+            appearance: none;
+            -webkit-appearance: none;
+            width: 26px;
+            height: 26px;
+            border: 2px solid var(--sky-blue);
+            border-radius: 6px;
+            background: transparent;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.15s ease;
+        }
+        .service-checkbox:checked {
+            background-color: var(--accent-yellow);
+            border-color: var(--accent-yellow);
+        }
+        .service-checkbox:checked::after {
+            content: "\f00c";
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            color: #000000;
+            font-size: 0.9rem;
+        }
+
+        .totals-box {
+            background-color: var(--bg-dark);
+            border: 2px solid var(--accent-yellow);
+            border-radius: 14px;
+            padding: 18px;
+            margin-top: 25px;
+            box-shadow: inset 0 2px 10px rgba(0,0,0,0.5);
+        }
+
+        .total-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+            color: #A0AEC0;
+        }
+        .total-row.grand-total {
+            margin-bottom: 0;
+            margin-top: 12px;
+            padding-top: 12px;
+            border-top: 1px dashed rgba(255, 255, 255, 0.1);
+            color: var(--text-white);
+        }
+
+        .total-row.grand-total span:last-child {
+            color: var(--accent-yellow);
+            font-size: 1.6rem;
+            font-weight: 900;
+        }
+
+        .action-button {
+            width: 100%;
+            background-color: var(--accent-yellow);
+            color: #000000;
+            border: none;
+            border-radius: 12px;
+            padding: 16px;
+            font-size: 1.1rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 20px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(251, 190, 2, 0.3);
+            transition: all 0.15s ease;
+        }
+        .action-button:active {
+            transform: scale(0.98);
+            box-shadow: none;
+        }
+    </style>
 </head>
-<body class="bg-[#0F1D3A] text-white font-sans antialiased min-h-screen w-full flex justify-center items-start py-6 px-3">
-    <div class="w-full max-w-md bg-[#01519F] rounded-2xl p-4 border border-white/10 shadow-2xl">
-        
-        <header class="text-center border-b border-white/10 pb-4 mb-4 flex flex-col items-center">
-            <h1 class="text-xl font-black tracking-wider">Select a Service</h1>
-            <p class="text-[10px] text-[#FFBE02] font-black tracking-widest uppercase mt-0.5">Instant Upfront Multi-Select Calculator</p>
-        </header>
+<body>
 
-        <form id="astarForm" class="space-y-4" onsubmit="sendAstarEmail(event)">
-            
-            <div class="bg-black/30 p-3 rounded-xl border border-white/5 flex flex-col space-y-3">
-                <label class="flex items-center justify-between font-bold cursor-pointer py-1.5 border-b border-white/5">
-                    <span>1. Downpipes Baseline</span>
-                    <div class="flex items-center"><span class="text-[#FFBE02] text-xs mr-3">$190</span><input type="checkbox" id="srv1" onchange="calcAstar()" class="w-5 h-5 accent-[#FFBE02]"></div>
-                </label>
-                <label class="flex items-center justify-between font-bold cursor-pointer py-1.5 border-b border-white/5">
-                    <span>2. Fascia Care</span>
-                    <div class="flex items-center"><span class="text-[#FFBE02] text-xs mr-3">$195</span><input type="checkbox" id="srv2" onchange="calcAstar()" class="w-5 h-5 accent-[#FFBE02]"></div>
-                </label>
-                <label class="flex items-center justify-between font-bold cursor-pointer py-1.5 border-b border-white/5">
-                    <span>3. Gutter Care</span>
-                    <div class="flex items-center"><span class="text-[#FFBE02] text-xs mr-3">$190</span><input type="checkbox" id="srv3" onchange="calcAstar()" class="w-5 h-5 accent-[#FFBE02]"></div>
-                </label>
-                <label class="flex items-center justify-between font-bold cursor-pointer py-1.5 border-b border-white/5">
-                    <span>4. Handyman Repair</span>
-                    <div class="flex items-center"><span class="text-[#FFBE02] text-xs mr-3">Custom</span><input type="checkbox" id="srv4" onchange="calcAstar()" class="w-5 h-5 accent-[#FFBE02]"></div>
-                </label>
-                <label class="flex items-center justify-between font-bold cursor-pointer py-1.5 border-b border-white/5">
-                    <span>5. Leaks Sealing</span>
-                    <div class="flex items-center"><span class="text-[#FFBE02] text-xs mr-3">$170</span><input type="checkbox" id="srv5" onchange="calcAstar()" class="w-5 h-5 accent-[#FFBE02]"></div>
-                </label>
-                <label class="flex items-center justify-between font-bold cursor-pointer py-1.5 border-b border-white/5">
-                    <span>6. Soffit Care</span>
-                    <div class="flex items-center"><span class="text-[#FFBE02] text-xs mr-3">$195</span><input type="checkbox" id="srv6" onchange="calcAstar()" class="w-5 h-5 accent-[#FFBE02]"></div>
-                </label>
-                <label class="flex items-center justify-between font-bold cursor-pointer py-1.5 border-b border-white/5">
-                    <span>7. Vent Replacement</span>
-                    <div class="flex items-center"><span class="text-[#FFBE02] text-xs mr-3">$120</span><input type="checkbox" id="srv7" onchange="calcAstar()" class="w-5 h-5 accent-[#FFBE02]"></div>
-                </label>
-                <label class="flex items-center justify-between font-bold cursor-pointer py-1.5 border-b border-white/5">
-                    <span>8. Window Caulking</span>
-                    <div class="flex items-center"><span class="text-[#FFBE02] text-xs mr-3">$170</span><input type="checkbox" id="srv8" onchange="calcAstar()" class="w-5 h-5 accent-[#FFBE02]"></div>
-                </label>
-                <label class="flex items-center justify-between font-bold cursor-pointer py-1.5">
-                    <span>9. Window Cleaning Bundle</span>
-                    <div class="flex items-center"><span class="text-[#FFBE02] text-xs mr-3">$220</span><input type="checkbox" id="srv9" onchange="calcAstar()" class="w-5 h-5 accent-[#FFBE02]"></div>
-                </label>
-            </div>
-
- <div class="bg-black/40 rounded-xl border border-[#FFBE02] p-3 text-center w-full">
-                <span class="text-[10px] text-[#FFBE02] font-black uppercase tracking-widest block mb-0.5">Calculated Estimate</span>
-                <div id="totalDisplay" class="text-3xl font-black text-white">$0.00</div>
-            </div>
-
-            <div class="space-y-2 w-full">
-                <h3 class="text-xs font-black tracking-wider text-[#30A6E0] uppercase">Select Request Action</h3>
-                <div class="grid grid-cols-2 gap-2">
-                    <label class="flex items-center justify-center bg-black/30 border border-white/10 rounded-xl p-2.5 cursor-pointer font-bold text-xs select-none">
-                        <input type="radio" name="reqType" value="Quote Only" checked class="w-4 h-4 accent-[#30A6E0]">
-                        <span class="ml-2">Get Quote Info</span>
-                    </label>
-                    <label class="flex items-center justify-center bg-black/30 border border-[#FFBE02]/40 rounded-xl p-2.5 cursor-pointer font-bold text-xs select-none">
-                        <input type="radio" name="reqType" value="Book Firm Slot Now" class="w-4 h-4 accent-[#FFBE02]">
-                        <span class="ml-2 text-[#FFBE02]">⚡ Book Now</span>
-                    </label>
-                </div>
-            </div>
-            
-            <div class="space-y-2.5 w-full">
-                <h3 class="text-xs font-black tracking-wider text-[#30A6E0] uppercase">Customer Information</h3>
-                <input type="text" id="cName" placeholder="Your Full Name" required class="w-full px-3 py-2 bg-black/40 border border-white/10 rounded-xl text-sm text-white focus:outline-none">
-                <input type="tel" id="cPhone" placeholder="Phone Number" required class="w-full px-3 py-2 bg-black/40 border border-white/10 rounded-xl text-sm text-white focus:outline-none">
-                <input type="text" id="cAddr" placeholder="Property Address" required class="w-full px-3 py-2 bg-black/40 border border-white/10 rounded-xl text-sm text-white focus:outline-none">
-            </div>
-            
-            <button type="submit" class="w-full bg-[#FFBE02] text-[#0F1D3A] font-black py-3 rounded-xl text-sm hover:bg-[#e0a702] uppercase tracking-wider font-bold shadow-md">Submit Order via Email</button>
-        </form>
+    <div class="header-container">
+        <h1>Masbling Astar</h1>
+        <p>Premium Gutter & Exterior Specialist</p>
     </div>
 
-    <script>
-        function calcAstar() {
-            let total = 0;
-            if (document.getElementById('srv1').checked) total += 190;
-            if (document.getElementById('srv2').checked) total += 195;
-            if (document.getElementById('srv3').checked) total += 190;
-            if (document.getElementById('srv5').checked) total += 170;
-            if (document.getElementById('srv6').checked) total += 195;
-            if (document.getElementById('srv7').checked) total += 120;
-            if (document.getElementById('srv8').checked) total += 170;
-            if (document.getElementById('srv9').checked) total += 220;
-            
-            document.getElementById('totalDisplay').innerText = '$' + total.toFixed(2);
-            return total;
-        }
+    <div class="calculator-card">
+        <div style="text-align: center; margin-bottom: 15px;">
+            <h2 style="font-size: 1.4rem; font-weight: 800;">Select Your Project Scope</h2>
+            <p style="font-size: 0.85rem; color: #E2E8F0; margin-top: 3px;">Tick the services you need to build your custom package</p>
+        </div>
 
-        function sendAstarEmail(e) {
-            e.preventDefault();
-            const name = document.getElementById('cName').value.trim();
-            const phone = document.getElementById('cPhone').value.trim();
-            const addr = document.getElementById('cAddr').value.trim();
-            const price = calcAstar();
-            const actionType = document.querySelector('input[name="reqType"]:checked').value;
-            
-            let items = [];
-            if (document.getElementById('srv1').checked) items.push("- Downpipes Service");
-            if (document.getElementById('srv2').checked) items.push("- Fascia Care");
-            if (document.getElementById('srv3').checked) items.push("- Gutter Care Baseline");
-            if (document.getElementById('srv4').checked) items.push("- Handyman Custom Sweep");
-            if (document.getElementById('srv5').checked) items.push("- Leaks Sealing Setup");
-            if (document.getElementById('srv6').checked) items.push("- Soffit Care");
-            if (document.getElementById('srv7').checked) items.push("- Vent Replacement");
-            if (document.getElementById('srv8').checked) items.push("- Window Caulking Shields");
-            if (document.getElementById('srv9').checked) items.push("- Premium Window Cleaning Bundle");
-            
-            let emailSubject = (actionType === "Book Firm Slot Now")
-                ? "URGENT FIRM BOOKING - MASBLING ASTAR SERVICES"
-                : "New Project Estimate Request - Masbling Astar";
+        <!-- Section 1 -->
+        <div class="section-title">1. Gutter Maintenance & Cleaning</div>
+        
+        <div class="service-item" onclick="toggleRow('clean')">
+            <div class="service-info">
+                <div class="service-name">Professional Gutter Cleaning</div>
+                <div class="service-desc">Debris removal, downspout flushing, and bag-away disposal.</div>
+                <div class="service-price">$190.00</div>
+            </div>
+            <div class="checkbox-container">
+                <input type="checkbox" id="clean" class="service-checkbox" data-price="190" onclick="event.stopPropagation(); calculateProjectTotal();">
+            </div>
+        </div>
 
-            let emailBody = "NEW ORDER INBOUND - MASBLING ASTAR SERVICES\n\n" +
-                            "Request Type: " + actionType + "\n\n" +
-                            "CUSTOMER DETAILS:\n" +
-                            "• Name: " + name + "\n" +
-                            "• Phone: " + phone + "\n" +
-                            "• Property Address: " + addr + "\n\n" +
-                            "PROJECT SCOPE:\n" + items.join("\n") + "\n\n" +
-                            "TOTAL ESTIMATE: $" + price.toFixed(2) + "\n\n" +
-                            "Please contact customer directly to confirm immediate work-schedule availability.";
+        <div class="service-item" onclick="toggleRow('leak')">
+            <div class="service-info">
+                <div class="service-name">Eavestrough Corner Leak Repair</div>
+                <div class="service-desc">Resealing joints using heavy-duty exterior waterproof sealant.</div>
+                <div class="service-price">$170.00</div>
+            </div>
+            <div class="checkbox-container">
+                <input type="checkbox" id="leak" class="service-checkbox" data-price="170" onclick="event.stopPropagation(); calculateProjectTotal();">
+            </div>
+        </div>
 
-            // NATIVE ROUTING PIPELINE: Dispatches data directly to your verified professional email
-            window.location.href = "mailto:info@://masblingastarservices.com" + encodeURIComponent(emailSubject) + "&body=" + encodeURIComponent(emailBody);
-        }
-    </script>
-</body>
-</html>
+        <div class="service-item" onclick="toggleRow('tighten')">
+            <div class="service-info">
+                <div class="service-name">Downpipe Re-securing & Tightening</div>
+                <div class="service-desc">Fastening disconnected pipes back securely to masonry or siding.</div>
+                <div class="service-price">$190.00</div>
+            </div>
+            <div class="checkbox-container">
+                <input type="checkbox" id="tighten" class="service-checkbox" data-price="190" onclick="event.stopPropagation(); calculateProjectTotal();">
+            </div>
+        </div>
+
+        <!-- Section 2 -->
+        <div class="section-title">2. Full Exterior Installations</div>
+
+        <div class="service-item" onclick="toggleRow('gutter-inst')">
+            <div class="service-info">
+                <div class="service-name">Seamless Gutter / Eavestrough Installation</div>
+                <div class="service-desc">Premium custom-cut K-Style aluminum gutters formed directly to your rooflines.</div>
+                <div class="service-price">$195.00</div>
+            </div>
+            <div class="checkbox-container">
+                <input type="checkbox" id="gutter-inst" class="service-checkbox" data-price="195" onclick="event.stopPropagation(); calculateProjectTotal();">
+            </div>
+        </div>
+
+        <div class="service-item" onclick="toggleRow('pipe-inst')">
+            <div class="service-info">
+                <div class="service-name">New Downpipe Installation</div>
+                <div class="service-desc">Mounting clean aluminum downspouts to handle correct drainage routing.</div>
+                <div class="service-price">$195.00</div>
+            </div>
+            <div class="checkbox-container">
+                <input type="checkbox" id="pipe-inst" class="service-checkbox" data-price="195" onclick="event.stopPropagation(); calculateProjectTotal();">
+            </div>
+        </div>
+
+        <div class="service-item" onclick="toggleRow('guard')">
+            <div class="service-info">
+                <div class="service-name">Premium Leaf Guard Installation</div>
+                <div class="service-desc">Defends gutters from leaves, debris, and blockages permanently.</div>
