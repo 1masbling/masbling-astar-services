@@ -1,280 +1,394 @@
-<!DOCTYPE html>
+!DOCTYPE HTML>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Masbling Astar Services | Instant Estimator</title>
+    <title>Masbling Astar Services</title>
     <link rel="stylesheet" href="https://cloudflare.com">
     <style>
-        :root {
-            --bg-dark: #0F1D3A; /* Your Premium Signature Dark Slate Blue */
-            --card-blue: #01519F; /* Your True Brand Royal Blue */
-            --accent-yellow: #FBBE02; /* Your Warm Golden Brand Yellow */
-            --sky-blue: #30A6E0; /* Your Accent Sky Blue Highlight */
-            --text-white: #FFFFFF;
-        }
-
         * {
-            box-sizing: border-box;
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
+        :root {
+            --primary-blue: #01519f;
+            --light-blue: #30a6e0;
+            --dark-navy: #0f1d3a;
+            --accent-yellow: #fbbe02;
+            --white: #ffffff;
+        }
+
         body {
-            background-color: var(--bg-dark);
-            color: var(--text-white);
-            padding: 20px 15px 40px 15px;
+            background-color: var(--white);
+            color: var(--dark-navy);
+            line-height: 1.6;
         }
 
-        .header-container {
-            text-align: center;
-            margin-bottom: 25px;
-            padding: 20px 0;
-            border-bottom: 2px solid var(--sky-blue);
-        }
-
-        .header-container h1 {
-            font-size: 2.2rem;
-            font-weight: 800;
-            letter-spacing: 0.5px;
-            color: var(--text-white);
-            text-transform: uppercase;
-        }
-
-        .header-container p {
-            color: var(--sky-blue);
-            font-size: 0.95rem;
-            margin-top: 5px;
-            font-weight: 600;
-        }
-
-        .calculator-card {
-            background-color: var(--card-blue);
-            max-width: 550px;
-            margin: 0 auto;
-            border-radius: 20px;
-            padding: 25px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .section-title {
-            color: var(--accent-yellow);
-            font-size: 1.1rem;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin: 25px 0 12px 0;
-            border-left: 4px solid var(--sky-blue);
-            padding-left: 8px;
-        }
-        .section-title:first-of-type {
-            margin-top: 5px;
-        }
-
-        .service-item {
-            background: rgba(15, 29, 58, 0.5);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: 12px;
-            padding: 16px;
-            margin-bottom: 12px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: all 0.2s ease;
-            cursor: pointer;
-        }
-        .service-item:hover {
-            border-color: var(--sky-blue);
-            background: rgba(15, 29, 58, 0.8);
-        }
-
-        .service-info {
-            padding-right: 15px;
-            flex: 1;
-        }
-
-        .service-name {
-            font-weight: 700;
-            font-size: 1.05rem;
-            color: var(--text-white);
-            margin-bottom: 4px;
-        }
-
-        .service-desc {
-            font-size: 0.85rem;
-            color: #CCD6E0;
-            line-height: 1.3;
-        }
-
-        .service-price {
-            font-weight: 800;
-            color: var(--accent-yellow);
-            font-size: 1.1rem;
-            margin-top: 3px;
-        }
-
-        .checkbox-container {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .service-checkbox {
-            appearance: none;
-            -webkit-appearance: none;
-            width: 26px;
-            height: 26px;
-            border: 2px solid var(--sky-blue);
-            border-radius: 6px;
-            background: transparent;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.15s ease;
-        }
-        .service-checkbox:checked {
-            background-color: var(--accent-yellow);
-            border-color: var(--accent-yellow);
-        }
-        .service-checkbox:checked::after {
-            content: "\f00c";
-            font-family: "Font Awesome 5 Free";
-            font-weight: 900;
-            color: #000000;
-            font-size: 0.9rem;
-        }
-
-        .totals-box {
-            background-color: var(--bg-dark);
-            border: 2px solid var(--accent-yellow);
-            border-radius: 14px;
-            padding: 18px;
-            margin-top: 25px;
-            box-shadow: inset 0 2px 10px rgba(0,0,0,0.5);
-        }
-
-        .total-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 8px;
-            font-size: 0.95rem;
-            color: #A0AEC0;
-        }
-        .total-row.grand-total {
-            margin-bottom: 0;
-            margin-top: 12px;
-            padding-top: 12px;
-            border-top: 1px dashed rgba(255, 255, 255, 0.1);
-            color: var(--text-white);
-        }
-
-        .total-row.grand-total span:last-child {
-            color: var(--accent-yellow);
-            font-size: 1.6rem;
-            font-weight: 900;
-        }
-
-        .action-button {
+        .container {
             width: 100%;
-            background-color: var(--accent-yellow);
-            color: #000000;
-            border: none;
-            border-radius: 12px;
-            padding: 16px;
-            font-size: 1.1rem;
-            font-weight: 900;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-top: 20px;
-            cursor: pointer;
-            box-shadow: 0 4px 15px rgba(251, 190, 2, 0.3);
-            transition: all 0.15s ease;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
-        .action-button:active {
-            transform: scale(0.98);
-            box-shadow: none;
+
+        /* Header Styles */
+        header {
+            background-color: var(--dark-navy);
+            color: var(--white);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo i {
+            font-size: 2rem;
+            color: var(--light-blue);
+        }
+
+        .logo h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+
+        nav a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 8px 15px;
+            border-radius: 4px;
+            transition: background 0.3s;
+        }
+
+        nav a:hover, nav a.active {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Page Styles */
+        .page {
+            display: none;
+            padding: 2rem 0;
+            min-height: calc(100vh - 140px);
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        .page-title {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--primary-blue);
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .page-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--light-blue);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(15, 29, 58, 0.85), rgba(15, 29, 58, 0.85)), url('https://unsplash.com');
+            background-size: cover;
+            background-position: center;
+            color: var(--white);
+            text-align: center;
+            padding: 6rem 1rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+        }
+
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--accent-yellow);
+            color: var(--dark-navy);
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+
+        .btn:hover {
+            background: var(--light-blue);
+            color: var(--white);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .service-card {
+            background: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e2e8f0;
+            transition: transform 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .service-icon {
+            background: var(--light-blue);
+            color: var(--white);
+            font-size: 2.5rem;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .service-content {
+            padding: 1.5rem;
+        }
+
+        .service-content h3 {
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+        }
+
+        /* Form Styles */
+        .form-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e2e8f0;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--primary-blue);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: border 0.3s;
+            outline: none;
+        }
+
+        .form-control:focus {
+            border-color: var(--light-blue);
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        /* Calculator Input Layouts */
+        .calc-item {
+            background: #fafafa;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            padding: 12px;
+            margin-bottom: 12px;
+        }
+
+        .calc-header {
+            display: flex;
+            align-items: flex-start;
+            cursor: pointer;
+        }
+
+        .calc-header input[type="checkbox"] {
+            margin-top: 4px;
+            margin-right: 12px;
+            transform: scale(1.2);
+        }
+
+        .calc-details {
+            margin-top: 10px;
+            padding-left: 28px;
+            display: none;
+        }
+
+        .calc-details.active {
+            display: block;
+        }
+
+        .calc-inline-input {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 8px;
+        }
+
+        .calc-inline-input input, .calc-inline-input select {
+            padding: 6px;
+            border: 1px solid #cbd5e1;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        /* Contact Info */
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .contact-card {
+            background: var(--white);
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e2e8f0;
+            text-align: center;
+        }
+
+        .contact-card i {
+            font-size: 2rem;
+            color: var(--light-blue);
+            margin-bottom: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark-navy);
+            color: var(--white);
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 2rem;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-links a {
+            color: var(--white);
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: var(--accent-yellow);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .mobile-menu {
+                display: block;
+            }
+
+            nav ul {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: var(--primary-blue);
+                padding: 1rem;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+            }
+
+            nav ul.active {
+                display: flex;
+            }
         }
     </style>
 </head>
 <body>
 
-    <div class="header-container">
-        <h1>Masbling Astar</h1>
-        <p>Premium Gutter & Exterior Specialist</p>
-    </div>
-
-    <div class="calculator-card">
-        <div style="text-align: center; margin-bottom: 15px;">
-            <h2 style="font-size: 1.4rem; font-weight: 800;">Select Your Project Scope</h2>
-            <p style="font-size: 0.85rem; color: #E2E8F0; margin-top: 3px;">Tick the services you need to build your custom package</p>
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <i class="fas fa-star"></i>
+                <h1>Masbling Astar</h1>
+            </div>
+            <nav>
+                <div class="mobile-menu">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <ul>
+                    <li><a href="#" class="nav-link active" data-page="home">Home</a></li>
+                    <li><a href="#" class="nav-link" data-page="services">Services</a></li>
+                    <li><a href="#" class="nav-link" data-page="about">About</a></li>
+                    <li><a href="#" class="nav-link" data-page="contact">Contact</a></li>
+                </ul>
+            </nav>
         </div>
+    </header>
 
-        <!-- Section 1 -->
-        <div class="section-title">1. Gutter Maintenance & Cleaning</div>
+    <main class="container">
         
-        <div class="service-item" onclick="toggleRow('clean')">
-            <div class="service-info">
-                <div class="service-name">Professional Gutter Cleaning</div>
-                <div class="service-desc">Debris removal, downspout flushing, and bag-away disposal.</div>
-                <div class="service-price">$190.00</div>
-            </div>
-            <div class="checkbox-container">
-                <input type="checkbox" id="clean" class="service-checkbox" data-price="190" onclick="event.stopPropagation(); calculateProjectTotal();">
-            </div>
-        </div>
+        <!-- Home Page / Estimate Checklist -->
 
-        <div class="service-item" onclick="toggleRow('leak')">
-            <div class="service-info">
-                <div class="service-name">Eavestrough Corner Leak Repair</div>
-                <div class="service-desc">Resealing joints using heavy-duty exterior waterproof sealant.</div>
-                <div class="service-price">$170.00</div>
-            </div>
-            <div class="checkbox-container">
-                <input type="checkbox" id="leak" class="service-checkbox" data-price="170" onclick="event.stopPropagation(); calculateProjectTotal();">
-            </div>
-        </div>
-
-        <div class="service-item" onclick="toggleRow('tighten')">
-            <div class="service-info">
-                <div class="service-name">Downpipe Re-securing & Tightening</div>
-                <div class="service-desc">Fastening disconnected pipes back securely to masonry or siding.</div>
-                <div class="service-price">$190.00</div>
-            </div>
-            <div class="checkbox-container">
-                <input type="checkbox" id="tighten" class="service-checkbox" data-price="190" onclick="event.stopPropagation(); calculateProjectTotal();">
-            </div>
-        </div>
-
-        <!-- Section 2 -->
-        <div class="section-title">2. Full Exterior Installations</div>
-
-        <div class="service-item" onclick="toggleRow('gutter-inst')">
-            <div class="service-info">
-                <div class="service-name">Seamless Gutter / Eavestrough Installation</div>
-                <div class="service-desc">Premium custom-cut K-Style aluminum gutters formed directly to your rooflines.</div>
-                <div class="service-price">$195.00</div>
-            </div>
-            <div class="checkbox-container">
-                <input type="checkbox" id="gutter-inst" class="service-checkbox" data-price="195" onclick="event.stopPropagation(); calculateProjectTotal();">
-            </div>
-        </div>
-
-        <div class="service-item" onclick="toggleRow('pipe-inst')">
-            <div class="service-info">
-                <div class="service-name">New Downpipe Installation</div>
-                <div class="service-desc">Mounting clean aluminum downspouts to handle correct drainage routing.</div>
-                <div class="service-price">$195.00</div>
-            </div>
-            <div class="checkbox-container">
-                <input type="checkbox" id="pipe-inst" class="service-checkbox" data-price="195" onclick="event.stopPropagation(); calculateProjectTotal();">
-            </div>
-        </div>
-
-        <div class="service-item" onclick="toggleRow('guard')">
-            <div class="service-info">
-                <div class="service-name">Premium Leaf Guard Installation</div>
-                <div class="service-desc">Defends gutters from leaves, debris, and blockages permanently.</div>
