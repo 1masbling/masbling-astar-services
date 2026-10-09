@@ -1,0 +1,14 @@
+User-agent: *
+Allow: /
+Disallow: /dashboard
+Disallow: /billing
+Disallow: /customers
+Disallow: /dispatch
+Disallow: /estimates
+Disallow: /marketing
+Disallow: /operations
+Disallow: /pipeline
+Disallow: /settings
+Disallow: /field-app
+
+Sitemap: https://masblingastarservices.com/sitemap.xml
