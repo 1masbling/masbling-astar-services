@@ -15,10 +15,9 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: 'npm'
 
       - name: Install Project Dependencies
-        run: npm install
+        run: npm install --legacy-peer-deps
 
       - name: Build Web Production Assets
         run: npm run build
@@ -47,3 +46,4 @@ jobs:
           name: production-app-bundle
           path: android/app/build/outputs/bundle/release/app-release.aab
           if-no-files-found: error
+
