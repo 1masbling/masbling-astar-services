@@ -1,0 +1,49 @@
+name: Build Android App
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Source Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js Environment
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Install Project Dependencies
+        run: npm install
+
+      - name: Build Web Production Assets
+        run: npm run build
+
+      - name: Sync Capacitor Native Platforms
+        run: npx cap sync android
+
+      - name: Setup Java Development Kit
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'zulu'
+          java-version: '17'
+
+      - name: Compile Signed Android App Bundle (.aab)
+        run: |
+          cd android
+          ./gradlew bundleRelease
+        env:
+          ANDROID_KEYSTORE_PASSWORD: Masbling2026
+          ANDROID_KEY_ALIAS: upload
+          ANDROID_KEY_PASSWORD: Masbling2026
+
+      - name: Upload Finished App Bundle to Dashboard
+        uses: actions/upload-artifact@v4
+        with:
+          name: production-app-bundle
+          path: android/app/build/outputs/bundle/release/app-release.aab
+          if-no-files-found: error
