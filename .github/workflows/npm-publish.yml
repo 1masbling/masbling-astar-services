@@ -10,11 +10,6 @@ jobs:
     name: Build signed .aab
     runs-on: ubuntu-latest
 
-    env:
-      ANDROID_KEYSTORE_PASSWORD: allthewayup$1Masbling
-      ANDROID_KEY_ALIAS: upload
-      ANDROID_KEY_PASSWORD: allthewayup$1Masbling
-
     steps:
       - name: Checkout source
         uses: actions/checkout@v4
@@ -23,21 +18,15 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          
 
-      - name: Set up JDK 17
+      - name: Setup Java Development Kit 17
         uses: actions/setup-java@v4
         with:
-          distribution: temurin
-          java-version: 17
-
-      - name: Set up Android SDK
-        uses: android-actions/setup-android@v3
-        with:
-          packages: 'platform-tools platforms;android-36 build-tools;36.0.0'
+          distribution: 'temurin'
+          java-version: '17'
 
       - name: Install dependencies
-        run: npm install
+        run: npm install --legacy-peer-deps
 
       - name: Build web app (Vite)
         run: npm run build
@@ -45,63 +34,20 @@ jobs:
       - name: Sync Capacitor Android project
         run: npx cap sync android
 
-      - name: Decode release keystore
-        run: |
-          mkdir -p $HOME/keystore
-          echo "${{ secrets.KEYSTORE_BASE64 }}" | base64 -d > $HOME/keystore/release.keystore
-          ls -l $HOME/keystore/release.keystore
-
-      - name: Write signing properties
-        run: |
-          cat > $HOME/keystore/signing.properties << 'EOF'
-          storeFile=$HOME/keystore/release.keystore
-          storePassword=allthewayup$1Masbling
-          keyAlias=upload
-          keyPassword=allthewayup$1Masbling
-          EOF
-          cat $HOME/keystore/signing.properties
-
-      - name: Add signing config to app/build.gradle
-        run: |
-          APP_GRADLE=android/app/build.gradle
-          if grep -q "signingConfigs" "$APP_GRADLE"; then
-            echo "signingConfigs already present, skipping"
-          else
-            sed -i '/buildTypes {/i\
-              signingConfigs {\
-                  release {\
-                      storeFile file(System.getenv("HOME") + "/keystore/release.keystore")\
-                      storePassword System.getenv("ANDROID_KEYSTORE_PASSWORD")\
-                      keyAlias System.getenv("ANDROID_KEY_ALIAS")\
-                      keyPassword System.getenv("ANDROID_KEY_PASSWORD")\
-                  }\
-              }' "$APP_GRADLE"
-            sed -i '/release {/a\
-                      signingConfig signingConfigs.release' "$APP_GRADLE"
-            echo "Signing config added"
-          fi
-
       - name: Build release App Bundle
         working-directory: android
         run: |
           chmod +x ./gradlew
-          ./gradlew bundleRelease --no-daemon
-
-      - name: Locate .aab output
-        id: aab
-        run: |
-          AAB=$(find android/app/build/outputs/bundle/release -name "*.aab" | head -n 1)
-          echo "path=$AAB" >> "$GITHUB_OUTPUT"
-          echo "Found AAB: $AAB"
+          ./gradlew bundleRelease
+        env:
+          ANDROID_KEYSTORE_PASSWORD: allthewayup$1Masbling
+          ANDROID_KEY_ALIAS: upload
+          ANDROID_KEY_PASSWORD: allthewayup$1Masbling
 
       - name: Upload .aab artifact
         uses: actions/upload-artifact@v4
         with:
-          name: masbling-astar-services-release-aab
-          path: ${{ steps.aab.outputs.path }}
+          name: production-app-bundle
+          path: android/app/build/outputs/bundle/release/app-release.aab
           if-no-files-found: error
           retention-days: 30
-
-      - name: Clean up keystore
-        if: always()
-        run: rm -rf $HOME/keystore
